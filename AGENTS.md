@@ -20,7 +20,7 @@ write down recipe for the meal or create shopping list.
 - **E2E tests:** None for now (may add Playwright later).
 - **Package manager:** pnpm 10 (pinned in `package.json`).
 - **Runtime:** Node 22 LTS (`engines.node: ">=22"` in `package.json`).
-- **CI/CD:** GitHub Actions: lint, test, build, then copy `build/` to the VPS over SSH and restart the app process (PM2/systemd).
+- **CI/CD:** GitHub Actions: lint, test, build. Deployment (copy `build/` to the VPS over SSH and restart the app process under PM2/systemd) is planned for the beta phase and not set up yet.
 - **Database:** MySQL.
 - **Data access:** Drizzle ORM (`drizzle-orm/mysql2` driver); schema defined in TypeScript, migrations generated with `drizzle-kit` and reviewed before applying.
 - **Hosting:** Self-managed VPS (owned by the project author). Built with `@sveltejs/adapter-node`, run as a plain Node process under PM2/systemd (no Docker).
