@@ -31,3 +31,7 @@ write down recipe for the meal or create shopping list.
 - **UI language:** Polish only. All user-facing strings live in a single module (e.g. `src/lib/i18n/pl.ts`) so another language can be added later; never hardcode UI text in components. Code, comments and docs stay in English.
 - **Shopping list refresh:** Client-side polling of a JSON endpoint (`+server.ts`) every 5s, replacing only the list state (no page reload, no `invalidateAll`). Active only on touch/mobile devices while `document.visibilityState === 'visible'`. No WebSockets.
 - **Auth:** Single shared password for the whole app; a successful login sets a long-lived session cookie. No per-user accounts.
+
+## Code conventions
+
+- Shared constants (exported config lists, limits, durations) use camelCase, e.g. `users`, `mealTypes`, `sessionTtlMs`. Do not use SCREAMING_CASE. External names keep their own casing (environment variables such as `DATABASE_URL`, MySQL error codes such as `ER_DUP_ENTRY`).

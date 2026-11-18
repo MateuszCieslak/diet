@@ -53,9 +53,9 @@ All under `src/lib/config/`. Each list is a `const` array of string keys. The da
 as `varchar`, not as MySQL `ENUM`, so adding a value never needs a migration. Polish labels come from
 `src/lib/i18n/pl.ts`.
 
-- `users.ts`: `USERS = [{ key: 'user1', multiplier: 1.0 }, { key: 'user2', multiplier: 1.0 }]`. Names
+- `users.ts`: `users = [{ key: 'user1', multiplier: 1.0 }, { key: 'user2', multiplier: 1.0 }]`. Names
   come from i18n or are inline here. Keys are stable identifiers stored in the database (exclusions).
-  Code always iterates `USERS` and never assumes there are two.
+  Code always iterates `users` and never assumes there are two.
 - `categories.ts`: ingredient categories (`vegetables`, `fruit`, `dairy`, `meat`, `fish`, `grains`, …).
 - `meal-types.ts`: `breakfast`, `second_breakfast`, `lunch`, `dinner`, `snack`.
 - `units.ts`: `g`, `ml`, `pcs`. Nutrition is entered per 100 g, per 100 ml or per 1 piece.
