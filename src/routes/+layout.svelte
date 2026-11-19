@@ -17,6 +17,9 @@
 		{ href: '/shopping-list', label: pl.nav.shopping, icon: CartIcon }
 	];
 
+	// The login page is shown before signing in, so it has no app navigation.
+	const showNav = $derived(page.url.pathname !== '/login');
+
 	const isActive = (href: string) =>
 		page.url.pathname === href || page.url.pathname.startsWith(`${href}/`);
 </script>
@@ -30,18 +33,20 @@
 	{@render children()}
 </main>
 
-<nav aria-label={pl.nav.label}>
-	<ul>
-		{#each tabs as tab (tab.href)}
-			<li>
-				<a href={tab.href} aria-current={isActive(tab.href) ? 'page' : undefined}>
-					<tab.icon />
-					<span>{tab.label}</span>
-				</a>
-			</li>
-		{/each}
-	</ul>
-</nav>
+{#if showNav}
+	<nav aria-label={pl.nav.label}>
+		<ul>
+			{#each tabs as tab (tab.href)}
+				<li>
+					<a href={tab.href} aria-current={isActive(tab.href) ? 'page' : undefined}>
+						<tab.icon />
+						<span>{tab.label}</span>
+					</a>
+				</li>
+			{/each}
+		</ul>
+	</nav>
+{/if}
 
 <style>
 	main {
