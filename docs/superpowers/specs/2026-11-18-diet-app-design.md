@@ -53,8 +53,10 @@ All under `src/lib/config/`. Each list is a `const` array of string keys. The da
 as `varchar`, not as MySQL `ENUM`, so adding a value never needs a migration. Polish labels come from
 `src/lib/i18n/pl.ts`.
 
-- `users.ts`: `users = [{ key: 'user1', multiplier: 1.0 }, { key: 'user2', multiplier: 1.0 }]`. Names
-  come from i18n or are inline here. Keys are stable identifiers stored in the database (exclusions).
+- `users.ts`: `users = [{ key: 'user1', name: 'Osoba 1', multiplier: 1.0, color: '#2457A6', tint: '#F3F6FB' },
+  { key: 'user2', name: 'Osoba 2', multiplier: 1.0, color: '#B0531A', tint: '#FBF4EF' }]`. Names are
+  placeholders. `color` marks the person everywhere in the UI (dots, column headers); `tint` is the
+  background of their amount cells. Keys are stable identifiers stored in the database (exclusions).
   Code always iterates `users` and never assumes there are two.
 - `categories.ts`: ingredient categories (`vegetables`, `fruit`, `dairy`, `meat`, `fish`, `grains`, …).
 - `meal-types.ts`: `breakfast`, `second_breakfast`, `lunch`, `dinner`, `snack`.
@@ -161,6 +163,7 @@ layer, never in components.
 /logout                         POST action; clears cookie
 /                               redirect → /plan
 /plan?date=YYYY-MM-DD           week bar + day view (default date = today)
+/plan/[planMealId]              cooking view: ingredients per user + preparation; keeps screen on
 /plan/[planMealId]/edit         edit this day's copy; actions: save, saveAsRecipe
 /meals?q=&type=                 meals database (scroll-loaded list)
 /meals/new                      create meal
@@ -249,6 +252,80 @@ functions, unit-tested:
   last local change. On a `visibilitychange` to visible, fetch once immediately.
 - Unit display: `g` and `ml` as integers, `pcs` with up to 1 decimal.
 
+## UI design
+
+Approved mockups (phone, 390×844, Polish): https://claude.ai/artifact/BzKWJtaJ9xQQ8FmHx82rNb
+(private to the project author). Screens: Plan (day), meal picker, cooking view, new meal, meals,
+ingredients, list from plan, shopping list. This section records everything needed to build them
+without opening the mockups.
+
+**Look:** calm and light. An off-white background, white cards with a hairline border, one green
+accent for actions, and a color per person. Phone-first; on wider screens the content sits in a
+centered column (max ~560px) with the same bottom navigation. Light theme only for now.
+
+**Tokens** (`src/lib/styles/base.css`, on `:root`; components use the variables, never raw hex):
+
+| Token | Value | Use |
+|---|---|---|
+| `--color-bg` | `#F6F5F0` | page background, input fill |
+| `--color-surface` | `#FFFFFF` | cards, header, bottom nav |
+| `--color-surface-muted` | `#EFEEE7` | "Kupione" section, category tags |
+| `--color-ink` | `#1D2420` | text |
+| `--color-muted` | `#5E665F` | secondary text, inactive nav |
+| `--color-subtle` | `#8A9089` | icons like drag handle, checkbox outline |
+| `--color-border` | `#E2E1D8` | card borders |
+| `--color-border-strong` | `#D5D4CA` | inputs, outline buttons |
+| `--color-divider` | `#ECEBE3` | rows inside cards |
+| `--color-accent` | `#2E6B45` | primary buttons, selected day/chip, active nav |
+| `--color-accent-hover` | `#1F4E31` | hover/pressed |
+| `--color-accent-soft` | `#EEF4EF` | "Dodaj posiłek" fill, per-portion summary |
+| `--color-accent-soft-border` | `#9DB8A5` | dashed border of "Dodaj posiłek" |
+
+Per-person colors come from `users` config (`color`, `tint`), not from tokens.
+Radius: 10px (small inputs), 12px (inputs, icon buttons), 14–16px (cards), 999px (pills, chips).
+Spacing scale 4/8/12/16/20/24px; page gutter 16px.
+Type: Inter 400/500/600/700, self-hosted via `@fontsource/inter`. Sizes: 22px page titles, 18–19px
+sub-page titles, 15–16px body and list items, 13–14px secondary, 11–12px labels. Uppercase
+section labels: 12–13px, weight 700, letter-spacing 0.06em, muted color.
+
+**Rules:**
+- Touch targets at least 44×44px. Inputs use 16px text (prevents zoom on iOS).
+- Icons: inline stroke SVG components (24px grid, stroke 2) in `src/lib/components/icons/`. No emoji, no icon font.
+- Accessible markup: real `<button>`, `<a>`, `<label>`; `aria-label` on icon-only buttons; `aria-pressed` on toggles.
+- Bottom navigation with four tabs: Plan, Posiłki, Składniki, Zakupy. Sub-pages (forms, cooking view,
+  list from plan) have a header with a back arrow instead of a page title.
+
+**Screen notes** (behavior visible in the mockups):
+- *Plan:* the header has month and year, previous/next week arrows and a **Dziś** pill. The week bar is a
+  7-column grid: weekday abbreviation, day number and a dot when the day has meals. The selected day is
+  filled green. The day summary card shows a per-person table: kcal, B (białko), T (tłuszcz),
+  W (węglowodany). Each meal card has a drag handle, a photo thumbnail, the title (a link to the cooking
+  view), the types and a "⋯" menu (Zamień, Edytuj, Usuń). Below that is one tile per person with kcal and
+  macros. **Tapping a tile toggles that person's exclusion**: an excluded tile is dashed, reads "nie je",
+  and shows "Dotknij, aby dodać" (Tap to add).
+- *Meal picker:* a bottom sheet over the plan, with a title and the date, a close button, search,
+  horizontally scrolling type chips, and rows with photo, name, types and kcal per portion.
+- *Cooking view* (`/plan/[planMealId]`):
+  - The header has a back arrow, the meal name, the date and type, and an edit (pencil) link.
+  - A table: ingredient | one column per **included** person (excluded people's columns are hidden).
+    The header cells use the person's `color`, and amount cells use their `tint`. Amounts are
+    recipe amount × multiplier, formatted with `formatAmount`. The footer row shows kcal per portion per person.
+  - Below is the preparation text at 16px, line-height 1.6, with line breaks kept (`white-space: pre-line`).
+  - If every person is excluded, show a short note instead of the table, and still show the preparation.
+  - **Keep the screen on** while the page is open (Screen Wake Lock API): request on mount, request
+    again when the page becomes visible, release on leave, and fail silently where unsupported.
+- *New meal / edit:* the photo drop zone, name, meal type chips (multi-select), ingredient rows
+  (name, amount input, unit, remove), an ingredient search with results inline, a live per-portion
+  summary (kcal, białko, tłuszcz, węgl.) and a preparation textarea. **Zapisz** is in the header.
+- *Meals:* a two-column card grid (photo, name, types and kcal), search and type chips; **Nowy** in the header.
+- *Ingredients:* one card list; each row has name, macros, kcal per unit and a category tag.
+- *List from plan:* a card per day with a day checkbox and meal checkboxes. Unticked meals are struck
+  through, and a skipped day collapses. A sticky footer shows the count and **Utwórz listę zakupów**.
+- *Shopping list:*
+  - **Z planu** is in the header, with a quick-add row (name, amount, unit, +) below it.
+  - Groups have uppercase labels, and each item row has a large tick box, the name and an amount pill (tap to edit).
+  - The **Kupione (n)** section sits on the muted background, with ticked boxes and struck-through names.
+
 ## Photos
 
 - Upload with `<input type="file" accept="image/*">`, max 10 MB. `sharp` auto-rotates from EXIF,
@@ -333,5 +410,6 @@ and migrations as plain SQL files in `drizzle/`.
 
 - The drag-and-drop implementation, and the exact component split of the UI library.
 - How `MealForm` serializes ingredient rows.
-- Visual design (within `base.css` variables), Polish copy wording, and empty-state texts.
+- Details the UI design section and mockups don't fix (exact paddings, transitions), Polish copy
+  wording beyond the mockups, and empty-state texts.
 - Query shape in repositories (relational `db.query` or explicit joins).

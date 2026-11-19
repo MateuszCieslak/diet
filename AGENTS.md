@@ -32,6 +32,18 @@ write down recipe for the meal or create shopping list.
 - **Shopping list refresh:** Client-side polling of a JSON endpoint (`+server.ts`) every 5s, replacing only the list state (no page reload, no `invalidateAll`). Active only on touch/mobile devices while `document.visibilityState === 'visible'`. No WebSockets.
 - **Auth:** Single shared password for the whole app; a successful login sets a long-lived session cookie. No per-user accounts.
 
+## UI design
+
+- Approved phone mockups: https://claude.ai/artifact/BzKWJtaJ9xQQ8FmHx82rNb (private to the author). The full description (tokens, rules, per-screen notes) is in the "UI design" section of `docs/superpowers/specs/2026-11-18-diet-app-design.md`; build from that.
+- Phone-first. Light theme only for now. Inter font (self-hosted via `@fontsource/inter`).
+- Colors, radius, spacing and font sizes come from CSS variables in `src/lib/styles/base.css`. Never hardcode hex values in components. Per-person colors (`color`, `tint`) come from `src/lib/config/users.ts`.
+- One green accent (`--color-accent`) for actions and selection. White cards with a hairline border on an off-white background.
+- Touch targets at least 44×44px; inputs use 16px text.
+- Icons are inline stroke SVG components in `src/lib/components/icons/`. No emoji, no icon font.
+- Use real `<button>`, `<a>`, `<label>` and `<table>` elements; icon-only buttons get `aria-label`; toggles use `aria-pressed`.
+- Bottom navigation with four tabs: Plan, Posiłki, Składniki, Zakupy. Sub-pages show a back arrow in the header.
+- The cooking view (`/plan/[planMealId]`) keeps the phone screen on (Screen Wake Lock API) while open.
+
 ## Code conventions
 
 - Shared constants (exported config lists, limits, durations) use camelCase, e.g. `users`, `mealTypes`, `sessionTtlMs`. Do not use SCREAMING_CASE. External names keep their own casing (environment variables such as `DATABASE_URL`, MySQL error codes such as `ER_DUP_ENTRY`).
