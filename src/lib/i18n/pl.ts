@@ -24,6 +24,13 @@ export const pl = {
 		ingredients: 'Składniki',
 		shopping: 'Zakupy'
 	},
+	login: {
+		title: 'Zaloguj się',
+		password: 'Hasło',
+		submit: 'Zaloguj',
+		wrongPassword: 'Nieprawidłowe hasło.',
+		tooManyAttempts: 'Zbyt wiele prób. Spróbuj ponownie za kilka minut.'
+	},
 	units: {
 		g: 'g',
 		ml: 'ml',
