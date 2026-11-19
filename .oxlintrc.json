@@ -1,0 +1,32 @@
+{
+	"$schema": "./node_modules/oxlint/configuration_schema.json",
+	"plugins": ["typescript", "unicorn", "oxc", "import", "vitest"],
+	"categories": {
+		"correctness": "error",
+		"suspicious": "warn"
+	},
+	"env": {
+		"browser": true,
+		"node": true,
+		"es2022": true
+	},
+	"globals": {
+		"test": "readonly",
+		"expect": "readonly",
+		"describe": "readonly",
+		"it": "readonly",
+		"vi": "readonly",
+		"beforeEach": "readonly",
+		"afterEach": "readonly"
+	},
+	"ignorePatterns": ["build/**", ".svelte-kit/**", "node_modules/**", "drizzle/**"],
+	"rules": {
+		"import/no-unassigned-import": [
+			"warn",
+			{
+				"allow": ["**/*.css"]
+			}
+		],
+		"unicorn/require-module-specifiers": "off"
+	}
+}

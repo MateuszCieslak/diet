@@ -1,0 +1,14 @@
+# Package Managers
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lock
+bun.lockb
+
+# Miscellaneous
+/static/
+/drizzle/
+
+# Docs are edited by hand (and by other branches); keep their formatting as written
+*.md
+/.superpowers/
