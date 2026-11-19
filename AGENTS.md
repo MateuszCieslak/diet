@@ -47,3 +47,18 @@ write down recipe for the meal or create shopping list.
 ## Code conventions
 
 - Shared constants (exported config lists, limits, durations) use camelCase, e.g. `users`, `mealTypes`, `sessionTtlMs`. Do not use SCREAMING_CASE. External names keep their own casing (environment variables such as `DATABASE_URL`, MySQL error codes such as `ER_DUP_ENTRY`).
+
+## Local setup
+
+Requires Node 22 and pnpm 10 (the version pinned in `packageManager`), plus a local MySQL 8.
+
+1. Create the database. Name columns rely on the database default collation for Polish sorting and
+   case-insensitive uniqueness:
+   ```sql
+   CREATE DATABASE diet CHARACTER SET utf8mb4 COLLATE utf8mb4_pl_0900_ai_ci;
+   ```
+2. `cp .env.example .env` and set `DATABASE_URL` (and the other variables) for your machine.
+3. `pnpm install`, then `pnpm exec playwright install chromium` for browser tests.
+4. `pnpm db:migrate` applies the migrations in `drizzle/`. After changing
+   `src/lib/server/db/schema.ts`, run `pnpm db:generate` and review the generated SQL before applying.
+5. `pnpm dev`. Checks: `pnpm lint`, `pnpm format:check`, `pnpm check`, `pnpm test`.
