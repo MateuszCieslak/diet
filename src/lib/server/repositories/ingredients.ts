@@ -1,4 +1,4 @@
-import { and, asc, eq, isNull, like, ne, type SQL } from 'drizzle-orm';
+import { and, asc, eq, inArray, isNull, like, ne, type SQL } from 'drizzle-orm';
 import type { CategoryKey } from '$lib/config/categories';
 import type { Unit } from '$lib/config/units';
 import type { Ingredient, IngredientCreate, IngredientUpdate } from '$lib/schemas/ingredient';
@@ -8,7 +8,7 @@ import { ingredients } from '$lib/server/db/schema';
 
 type Row = typeof ingredients.$inferSelect;
 
-function toIngredient(row: Row): Ingredient {
+export function toIngredient(row: Row): Ingredient {
 	return {
 		id: row.id,
 		name: row.name,
@@ -67,6 +67,16 @@ export async function searchIngredients(q: string, limit = 20): Promise<Ingredie
 export async function getIngredient(id: number): Promise<Ingredient | null> {
 	const [row] = await db.select().from(ingredients).where(eq(ingredients.id, id)).limit(1);
 	return row ? toIngredient(row) : null;
+}
+
+/** The ids from `ids` that exist (hidden ingredients included). */
+export async function existingIngredientIds(ids: number[]): Promise<Set<number>> {
+	if (ids.length === 0) return new Set();
+	const rows = await db
+		.select({ id: ingredients.id })
+		.from(ingredients)
+		.where(inArray(ingredients.id, ids));
+	return new Set(rows.map((r) => r.id));
 }
 
 export async function createIngredient(data: IngredientCreate): Promise<number> {
