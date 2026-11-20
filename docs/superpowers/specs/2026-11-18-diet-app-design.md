@@ -180,7 +180,7 @@ JSON:
 GET    /api/meals?q=&type=&cursor=          picker / meals list pages (30 per page)
 GET    /api/ingredients?q=                  ingredient picker search (top 20, visible only)
 GET    /api/shopping-list                   full list
-POST   /api/shopping-list/items             add manual item
+POST   /api/shopping-list/items             add an item: manual { name, amount?, unit? } or { ingredientId, amount? }
 PATCH  /api/shopping-list/items/[id]        { done?: boolean, amount?: number | null }
 ```
 
@@ -192,7 +192,7 @@ PATCH  /api/shopping-list/items/[id]        { done?: boolean, amount?: number | 
 - "Today" is computed on the server in `Europe/Warsaw` (`TZ` env var).
 - Actions on `/plan`: `add` (date, mealId → copy, position = last + 1), `replace` (planMealId, mealId →
   overwrite the copy's name, photo, preparation and ingredients; position and exclusions stay),
-  `remove`, `toggleExclusion` (planMealId, userKey), `reorder` (date, ordered planMealIds).
+  `remove` (the UI asks for confirmation first), `toggleExclusion` (planMealId, userKey), `reorder` (date, ordered planMealIds).
 - Drag to reorder needs touch support. The builder picks the library (for example
   `svelte-dnd-action`, if it supports Svelte 5) or implements it with pointer events. On drop, the UI
   posts to `?/reorder` and does not reload.
@@ -242,7 +242,16 @@ functions, unit-tested:
   JSON API:
   - Toggling done or undone, and editing an amount, update the UI optimistically and then
     `PATCH`. On failure, roll back and show an error.
-  - Adding a manual item calls `POST` and inserts the returned row.
+  - Adding an item calls `POST` and inserts (or replaces) the returned row.
+  - Quick-add suggestions: typing in the name field (debounced 300 ms) shows up to 6 visible ingredients
+    from `GET /api/ingredients?q=`, each with its category label and unit. Picking one links the row
+    to that ingredient: the unit select is replaced by the ingredient's unit label and the amount stays
+    optional. Editing the name after picking unlinks it again (back to a manual item).
+  - `POST { ingredientId, amount? }`: the ingredient must exist and be visible (else 400). If an open
+    (not done) item with the same `ingredient_id` exists, its amount is increased (a missing amount
+    counts as 0; if both are missing it stays null) and that row is returned; otherwise a new
+    ingredient-linked row is inserted. These rows behave like plan items (category group, unit from
+    the ingredient, merged by a later "create from plan" merge). `amount` may be null on any item.
 - Grouping and sorting happen on the client: group by category (Polish label order from
   `categories.ts`), manual items go to **Inne**, then sort by name with `Intl.Collator('pl')`. Undone
   items appear above, and the **Done** section below.
@@ -301,7 +310,8 @@ section labels: 12–13px, weight 700, letter-spacing 0.06em, muted color.
   filled green. The day summary card shows a per-person table: kcal, B (białko), T (tłuszcz),
   W (węglowodany). Each meal card has a drag handle, a photo thumbnail, the title (a link to the cooking
   view), the types and a "⋯" menu (Zamień, Edytuj, Usuń). Below that is one tile per person with kcal and
-  macros. **Tapping a tile toggles that person's exclusion**: an excluded tile is dashed, reads "nie je",
+  macros. **Usuń** opens a confirmation dialog („Usunąć „{nazwa}” z tego dnia?", Anuluj / Usuń) before
+  removing. **Tapping a tile toggles that person's exclusion**: an excluded tile is dashed, reads "nie je",
   and shows "Dotknij, aby dodać" (Tap to add).
 - *Meal picker:* a bottom sheet over the plan, with a title and the date, a close button, search,
   horizontally scrolling type chips, and rows with photo, name, types and kcal per portion.
@@ -322,7 +332,8 @@ section labels: 12–13px, weight 700, letter-spacing 0.06em, muted color.
 - *List from plan:* a card per day with a day checkbox and meal checkboxes. Unticked meals are struck
   through, and a skipped day collapses. A sticky footer shows the count and **Utwórz listę zakupów**.
 - *Shopping list:*
-  - **Z planu** is in the header, with a quick-add row (name, amount, unit, +) below it.
+  - **Z planu** is in the header, with a quick-add row (name, amount, unit, +) below it. The name field
+    shows a dropdown of matching ingredients (name, category, unit) while typing.
   - Groups have uppercase labels, and each item row has a large tick box, the name and an amount pill (tap to edit).
   - The **Kupione (n)** section sits on the muted background, with ticked boxes and struck-through names.
 

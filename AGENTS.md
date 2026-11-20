@@ -61,4 +61,4 @@ Requires Node 22 and pnpm 10 (the version pinned in `packageManager`), plus a lo
 3. `pnpm install`, then `pnpm exec playwright install chromium` for browser tests.
 4. `pnpm db:migrate` applies the migrations in `drizzle/`. After changing
    `src/lib/server/db/schema.ts`, run `pnpm db:generate` and review the generated SQL before applying.
-5. `pnpm dev`. Checks: `pnpm lint`, `pnpm format:check`, `pnpm check`, `pnpm test`.
+5. `pnpm start` (dev server). Checks: `pnpm lint`, `pnpm format:check`, `pnpm check`, `pnpm test`.

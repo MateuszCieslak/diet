@@ -72,7 +72,7 @@ and build a shopping list from the plan. The whole UI is in Polish.
 - **Edit** changes only this day's copy of the meal (e.g. swap rice for potatoes on Tuesday). The
   meal in the database and other days are not affected.
   - Optional **"Save as new recipe"** stores the edited copy as a new meal in the database.
-- **Remove** removes the meal from that day.
+- **Remove** removes the meal from that day, after the user confirms.
 - There are no per-user, per-day portion overrides (the multiplier always decides).
 
 ## Shopping list
@@ -96,8 +96,12 @@ There is only one shopping list.
 
 - The user can change the amount of any item (just the number, unit comes from the ingredient,
   e.g. 2 pcs → 1 pc).
-- The user can quickly add a manual item: name required, amount and unit optional. Manual items are
-  never merged with items built from the plan.
+- The user can quickly add an item: name required, amount and unit optional. While typing the name,
+  matching ingredients from the ingredients database are suggested.
+  - Picking a suggestion adds that ingredient: it goes to the ingredient's category group and uses its
+    unit. If the same ingredient is already on the list and not done, the amount is added to it.
+  - Typing a name that isn't picked adds a manual item (group "Other"). Manual items are never merged
+    with items built from the plan.
 - The user can mark an item as **done**: it moves to a "Done" section below, from where it can be
   marked **undone** and moved back.
 
