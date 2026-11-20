@@ -144,13 +144,15 @@
 		font-size: var(--font-size-secondary);
 	}
 	fieldset {
+		/* Fieldsets default to `min-width: min-content`, which pushes the grid past the screen. */
+		min-width: 0;
 		margin: 0;
 		padding: 0;
 		border: none;
 	}
 	.grid {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: var(--space-3);
 	}
 	.error {

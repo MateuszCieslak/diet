@@ -62,3 +62,78 @@ Requires Node 22 and pnpm 10 (the version pinned in `packageManager`), plus a lo
 4. `pnpm db:migrate` applies the migrations in `drizzle/`. After changing
    `src/lib/server/db/schema.ts`, run `pnpm db:generate` and review the generated SQL before applying.
 5. `pnpm start` (dev server). Checks: `pnpm lint`, `pnpm format:check`, `pnpm check`, `pnpm test`.
+
+## Commands
+
+| Command | What it does |
+|---|---|
+| `pnpm start` | Dev server (`vite dev`). |
+| `pnpm build` | Production build into `build/` (adapter-node). |
+| `pnpm preview` | Serves the production build locally. |
+| `pnpm lint` | oxlint. |
+| `pnpm format` / `pnpm format:check` | Prettier write / check. |
+| `pnpm check` | `svelte-kit sync` + `svelte-check` (types). |
+| `pnpm test` | Vitest: the `server` project (node, `*.test.ts`) and the `client` project (Chromium browser mode, `*.svelte.test.ts`). |
+| `pnpm db:generate` | Generates a SQL migration in `drizzle/` from the schema. Review it before applying. |
+| `pnpm db:migrate` | Applies the migrations in `drizzle/` to `DATABASE_URL`. |
+| `pnpm db:studio` | Drizzle Studio. |
+
+Before each commit run `pnpm lint && pnpm format:check && pnpm check && pnpm test` (CI also runs `pnpm build`).
+
+## Environment variables
+
+Read on the server through `$env/dynamic/private` (never `$env/static`). Copy `.env.example` to
+`.env` for development; commit `.env.example`, never `.env`.
+
+| Variable | Purpose |
+|---|---|
+| `DATABASE_URL` | MySQL 8 connection string, e.g. `mysql://diet:password@localhost:3306/diet`. |
+| `APP_PASSWORD` | The shared login password. |
+| `SESSION_SECRET` | HMAC key for the session cookie. Changing it logs everyone out. |
+| `PHOTOS_DIR` | Absolute path of the directory for meal photos (`<uuid>.webp`). |
+| `TZ` | `Europe/Warsaw`. Decides "today" in the plan and the cleanup cutoff. |
+| `ORIGIN` | adapter-node: the public URL; form actions fail behind a proxy without it. |
+| `PORT` | adapter-node: the HTTP port. |
+| `ADDRESS_HEADER` | adapter-node: `X-Forwarded-For` behind the reverse proxy (used by login throttling). |
+| `BODY_SIZE_LIMIT` | adapter-node: `10M`. The 512K default rejects photo uploads. |
+
+The built server (`node build`) does not read `.env`; PM2/systemd must provide the variables (or
+use `node --env-file=.env build`).
+
+## Running in production: one process only
+
+Run exactly **one** app process (PM2 `fork` mode with 1 instance, or one systemd service; no
+cluster mode). The daily cleanup (`src/lib/server/cleanup.ts`, started from `init` in
+`hooks.server.ts`) runs inside the app process, and the login throttle is kept in memory, so
+several processes would run the cleanup several times and each keep their own login limits.
+
+## Project structure
+
+```
+src/
+  hooks.server.ts            auth guard (cookie check, /login redirect, 401 for /api/*); init starts the daily cleanup
+  lib/
+    config/                  users (name, multiplier, colors), categories, meal-types, units
+    i18n/pl.ts               every UI string
+    styles/base.css          CSS variables (tokens) and utilities
+    components/              app components (MealForm, MealPicker, WeekBar, PlanMealCard, NutritionTable, AmountPill…)
+      ui/                    own UI library: Button, Chip, Dialog, TextField, NumberField, Select
+      icons/                 inline stroke SVG icons
+    schemas/                 valibot schemas shared by forms, actions and endpoints
+    nutrition.ts, dates.ts, plan.ts, cooking.ts, shopping.ts, shopping-view.ts, list-poller.ts, wake-lock.ts
+                             pure, unit-tested business logic (next to their *.test.ts)
+    server/
+      db/                    Drizzle schema, connection, DECIMAL and MySQL error helpers
+      repositories/          thin query modules: ingredients, meals, plan, shopping
+      auth.ts, photos.ts, cleanup.ts, meal-form.ts, meals-query.ts, pagination.ts, read-json.ts
+  routes/
+    login/, logout/          shared-password sign-in and sign-out
+    plan/                    week bar + day (?date=), [planMealId] cooking view, [planMealId]/edit day copy
+    meals/                   list, new, [id] details, [id]/edit
+    ingredients/             list, new, [id]/edit (hide)
+    shopping-list/           list page (client state + polling), from-plan
+    photos/[file]/           serves PHOTOS_DIR files
+    api/                     JSON: meals (picker pages), ingredients (search), shopping-list (+ items)
+drizzle/                     generated SQL migrations (reviewed before applying)
+docs/                        idea.md (product), superpowers/specs (technical design), superpowers/plans
+```
