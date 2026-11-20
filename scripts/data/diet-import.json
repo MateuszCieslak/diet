@@ -1,0 +1,5120 @@
+{
+	"ingredients": [
+		{
+			"name": "Awokado",
+			"unit": "g",
+			"category": "fruit",
+			"kcal": 160.0,
+			"protein": 2.0,
+			"fat": 15.3,
+			"carbs": 7.4
+		},
+		{
+			"name": "Bajgiel",
+			"unit": "pcs",
+			"category": "bakery",
+			"kcal": 202.5,
+			"protein": 7.5,
+			"fat": 1.27,
+			"carbs": 41.25
+		},
+		{
+			"name": "Bajgiel z makiem",
+			"unit": "pcs",
+			"category": "bakery",
+			"kcal": 224.0,
+			"protein": 8.4,
+			"fat": 2.4,
+			"carbs": 44.0
+		},
+		{
+			"name": "Banan",
+			"unit": "g",
+			"category": "fruit",
+			"kcal": 89.0,
+			"protein": 1.1,
+			"fat": 0.3,
+			"carbs": 22.8
+		},
+		{
+			"name": "Batat",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 86.0,
+			"protein": 1.6,
+			"fat": 0.1,
+			"carbs": 20.1
+		},
+		{
+			"name": "Bazylia (świeża)",
+			"unit": "g",
+			"category": "spices",
+			"kcal": 23.0,
+			"protein": 3.2,
+			"fat": 0.6,
+			"carbs": 2.6
+		},
+		{
+			"name": "Borówki amerykańskie",
+			"unit": "g",
+			"category": "fruit",
+			"kcal": 57.0,
+			"protein": 0.7,
+			"fat": 0.3,
+			"carbs": 14.5
+		},
+		{
+			"name": "Botwinka, pęczek",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 22.0,
+			"protein": 2.2,
+			"fat": 0.2,
+			"carbs": 4.0
+		},
+		{
+			"name": "Brokuły",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 27.0,
+			"protein": 3.0,
+			"fat": 0.4,
+			"carbs": 5.2
+		},
+		{
+			"name": "Budyń w proszku",
+			"unit": "g",
+			"category": "other",
+			"kcal": 345.0,
+			"protein": 0.4,
+			"fat": 0.2,
+			"carbs": 85.0
+		},
+		{
+			"name": "Bulion warzywny (domowy)",
+			"unit": "ml",
+			"category": "other",
+			"kcal": 6.0,
+			"protein": 0.4,
+			"fat": 0.1,
+			"carbs": 0.9
+		},
+		{
+			"name": "Buraki, gotowane w wodzie",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 44.0,
+			"protein": 1.7,
+			"fat": 0.2,
+			"carbs": 10.0
+		},
+		{
+			"name": "Burrata",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 259.0,
+			"protein": 10.3,
+			"fat": 23.3,
+			"carbs": 2.0
+		},
+		{
+			"name": "Bułka pita",
+			"unit": "pcs",
+			"category": "bakery",
+			"kcal": 220.0,
+			"protein": 7.28,
+			"fat": 0.96,
+			"carbs": 45.6
+		},
+		{
+			"name": "Bułka tarta",
+			"unit": "g",
+			"category": "grains",
+			"kcal": 355.0,
+			"protein": 11.5,
+			"fat": 2.0,
+			"carbs": 77.0
+		},
+		{
+			"name": "Bułka żytnia",
+			"unit": "pcs",
+			"category": "bakery",
+			"kcal": 182.0,
+			"protein": 6.5,
+			"fat": 1.89,
+			"carbs": 35.75
+		},
+		{
+			"name": "Bułki grahamki",
+			"unit": "pcs",
+			"category": "bakery",
+			"kcal": 163.8,
+			"protein": 5.85,
+			"fat": 1.76,
+			"carbs": 33.8
+		},
+		{
+			"name": "Cebula",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 30.0,
+			"protein": 1.4,
+			"fat": 0.4,
+			"carbs": 6.9
+		},
+		{
+			"name": "Cebula czerwona",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 32.0,
+			"protein": 1.2,
+			"fat": 0.1,
+			"carbs": 8.7
+		},
+		{
+			"name": "Chleb graham",
+			"unit": "g",
+			"category": "bakery",
+			"kcal": 225.0,
+			"protein": 8.6,
+			"fat": 1.4,
+			"carbs": 49.8
+		},
+		{
+			"name": "Chleb żytni na zakwasie",
+			"unit": "g",
+			"category": "bakery",
+			"kcal": 220.0,
+			"protein": 5.5,
+			"fat": 1.5,
+			"carbs": 46.0
+		},
+		{
+			"name": "Ciastka Lotus Biscoff",
+			"unit": "pcs",
+			"category": "other",
+			"kcal": 37.75,
+			"protein": 0.38,
+			"fat": 1.48,
+			"carbs": 5.66
+		},
+		{
+			"name": "Ciastka Oreo",
+			"unit": "pcs",
+			"category": "other",
+			"kcal": 51.59,
+			"protein": 0.67,
+			"fat": 2.09,
+			"carbs": 7.26
+		},
+		{
+			"name": "Cukinia",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 19.0,
+			"protein": 1.2,
+			"fat": 0.1,
+			"carbs": 3.3
+		},
+		{
+			"name": "Cynamon",
+			"unit": "g",
+			"category": "spices",
+			"kcal": 247.0,
+			"protein": 4.0,
+			"fat": 1.2,
+			"carbs": 80.6
+		},
+		{
+			"name": "Czarne jagody, mrożone",
+			"unit": "g",
+			"category": "frozen",
+			"kcal": 45.0,
+			"protein": 0.7,
+			"fat": 0.6,
+			"carbs": 12.2
+		},
+		{
+			"name": "Czekolada gorzka",
+			"unit": "g",
+			"category": "other",
+			"kcal": 540.0,
+			"protein": 6.6,
+			"fat": 35.6,
+			"carbs": 47.0
+		},
+		{
+			"name": "Czekolada mleczna",
+			"unit": "g",
+			"category": "other",
+			"kcal": 549.0,
+			"protein": 7.6,
+			"fat": 31.6,
+			"carbs": 56.0
+		},
+		{
+			"name": "Czosnek",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 146.0,
+			"protein": 6.4,
+			"fat": 0.5,
+			"carbs": 32.4
+		},
+		{
+			"name": "Dorsz, świeży",
+			"unit": "g",
+			"category": "fish",
+			"kcal": 73.0,
+			"protein": 16.5,
+			"fat": 0.6,
+			"carbs": 0.0
+		},
+		{
+			"name": "Dynia, pestki, łuskane",
+			"unit": "g",
+			"category": "other",
+			"kcal": 559.0,
+			"protein": 30.2,
+			"fat": 49.0,
+			"carbs": 10.7
+		},
+		{
+			"name": "Ekstrakt waniliowy (bez alkoholu)",
+			"unit": "g",
+			"category": "spices",
+			"kcal": 100.0,
+			"protein": 0.0,
+			"fat": 0.0,
+			"carbs": 25.0
+		},
+		{
+			"name": "Erytrol",
+			"unit": "g",
+			"category": "other",
+			"kcal": 0.0,
+			"protein": 0.0,
+			"fat": 0.0,
+			"carbs": 0.0
+		},
+		{
+			"name": "Fasola biała (konserwowa)",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 105.0,
+			"protein": 7.0,
+			"fat": 0.5,
+			"carbs": 20.0
+		},
+		{
+			"name": "Fasola szparagowa",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 31.0,
+			"protein": 1.8,
+			"fat": 0.2,
+			"carbs": 7.6
+		},
+		{
+			"name": "Fasolka w sosie pomidorowym",
+			"unit": "g",
+			"category": "other",
+			"kcal": 81.0,
+			"protein": 4.8,
+			"fat": 0.4,
+			"carbs": 15.5
+		},
+		{
+			"name": "Filet z kurczaka (wędzony)",
+			"unit": "g",
+			"category": "meat",
+			"kcal": 113.0,
+			"protein": 22.0,
+			"fat": 2.0,
+			"carbs": 1.6
+		},
+		{
+			"name": "Galaretka owocowa (w proszku)",
+			"unit": "g",
+			"category": "other",
+			"kcal": 376.0,
+			"protein": 8.8,
+			"fat": 0.0,
+			"carbs": 92.0
+		},
+		{
+			"name": "Granola",
+			"unit": "g",
+			"category": "grains",
+			"kcal": 440.0,
+			"protein": 8.7,
+			"fat": 13.0,
+			"carbs": 69.0
+		},
+		{
+			"name": "Groszek zielony, mrożony",
+			"unit": "g",
+			"category": "frozen",
+			"kcal": 75.0,
+			"protein": 6.7,
+			"fat": 0.4,
+			"carbs": 17.0
+		},
+		{
+			"name": "Hummus",
+			"unit": "g",
+			"category": "other",
+			"kcal": 277.0,
+			"protein": 7.8,
+			"fat": 22.0,
+			"carbs": 9.5
+		},
+		{
+			"name": "Jabłko",
+			"unit": "g",
+			"category": "fruit",
+			"kcal": 52.0,
+			"protein": 0.4,
+			"fat": 0.4,
+			"carbs": 14.1
+		},
+		{
+			"name": "Jaja kurze całe",
+			"unit": "pcs",
+			"category": "dairy",
+			"kcal": 77.84,
+			"protein": 7.0,
+			"fat": 5.43,
+			"carbs": 0.34
+		},
+		{
+			"name": "Jogurt grecki light",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 73.0,
+			"protein": 9.8,
+			"fat": 1.7,
+			"carbs": 4.0
+		},
+		{
+			"name": "Jogurt naturalny, 1,5% tłuszczu",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 51.0,
+			"protein": 4.3,
+			"fat": 1.5,
+			"carbs": 6.2
+		},
+		{
+			"name": "Kakao 16% tłuszczu",
+			"unit": "g",
+			"category": "other",
+			"kcal": 448.0,
+			"protein": 18.2,
+			"fat": 21.7,
+			"carbs": 45.0
+		},
+		{
+			"name": "Kalafior",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 22.0,
+			"protein": 2.4,
+			"fat": 0.2,
+			"carbs": 5.0
+		},
+		{
+			"name": "Kapusta biała",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 33.0,
+			"protein": 1.7,
+			"fat": 0.2,
+			"carbs": 7.4
+		},
+		{
+			"name": "Kasza jęczmienna, pęczak",
+			"unit": "g",
+			"category": "grains",
+			"kcal": 333.0,
+			"protein": 7.0,
+			"fat": 2.1,
+			"carbs": 75.0
+		},
+		{
+			"name": "Kasza manna",
+			"unit": "g",
+			"category": "grains",
+			"kcal": 352.0,
+			"protein": 8.7,
+			"fat": 1.3,
+			"carbs": 76.7
+		},
+		{
+			"name": "Keczup",
+			"unit": "g",
+			"category": "other",
+			"kcal": 131.0,
+			"protein": 1.9,
+			"fat": 0.5,
+			"carbs": 28.0
+		},
+		{
+			"name": "Kefir, 2% tłuszczu",
+			"unit": "ml",
+			"category": "dairy",
+			"kcal": 51.0,
+			"protein": 3.4,
+			"fat": 2.0,
+			"carbs": 4.7
+		},
+		{
+			"name": "Kiwi",
+			"unit": "g",
+			"category": "fruit",
+			"kcal": 61.0,
+			"protein": 0.9,
+			"fat": 0.5,
+			"carbs": 14.7
+		},
+		{
+			"name": "Kolendra (świeża)",
+			"unit": "g",
+			"category": "spices",
+			"kcal": 23.0,
+			"protein": 2.1,
+			"fat": 0.5,
+			"carbs": 3.7
+		},
+		{
+			"name": "Koncentrat pomidorowy, 30%",
+			"unit": "g",
+			"category": "other",
+			"kcal": 103.0,
+			"protein": 4.7,
+			"fat": 0.4,
+			"carbs": 21.0
+		},
+		{
+			"name": "Koper (w pęczkach)",
+			"unit": "g",
+			"category": "spices",
+			"kcal": 26.0,
+			"protein": 3.5,
+			"fat": 1.1,
+			"carbs": 6.0
+		},
+		{
+			"name": "Kukurydza, konserwowa",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 90.0,
+			"protein": 2.9,
+			"fat": 1.2,
+			"carbs": 18.0
+		},
+		{
+			"name": "Limonka",
+			"unit": "g",
+			"category": "fruit",
+			"kcal": 30.0,
+			"protein": 0.7,
+			"fat": 0.2,
+			"carbs": 10.5
+		},
+		{
+			"name": "Majonez sałatkowy wegański, Go Vege",
+			"unit": "g",
+			"category": "other",
+			"kcal": 312.0,
+			"protein": 0.0,
+			"fat": 30.0,
+			"carbs": 9.2
+		},
+		{
+			"name": "Makaron lasagne",
+			"unit": "g",
+			"category": "grains",
+			"kcal": 350.0,
+			"protein": 12.0,
+			"fat": 1.5,
+			"carbs": 71.0
+		},
+		{
+			"name": "Makaron orzo (w kształcie ryżu)",
+			"unit": "g",
+			"category": "grains",
+			"kcal": 355.0,
+			"protein": 12.5,
+			"fat": 1.5,
+			"carbs": 71.0
+		},
+		{
+			"name": "Makaron pełnoziarnisty",
+			"unit": "g",
+			"category": "grains",
+			"kcal": 340.0,
+			"protein": 13.0,
+			"fat": 2.5,
+			"carbs": 70.0
+		},
+		{
+			"name": "Maliny",
+			"unit": "g",
+			"category": "fruit",
+			"kcal": 43.0,
+			"protein": 1.3,
+			"fat": 0.3,
+			"carbs": 12.0
+		},
+		{
+			"name": "Marchew",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 33.0,
+			"protein": 1.0,
+			"fat": 0.2,
+			"carbs": 8.7
+		},
+		{
+			"name": "Masło ekstra",
+			"unit": "g",
+			"category": "fats",
+			"kcal": 735.0,
+			"protein": 0.7,
+			"fat": 82.5,
+			"carbs": 0.7
+		},
+		{
+			"name": "Masło orzechowe",
+			"unit": "g",
+			"category": "other",
+			"kcal": 600.0,
+			"protein": 25.0,
+			"fat": 50.0,
+			"carbs": 13.0
+		},
+		{
+			"name": "Miód pszczeli",
+			"unit": "g",
+			"category": "other",
+			"kcal": 324.0,
+			"protein": 0.3,
+			"fat": 0.0,
+			"carbs": 79.5
+		},
+		{
+			"name": "Mięso mielone z indyka",
+			"unit": "g",
+			"category": "meat",
+			"kcal": 150.0,
+			"protein": 19.0,
+			"fat": 8.0,
+			"carbs": 0.0
+		},
+		{
+			"name": "Mięso mielone z kurczaka",
+			"unit": "g",
+			"category": "meat",
+			"kcal": 140.0,
+			"protein": 17.5,
+			"fat": 8.0,
+			"carbs": 0.0
+		},
+		{
+			"name": "Mięso z piersi kurczaka, bez skóry",
+			"unit": "g",
+			"category": "meat",
+			"kcal": 98.0,
+			"protein": 21.5,
+			"fat": 1.3,
+			"carbs": 0.0
+		},
+		{
+			"name": "Mleko spożywcze, 1,5 % tłuszczu",
+			"unit": "ml",
+			"category": "dairy",
+			"kcal": 47.0,
+			"protein": 3.2,
+			"fat": 1.5,
+			"carbs": 4.8
+		},
+		{
+			"name": "Mozzarella light",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 167.0,
+			"protein": 20.0,
+			"fat": 9.0,
+			"carbs": 1.6
+		},
+		{
+			"name": "Mrożone maliny",
+			"unit": "g",
+			"category": "frozen",
+			"kcal": 52.0,
+			"protein": 1.3,
+			"fat": 0.7,
+			"carbs": 12.0
+		},
+		{
+			"name": "Musztarda",
+			"unit": "g",
+			"category": "spices",
+			"kcal": 110.0,
+			"protein": 5.5,
+			"fat": 5.5,
+			"carbs": 9.0
+		},
+		{
+			"name": "Mąka pszenna, typ 1850",
+			"unit": "g",
+			"category": "grains",
+			"kcal": 324.0,
+			"protein": 12.6,
+			"fat": 1.9,
+			"carbs": 72.6
+		},
+		{
+			"name": "Mąka pszenna, typ 750",
+			"unit": "g",
+			"category": "grains",
+			"kcal": 344.0,
+			"protein": 10.0,
+			"fat": 1.2,
+			"carbs": 74.8
+		},
+		{
+			"name": "Napój migdałowy",
+			"unit": "ml",
+			"category": "drinks",
+			"kcal": 13.0,
+			"protein": 0.5,
+			"fat": 1.1,
+			"carbs": 0.2
+		},
+		{
+			"name": "Napój sojowy Alpro bez cukru",
+			"unit": "ml",
+			"category": "dairy",
+			"kcal": 33.0,
+			"protein": 3.3,
+			"fat": 1.8,
+			"carbs": 0.0
+		},
+		{
+			"name": "Nasiona chia",
+			"unit": "g",
+			"category": "other",
+			"kcal": 486.0,
+			"protein": 16.5,
+			"fat": 30.7,
+			"carbs": 42.1
+		},
+		{
+			"name": "Nektarynka",
+			"unit": "g",
+			"category": "fruit",
+			"kcal": 44.0,
+			"protein": 1.1,
+			"fat": 0.3,
+			"carbs": 11.8
+		},
+		{
+			"name": "Ocet balsamiczny",
+			"unit": "g",
+			"category": "spices",
+			"kcal": 88.0,
+			"protein": 0.5,
+			"fat": 0.0,
+			"carbs": 17.0
+		},
+		{
+			"name": "Ogórek",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 14.0,
+			"protein": 0.7,
+			"fat": 0.1,
+			"carbs": 2.9
+		},
+		{
+			"name": "Ogórek kwaszony",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 12.0,
+			"protein": 0.7,
+			"fat": 0.1,
+			"carbs": 2.2
+		},
+		{
+			"name": "Olej rzepakowy",
+			"unit": "g",
+			"category": "fats",
+			"kcal": 884.0,
+			"protein": 0.0,
+			"fat": 100.0,
+			"carbs": 0.0
+		},
+		{
+			"name": "Oliwa z oliwek",
+			"unit": "g",
+			"category": "fats",
+			"kcal": 882.0,
+			"protein": 0.0,
+			"fat": 100.0,
+			"carbs": 0.0
+		},
+		{
+			"name": "Oliwki czarne",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 145.0,
+			"protein": 1.0,
+			"fat": 14.5,
+			"carbs": 3.0
+		},
+		{
+			"name": "Orzechy nerkowca (bez soli)",
+			"unit": "g",
+			"category": "other",
+			"kcal": 553.0,
+			"protein": 18.2,
+			"fat": 43.9,
+			"carbs": 30.2
+		},
+		{
+			"name": "Papryka czerwona",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 28.0,
+			"protein": 1.0,
+			"fat": 0.5,
+			"carbs": 6.6
+		},
+		{
+			"name": "Passata pomidorowa (przecier)",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 30.0,
+			"protein": 1.5,
+			"fat": 0.2,
+			"carbs": 5.6
+		},
+		{
+			"name": "Pesto zielone z bazylii",
+			"unit": "g",
+			"category": "other",
+			"kcal": 482.0,
+			"protein": 4.7,
+			"fat": 46.0,
+			"carbs": 9.8
+		},
+		{
+			"name": "Pieczarka uprawna, świeża",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 28.0,
+			"protein": 2.7,
+			"fat": 0.4,
+			"carbs": 3.4
+		},
+		{
+			"name": "Pietruszka, liście",
+			"unit": "g",
+			"category": "spices",
+			"kcal": 41.0,
+			"protein": 4.4,
+			"fat": 0.4,
+			"carbs": 9.0
+		},
+		{
+			"name": "Pomarańcza",
+			"unit": "g",
+			"category": "fruit",
+			"kcal": 44.0,
+			"protein": 0.9,
+			"fat": 0.2,
+			"carbs": 11.3
+		},
+		{
+			"name": "Pomidor",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 15.0,
+			"protein": 0.9,
+			"fat": 0.2,
+			"carbs": 3.6
+		},
+		{
+			"name": "Pomidory koktajlowe",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 18.0,
+			"protein": 0.9,
+			"fat": 0.2,
+			"carbs": 4.5
+		},
+		{
+			"name": "Pomidory w puszce (krojone)",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 21.0,
+			"protein": 1.1,
+			"fat": 0.2,
+			"carbs": 4.5
+		},
+		{
+			"name": "Proszek do pieczenia",
+			"unit": "g",
+			"category": "other",
+			"kcal": 100.0,
+			"protein": 0.0,
+			"fat": 0.0,
+			"carbs": 25.0
+		},
+		{
+			"name": "Pudding proteinowy, czekoladowy, Go Active",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 81.0,
+			"protein": 10.0,
+			"fat": 1.5,
+			"carbs": 6.4
+		},
+		{
+			"name": "Pudding proteinowy, waniliowy, Go Active",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 76.0,
+			"protein": 10.0,
+			"fat": 1.3,
+			"carbs": 6.0
+		},
+		{
+			"name": "Płatki kukurydziane",
+			"unit": "g",
+			"category": "grains",
+			"kcal": 363.0,
+			"protein": 6.9,
+			"fat": 0.7,
+			"carbs": 84.6
+		},
+		{
+			"name": "Płatki owsiane",
+			"unit": "g",
+			"category": "grains",
+			"kcal": 379.0,
+			"protein": 13.2,
+			"fat": 6.5,
+			"carbs": 67.7
+		},
+		{
+			"name": "Rukola",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 25.0,
+			"protein": 2.6,
+			"fat": 0.7,
+			"carbs": 3.7
+		},
+		{
+			"name": "Ryż basmati",
+			"unit": "g",
+			"category": "grains",
+			"kcal": 350.0,
+			"protein": 8.0,
+			"fat": 0.6,
+			"carbs": 79.0
+		},
+		{
+			"name": "Rzodkiewka",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 14.0,
+			"protein": 1.0,
+			"fat": 0.2,
+			"carbs": 4.4
+		},
+		{
+			"name": "Sałata rzymska",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 17.0,
+			"protein": 1.2,
+			"fat": 0.3,
+			"carbs": 3.3
+		},
+		{
+			"name": "Seler korzeniowy",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 21.0,
+			"protein": 1.5,
+			"fat": 0.3,
+			"carbs": 6.9
+		},
+		{
+			"name": "Ser twarogowy chudy",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 99.0,
+			"protein": 19.8,
+			"fat": 0.5,
+			"carbs": 3.5
+		},
+		{
+			"name": "Ser twarogowy półtłusty",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 133.0,
+			"protein": 18.7,
+			"fat": 4.7,
+			"carbs": 3.7
+		},
+		{
+			"name": "Ser, feta",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 264.0,
+			"protein": 14.2,
+			"fat": 21.3,
+			"carbs": 4.1
+		},
+		{
+			"name": "Ser, gouda tłusty",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 356.0,
+			"protein": 25.5,
+			"fat": 27.6,
+			"carbs": 0.1
+		},
+		{
+			"name": "Ser, parmezan",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 392.0,
+			"protein": 35.6,
+			"fat": 25.8,
+			"carbs": 3.2
+		},
+		{
+			"name": "Serek wiejski (light)",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 81.0,
+			"protein": 11.0,
+			"fat": 3.0,
+			"carbs": 2.4
+		},
+		{
+			"name": "Serek śmietankowy",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 259.0,
+			"protein": 5.6,
+			"fat": 25.0,
+			"carbs": 3.0
+		},
+		{
+			"name": "Skrobia ziemniaczana",
+			"unit": "g",
+			"category": "grains",
+			"kcal": 343.0,
+			"protein": 0.6,
+			"fat": 0.1,
+			"carbs": 85.0
+		},
+		{
+			"name": "Skyr naturalny",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 60.0,
+			"protein": 12.0,
+			"fat": 0.2,
+			"carbs": 4.0
+		},
+		{
+			"name": "Skyr waniliowy, Piątnica",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 82.0,
+			"protein": 9.6,
+			"fat": 0.0,
+			"carbs": 11.0
+		},
+		{
+			"name": "Sok cytrynowy",
+			"unit": "ml",
+			"category": "drinks",
+			"kcal": 22.0,
+			"protein": 0.4,
+			"fat": 0.2,
+			"carbs": 6.9
+		},
+		{
+			"name": "Sos sojowy",
+			"unit": "g",
+			"category": "spices",
+			"kcal": 77.0,
+			"protein": 10.0,
+			"fat": 0.0,
+			"carbs": 3.2
+		},
+		{
+			"name": "Suszone pomidory",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 258.0,
+			"protein": 14.0,
+			"fat": 3.0,
+			"carbs": 55.8
+		},
+		{
+			"name": "Szczypiorek",
+			"unit": "g",
+			"category": "spices",
+			"kcal": 30.0,
+			"protein": 3.3,
+			"fat": 0.7,
+			"carbs": 4.4
+		},
+		{
+			"name": "Szparagi",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 20.0,
+			"protein": 2.2,
+			"fat": 0.1,
+			"carbs": 3.9
+		},
+		{
+			"name": "Szpinak",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 23.0,
+			"protein": 2.9,
+			"fat": 0.4,
+			"carbs": 3.6
+		},
+		{
+			"name": "Szynka z piersi kurczaka",
+			"unit": "g",
+			"category": "meat",
+			"kcal": 103.0,
+			"protein": 20.0,
+			"fat": 2.0,
+			"carbs": 1.0
+		},
+		{
+			"name": "Słonecznik, nasiona, łuskane",
+			"unit": "g",
+			"category": "other",
+			"kcal": 584.0,
+			"protein": 20.8,
+			"fat": 51.5,
+			"carbs": 20.0
+		},
+		{
+			"name": "Tofu wędzone",
+			"unit": "g",
+			"category": "other",
+			"kcal": 142.0,
+			"protein": 14.7,
+			"fat": 7.8,
+			"carbs": 3.0
+		},
+		{
+			"name": "Tortilla pełnoziarnista",
+			"unit": "pcs",
+			"category": "bakery",
+			"kcal": 178.12,
+			"protein": 5.98,
+			"fat": 4.58,
+			"carbs": 25.62
+		},
+		{
+			"name": "Truskawki",
+			"unit": "g",
+			"category": "fruit",
+			"kcal": 32.0,
+			"protein": 0.7,
+			"fat": 0.4,
+			"carbs": 7.2
+		},
+		{
+			"name": "Tuńczyk w sosie własnym",
+			"unit": "g",
+			"category": "fish",
+			"kcal": 105.0,
+			"protein": 23.5,
+			"fat": 1.0,
+			"carbs": 0.0
+		},
+		{
+			"name": "Twarożek grani",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 90.0,
+			"protein": 11.0,
+			"fat": 4.0,
+			"carbs": 2.4
+		},
+		{
+			"name": "Wiórki kokosowe",
+			"unit": "g",
+			"category": "other",
+			"kcal": 660.0,
+			"protein": 6.9,
+			"fat": 64.5,
+			"carbs": 23.7
+		},
+		{
+			"name": "Wiśnie bez pestek, mrożone",
+			"unit": "g",
+			"category": "frozen",
+			"kcal": 50.0,
+			"protein": 0.9,
+			"fat": 0.4,
+			"carbs": 12.4
+		},
+		{
+			"name": "Woda",
+			"unit": "ml",
+			"category": "drinks",
+			"kcal": 0.0,
+			"protein": 0.0,
+			"fat": 0.0,
+			"carbs": 0.0
+		},
+		{
+			"name": "Ziemniaki",
+			"unit": "g",
+			"category": "vegetables",
+			"kcal": 77.0,
+			"protein": 1.9,
+			"fat": 0.1,
+			"carbs": 18.3
+		},
+		{
+			"name": "Łosoś wędzony na zimno",
+			"unit": "g",
+			"category": "fish",
+			"kcal": 162.0,
+			"protein": 21.5,
+			"fat": 8.5,
+			"carbs": 0.0
+		},
+		{
+			"name": "Łosoś, świeży",
+			"unit": "g",
+			"category": "fish",
+			"kcal": 201.0,
+			"protein": 19.9,
+			"fat": 13.6,
+			"carbs": 0.0
+		},
+		{
+			"name": "Śmietanka w kartoniku 12%",
+			"unit": "g",
+			"category": "dairy",
+			"kcal": 133.0,
+			"protein": 2.8,
+			"fat": 12.0,
+			"carbs": 3.9
+		},
+		{
+			"name": "Śnieżna chmurka dr. Oetker",
+			"unit": "g",
+			"category": "other",
+			"kcal": 233.0,
+			"protein": 0.0,
+			"fat": 10.0,
+			"carbs": 27.0
+		},
+		{
+			"name": "Żelatyna",
+			"unit": "g",
+			"category": "other",
+			"kcal": 335.0,
+			"protein": 84.0,
+			"fat": 0.1,
+			"carbs": 0.0
+		}
+	],
+	"meals": [
+		{
+			"name": "Owsianka jabłkowo-cynamonowa",
+			"type": "breakfast",
+			"preparation": "1. Do garnka dodaj płatki, mleko i gotuj na niskiej mocy kuchenki aż do uzyskania odpowiedniej, gęstej konsystencji.\n2. Dodaj słodzidło, cynamon i wymieszaj.\n3. Owoce pokrój w kostkę i podpraż na patelni z dodatkiem odrobiny wody i cynamonu.\n4. Owsiankę przełóż do miski, dodaj skyr, i owoce.",
+			"ingredients": [
+				{
+					"name": "Płatki owsiane",
+					"amount": 50.0
+				},
+				{
+					"name": "Napój migdałowy",
+					"amount": 150.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Cynamon",
+					"amount": 2.0
+				},
+				{
+					"name": "Jabłko",
+					"amount": 150.0
+				},
+				{
+					"name": "Skyr naturalny",
+					"amount": 150.0
+				}
+			]
+		},
+		{
+			"name": "Wrap z guacamole i szynką",
+			"type": "second_breakfast",
+			"preparation": "1. Awokado rozgnieć widelcem i wymieszaj z drobno posiekaną cebulą i pomidorem.\n2. Dopraw guacamole solą oraz pieprzem, czosnkiem i posmaruj tortillę.\n3. Na wierzchu ułóż plastry szynki.\n4. Złóż tortillę na pół, potem jeszcze raz na pół aż powstanie trójkąt.\n5. Ugrilluj tortillę na patelni po kilka minut z każdej strony.",
+			"ingredients": [
+				{
+					"name": "Tortilla pełnoziarnista",
+					"amount": 1.0
+				},
+				{
+					"name": "Awokado",
+					"amount": 50.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 20.0
+				},
+				{
+					"name": "Pomidor",
+					"amount": 70.0
+				},
+				{
+					"name": "Szynka z piersi kurczaka",
+					"amount": 30.0
+				}
+			]
+		},
+		{
+			"name": "Wrap z chrupiącym kurczakiem jak z McDonalds",
+			"type": "lunch",
+			"preparation": "1. Przygotuj panierkę: płatki zblenduj z mąką, solą, pieprzem, curry i chili.\n2. Mięso wymieszaj z oliwą, posyp solą, pieprzem i słodką papryką a następnie obtocz w panierce i piecz ok. 20 minut w 220 stopniach (góra-dół).\n3. Tortillę posmaruj ketchupem i jogurtem, nałóż warzywa, upieczone stripsy i pokrojony w paski ser.\n4. Zawiń do postaci wrapa.\n\nWskazówki:\n- Pierś z kurczaka możesz wymienić na pierś z indyka.\n- Wybieraj keczup z możliwie jak najmniejszą ilością soli i cukru i z jak największą ilością pomidorów, np. Ketchup Premium Develey.",
+			"ingredients": [
+				{
+					"name": "Tortilla pełnoziarnista",
+					"amount": 1.0
+				},
+				{
+					"name": "Płatki kukurydziane",
+					"amount": 10.0
+				},
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 5.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 100.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Keczup",
+					"amount": 15.0
+				},
+				{
+					"name": "Jogurt naturalny, 1,5% tłuszczu",
+					"amount": 20.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				},
+				{
+					"name": "Pomidor",
+					"amount": 140.0
+				},
+				{
+					"name": "Ser, gouda tłusty",
+					"amount": 15.0
+				}
+			]
+		},
+		{
+			"name": "Tosty z łososiem i mozzarellą",
+			"type": "dinner",
+			"preparation": "1. Kromki chleba podgrzej w tosterze lub na suchej patelni, a następnie posmaruj serkiem, nałóż plastry ryby, sera i posyp świeżymi ziołami.\n2. Do tego pokrój warzywa.",
+			"ingredients": [
+				{
+					"name": "Chleb graham",
+					"amount": 60.0
+				},
+				{
+					"name": "Serek śmietankowy",
+					"amount": 40.0
+				},
+				{
+					"name": "Łosoś wędzony na zimno",
+					"amount": 30.0
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 62.0
+				},
+				{
+					"name": "Bazylia (świeża)",
+					"amount": 5.0
+				},
+				{
+					"name": "Pomidor",
+					"amount": 140.0
+				}
+			]
+		},
+		{
+			"name": "Omlet a'la szarlotka",
+			"type": "breakfast",
+			"preparation": "1. Do miski wbij jajko, dodaj mleko, mąkę, wiórki kokosowe, cynamon i słodzidło.\n2. Całą masę dokładnie wymieszaj.\n3. Jabłko obierz ze skórki, pokrój w mniejszą kostkę, dodaj do masy i wymieszaj.\n4. Na patelni rozgrzej olej i smaż omlet z dwóch stron po około 3 minuty.\n5. Gotowy omlet przełóż na talerz i posmaruj skyrem.",
+			"ingredients": [
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Napój migdałowy",
+					"amount": 30.0
+				},
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 30.0
+				},
+				{
+					"name": "Wiórki kokosowe",
+					"amount": 6.0
+				},
+				{
+					"name": "Cynamon",
+					"amount": 2.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Jabłko",
+					"amount": 150.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Skyr naturalny",
+					"amount": 75.0
+				}
+			]
+		},
+		{
+			"name": "Viralowy jogurt z ciasteczkami lotus",
+			"type": "second_breakfast",
+			"preparation": "1. Do jogurt włóż złamane w pół ciasteczka lotus, jedną sztukę możesz zostawić do pokruszenia i posypania wierzchu.\n2. Przykryj wieczkiem lub folią.\n3. Włóż do lodówki na kilka godzin.",
+			"ingredients": [
+				{
+					"name": "Jogurt grecki light",
+					"amount": 240.0
+				},
+				{
+					"name": "Ciastka Lotus Biscoff",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Kurczak po grecku z fetą, pomidorkami i ryżem",
+			"type": "lunch",
+			"preparation": "1. Ryż ugotuj.\n2. Mięso pokrój na mniejsze części, następnie wymieszaj z oliwą i przyprawami.\n3. Mięso podsmaż chwilę na patelni, następnie przełóż do naczynia żaroodpornego, polej sokiem z cytryny i posyp pokruszonym serem, obok mięsa wyłóż pokrojone warzywa.\n4. Piecz ok 15 min w T 180 stopni.\n5. Kurczaka i warzywa posyp posiekanymi ziołami i podaj z ugotowanym ryżem.",
+			"ingredients": [
+				{
+					"name": "Ryż basmati",
+					"amount": 60.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 120.0
+				},
+				{
+					"name": "Ser, feta",
+					"amount": 30.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 100.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Sok cytrynowy",
+					"amount": 6.0
+				},
+				{
+					"name": "Pietruszka, liście",
+					"amount": 12.0
+				}
+			]
+		},
+		{
+			"name": "Sałatka z tuńczykiem",
+			"type": "dinner",
+			"preparation": "1. Warzywa pokrój na mniejsze kawałki, a następnie przełóż je do miski.\n2. Dodaj sałatę i rybę.\n3. Całość polej oliwą, dopraw solą, pieprzem i wymieszaj.\n4. Podaj z pieczywem.",
+			"ingredients": [
+				{
+					"name": "Papryka czerwona",
+					"amount": 150.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 120.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 40.0
+				},
+				{
+					"name": "Tuńczyk w sosie własnym",
+					"amount": 85.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 10.0
+				},
+				{
+					"name": "Chleb graham",
+					"amount": 60.0
+				}
+			]
+		},
+		{
+			"name": "Bułka z majo, rukolą i łososiem",
+			"type": "breakfast",
+			"preparation": "1. Pieczywo posmaruj majonezem.\n2. Na górę dodaj sałatę i kawałki ryby.\n3. Posyp pieprzem.\n4. Podaj z warzywami.",
+			"ingredients": [
+				{
+					"name": "Bułki grahamki",
+					"amount": 1.0
+				},
+				{
+					"name": "Łosoś wędzony na zimno",
+					"amount": 60.0
+				},
+				{
+					"name": "Majonez sałatkowy wegański, Go Vege",
+					"amount": 20.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				},
+				{
+					"name": "Pomidor",
+					"amount": 140.0
+				}
+			]
+		},
+		{
+			"name": "Koktajl zielony",
+			"type": "second_breakfast",
+			"preparation": "1. Wszystkie składniki dodaj do kielicha blendera i dokładnie zblenduj.",
+			"ingredients": [
+				{
+					"name": "Kefir, 2% tłuszczu",
+					"amount": 250.0
+				},
+				{
+					"name": "Szpinak",
+					"amount": 50.0
+				},
+				{
+					"name": "Płatki owsiane",
+					"amount": 20.0
+				},
+				{
+					"name": "Banan",
+					"amount": 120.0
+				},
+				{
+					"name": "Sok cytrynowy",
+					"amount": 12.0
+				}
+			]
+		},
+		{
+			"name": "Dorsz w sosie szpinakowym z ryżem",
+			"type": "lunch",
+			"preparation": "1. Ryż ugotuj według instrukcji na opakowaniu.\n2. Rybę umyj, dopraw solą i pieprzem.\n3. Na patelni rozgrzej oliwę a następnie dodaj szpinak i poczekaj, aż zwiędnie.\n4. Dodaj śmietankę, chwilę podgotuj i dopraw całość do smaku.\n5. Do gotowego sosu włóż rybę i duś z dwóch stron po około 3-5 minut.\n6. Rybę w sosie szpinakowym podaj z ryżem.\n\nWskazówki:\n- Szpinak przechowuj w lodówce. Nadmiar szpinaku możesz zamrozić lub wykorzystać np. do koktajlu.",
+			"ingredients": [
+				{
+					"name": "Ryż basmati",
+					"amount": 50.0
+				},
+				{
+					"name": "Dorsz, świeży",
+					"amount": 200.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 10.0
+				},
+				{
+					"name": "Szpinak",
+					"amount": 100.0
+				},
+				{
+					"name": "Śmietanka w kartoniku 12%",
+					"amount": 40.0
+				}
+			]
+		},
+		{
+			"name": "Grzanki z pastą z groszku i rzodkiewką",
+			"type": "dinner",
+			"preparation": "1. Groszek ugotuj do miękkości w lekko osolonej wodzie, a następnie poczekaj, aż ostygnie.\n2. Pieczywo podgrzej w tosterze lub na suchej patelni z dwóch stron.\n3. Do kielicha blendera dodaj groszek, jogurt, oliwę, sól, pieprz, czosnek i dokładnie to zblenduj.\n4. Gotową pastę nałóż na grzanki, dodaj plastry pozostałych warzyw.",
+			"ingredients": [
+				{
+					"name": "Chleb graham",
+					"amount": 60.0
+				},
+				{
+					"name": "Groszek zielony, mrożony",
+					"amount": 100.0
+				},
+				{
+					"name": "Jogurt grecki light",
+					"amount": 30.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 15.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Rzodkiewka",
+					"amount": 60.0
+				}
+			]
+		},
+		{
+			"name": "Tosty francuskie z twarożkiem i gorącymi jagodami",
+			"type": "breakfast",
+			"preparation": "1. Do miski dodaj jajko, mleko, słodzidło i opcjonalnie cynamon i/lub aromat waniliowy.\n2. Całość wymieszaj.\n3. Na patelni rozgrzej olej z dodatkiem masła.\n4. Kromki chleba zamocz dokładnie w jajku i smaż na patelni z dwóch stron, aż do zarumienienia.\n5. Na gotowe tosty nałóż twarożek i gorące owoce (podgrzej je w garnku lub mikrofalówce).",
+			"ingredients": [
+				{
+					"name": "Chleb graham",
+					"amount": 60.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Napój migdałowy",
+					"amount": 20.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 2.5
+				},
+				{
+					"name": "Masło ekstra",
+					"amount": 5.0
+				},
+				{
+					"name": "Twarożek grani",
+					"amount": 100.0
+				},
+				{
+					"name": "Czarne jagody, mrożone",
+					"amount": 60.0
+				}
+			]
+		},
+		{
+			"name": "Roladki z tortilli",
+			"type": "second_breakfast",
+			"preparation": "1. Placek tortilli posmaruj serkiem naturalnym i nałóż wszystkie dodatki.\n2. Zwiń tortillę w rulon i pokrój na kilka części, do tego pokrój ogórka w paski.",
+			"ingredients": [
+				{
+					"name": "Tortilla pełnoziarnista",
+					"amount": 1.0
+				},
+				{
+					"name": "Serek śmietankowy",
+					"amount": 25.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				},
+				{
+					"name": "Szynka z piersi kurczaka",
+					"amount": 45.0
+				},
+				{
+					"name": "Papryka czerwona",
+					"amount": 75.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 40.0
+				}
+			]
+		},
+		{
+			"name": "Bibimbap - koreańska miska z kurczakiem",
+			"type": "lunch",
+			"preparation": "1. Ryż ugotuj zgodnie z instrukcją na opakowaniu.\n2. Mięso pokrój w kostkę, dopraw solą, pieprzem i ostrą papryką (lub sosem sriracha) i podsmaż na patelni z dodatkiem oliwy.\n3. Jajko usmaż na drugiej patelni.\n4. Przygotuj sos na bazie sosu sojowego, słodzidła i ostrej papryki (lub sosu sriracha).\n5. Do miski dodaj ryż, sos, mięso i pokrojone warzywa.\n6. Na górę nałóż jajko sadzone i posyp świeżymi ziołami (polecam kolendrę).\n\nWskazówki:\n- Paprykę przechowuj w lodówce.",
+			"ingredients": [
+				{
+					"name": "Ryż basmati",
+					"amount": 60.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 100.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Sos sojowy",
+					"amount": 10.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 80.0
+				},
+				{
+					"name": "Marchew",
+					"amount": 45.0
+				},
+				{
+					"name": "Rzodkiewka",
+					"amount": 30.0
+				}
+			]
+		},
+		{
+			"name": "Fit kebab domowy",
+			"type": "dinner",
+			"preparation": "1. Mięso pokrój w cienkie paski, dopraw solą, pieprzem i przyprawą do gyrosa.\n2. Podsmaż na oleju wraz z posiekaną w piórka cebulą.\n3. Przygotuj tzatziki: wymieszaj jogurt grecki ze startym, odciśniętym z nadmiaru wody ogórkiem, przeciśniętym przez praskę czosnkiem i pieprzem.\n4. Tortillę posmaruj sosem tzatziki.\n5. Na środek dodaj rukolę, mięso i posiekaną czerwoną cebulę.\n6. Dokładnie zawiń i podgrzej na suchej patelni lub w opiekaczu.",
+			"ingredients": [
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 80.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 50.0
+				},
+				{
+					"name": "Jogurt grecki light",
+					"amount": 40.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 40.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Tortilla pełnoziarnista",
+					"amount": 1.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				},
+				{
+					"name": "Cebula czerwona",
+					"amount": 25.0
+				}
+			]
+		},
+		{
+			"name": "Wrap z jajecznicą",
+			"type": "breakfast",
+			"preparation": "1. Jajecznicę usmaż na patelni z dodatkiem masła.\n2. Na środek placka tortilli nałóż przekrojone na pół pomidory, kawałki szynki i jajecznicę.\n3. Tortillę zawiń do postaci wrapa i podgrzej na suchej patelni z dwóch stron, aż do zarumienienia, a następnie przekrój ją na pół.",
+			"ingredients": [
+				{
+					"name": "Tortilla pełnoziarnista",
+					"amount": 1.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 2.0
+				},
+				{
+					"name": "Szynka z piersi kurczaka",
+					"amount": 30.0
+				},
+				{
+					"name": "Masło ekstra",
+					"amount": 5.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 40.0
+				}
+			]
+		},
+		{
+			"name": "Pudding chia z jagodami",
+			"type": "second_breakfast",
+			"preparation": "1. Nasiona chia zalej mlekiem i wymieszaj ze słodzidłem. Odstaw na godzinę lub na całą noc do lodówki, żeby nasiona napęczniały.\n2. Zmiksuj owoce na mus.\n3. Gotowy pudding polej musem owocowym i dodaj skyr.",
+			"ingredients": [
+				{
+					"name": "Nasiona chia",
+					"amount": 20.0
+				},
+				{
+					"name": "Napój migdałowy",
+					"amount": 250.0
+				},
+				{
+					"name": "Miód pszczeli",
+					"amount": 8.0
+				},
+				{
+					"name": "Czarne jagody, mrożone",
+					"amount": 125.0
+				},
+				{
+					"name": "Skyr naturalny",
+					"amount": 150.0
+				}
+			]
+		},
+		{
+			"name": "Makaron z tofu, brokułem i pieczarkami",
+			"type": "lunch",
+			"preparation": "1. Makaron ugotuj według instrukcji na opakowaniu.\n2. Warzywa pokrój na mniejsze kawałki.\n3. Na patelni rozgrzej olej i podduś warzywa do miękkości.\n4. Tofu pokrój w kostkę, obtocz w mące ziemniaczanej, dopraw solą, pieprzem, słodką papryką a następnie dodaj na patelnię i podsmaż na złoty kolor.\n5. Po kilku minutach dodaj sos sojowy i słodzidło - całość dokładnie wymieszaj i opcjonalnie dopraw do smaku.\n6. Dodaj ugotowany makaron, ponownie przemieszaj, przełóż na talerz.",
+			"ingredients": [
+				{
+					"name": "Makaron pełnoziarnisty",
+					"amount": 50.0
+				},
+				{
+					"name": "Pieczarka uprawna, świeża",
+					"amount": 100.0
+				},
+				{
+					"name": "Brokuły",
+					"amount": 150.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Tofu wędzone",
+					"amount": 90.0
+				},
+				{
+					"name": "Skrobia ziemniaczana",
+					"amount": 10.0
+				},
+				{
+					"name": "Sos sojowy",
+					"amount": 10.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Pieczone ziemniaczki z gzikiem",
+			"type": "dinner",
+			"preparation": "1. Ziemniaki pokrój na ćwiartki i przełóż do miski.\n2. Dodaj oliwę i przyprawy (sól, pieprz, rozmaryn, papryka słodka), całość dokładnie wymieszaj.\n3. Przełóż na blaszkę wyłożoną papierem do pieczenia i piecz ok 30 minut w 220 stopniach (góra-dół).\n4. W międzyczasie przygotuj gzik - do miski dodaj twaróg, jogurt i czosnek, całość dokładnie zblenduj na gładką masę.\n5. Do powstałej masy dodaj posiekany szczypiorek i drobno pokrojone warzywa.\n6. Całość wymieszaj i przypraw do smaku solą i pieprzem.\n7. Pieczone ziemniaki podaj z gzikiem.",
+			"ingredients": [
+				{
+					"name": "Ziemniaki",
+					"amount": 210.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Ser twarogowy chudy",
+					"amount": 120.0
+				},
+				{
+					"name": "Jogurt naturalny, 1,5% tłuszczu",
+					"amount": 50.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Szczypiorek",
+					"amount": 5.0
+				},
+				{
+					"name": "Rzodkiewka",
+					"amount": 30.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 80.0
+				}
+			]
+		},
+		{
+			"name": "Naleśniki z twarożkiem i owocami",
+			"type": "breakfast",
+			"preparation": "1. Do kielicha blendera dodaj jajko, mleko, mąkę, słodzidło, olej i całość dokładnie zblenduj.\n2. Smaż na patelni delikatnie przesmarowanej tłuszczem w postaci naleśników.\n3. W międzyczasie przygotuj twarożek - twaróg zblenduj z dodatkiem jogurtu i dosłódź do smaku słodzidłem - opcjonalnie dodaj też odrobinę aromatu waniliowego.\n4. Naleśniki posmaruj twarożkiem, złóż w trójkąty i podaj z owocami i orzechami.",
+			"ingredients": [
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Napój migdałowy",
+					"amount": 50.0
+				},
+				{
+					"name": "Mąka pszenna, typ 750",
+					"amount": 30.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 10.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 3.0
+				},
+				{
+					"name": "Ser twarogowy chudy",
+					"amount": 70.0
+				},
+				{
+					"name": "Jogurt naturalny, 1,5% tłuszczu",
+					"amount": 20.0
+				},
+				{
+					"name": "Orzechy nerkowca (bez soli)",
+					"amount": 12.0
+				},
+				{
+					"name": "Czarne jagody, mrożone",
+					"amount": 100.0
+				}
+			]
+		},
+		{
+			"name": "Kanapka z pastą z tuńczyka i papryką",
+			"type": "second_breakfast",
+			"preparation": "1. Do miski dodaj ugotowane jajko, tuńczyka, serek i dowolne przyprawy.\n2. Wszystko dokładnie zblenduj, a następnie gotową pastę nałóż na pieczywo.\n3. Na wierzch połóż warzywa.",
+			"ingredients": [
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Tuńczyk w sosie własnym",
+					"amount": 85.0
+				},
+				{
+					"name": "Serek śmietankowy",
+					"amount": 25.0
+				},
+				{
+					"name": "Chleb graham",
+					"amount": 30.0
+				},
+				{
+					"name": "Papryka czerwona",
+					"amount": 75.0
+				}
+			]
+		},
+		{
+			"name": "Roladki ze szpinakiem, frytki i buraki",
+			"type": "lunch",
+			"preparation": "1. Ziemniaki pokrój na frytki, a następnie przełóż je do miski, wlej oliwę i dodaj przyprawy: sól, pieprz, przyprawę do ziemniaków, paprykę słodką.\n2. Całość wymieszaj i przełóż na blaszkę wyłożoną papierem do pieczenia, piecz około 40 minut.\n3. W międzyczasie mięso rozbij na płasko, przypraw solą, pieprzem i słodką papryką. Na patelni rozgrzej oliwę, dodaj szpinak i suszone pomidory.\n4. Poczekaj, aż szpinak zwiędnie, dodaj sól, pieprz, ser feta i wymieszaj.\n5. Powstały farsz nałóż na mięso i zawiń go w roladę, przypnij wykałaczką.\n6. Roladki dodaj do naczynia żaroodpornego i włóż do piekarnika 20 minut przed końcem pieczenia ziemniaków.\n7. Ugotowane buraki pokrój w kostkę i podgrzej.\n8. Roladkę pokrój w grubsze plastry, obok nałóż frytki i buraki.",
+			"ingredients": [
+				{
+					"name": "Ziemniaki",
+					"amount": 280.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 100.0
+				},
+				{
+					"name": "Szpinak",
+					"amount": 25.0
+				},
+				{
+					"name": "Suszone pomidory",
+					"amount": 7.0
+				},
+				{
+					"name": "Ser, feta",
+					"amount": 20.0
+				},
+				{
+					"name": "Buraki, gotowane w wodzie",
+					"amount": 120.0
+				}
+			]
+		},
+		{
+			"name": "Placuszki cukiniowe",
+			"type": "dinner",
+			"preparation": "1. Cukinię zetrzyj na tarce, przełóż na sitko i odciśnij z nadmiaru wody.\n2. Do miski dodaj jajko, startą cukinię, mąkę, sól, pieprz, oregano, chili i dokładnie wszystko wymieszaj.\n3. Smaż w postaci małych placków, z dwóch stron po kilka minut.\n4. Odwracaj placki z momencie, gdy będą \"zwarte\" i przypieczone od spodu.\n5. Placki cukiniowe podaj z jogurtem.",
+			"ingredients": [
+				{
+					"name": "Cukinia",
+					"amount": 300.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 50.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Jogurt naturalny, 1,5% tłuszczu",
+					"amount": 100.0
+				}
+			]
+		},
+		{
+			"name": "Bułka z awokado i jajkiem",
+			"type": "breakfast",
+			"preparation": "1. Jajko ugotuj.\n2. Awokado pokrój w plastry i nałóż na pieczywo.\n3. Dopraw do smaku solą, pieprzem, czosnkiem granulowanym i płatkami chili.\n4. Na górę dodaj pokrojone w plastry jajko.\n5. Podaj z warzywami.",
+			"ingredients": [
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Bułki grahamki",
+					"amount": 1.0
+				},
+				{
+					"name": "Awokado",
+					"amount": 70.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 100.0
+				}
+			]
+		},
+		{
+			"name": "Bowl jogurtowy z granolą i pomarańczą",
+			"type": "second_breakfast",
+			"preparation": "1. Do miski dodaj jogurt, pokrojone owoce, swoją ulubioną granolę.",
+			"ingredients": [
+				{
+					"name": "Granola",
+					"amount": 35.0
+				},
+				{
+					"name": "Skyr naturalny",
+					"amount": 150.0
+				},
+				{
+					"name": "Pomarańcza",
+					"amount": 115.0
+				}
+			]
+		},
+		{
+			"name": "Pieczone frytki z dorszem i sałatką",
+			"type": "lunch",
+			"preparation": "1. Ziemniaki pokrój na frytki, dodaj do miski, wymieszaj z 1/3 oliwy i dowolnymi przyprawami.\n2. Przełóż je na blaszkę wyłożoną papierem do pieczenia i piecz przez około 30 minut w 200 stopniach. 15 minut przed końca dodaj rybę obtoczoną w 1/3 oliwy, soli i pieprzu.\n3. Przygotuj sałatkę z rukoli, papryki, pozostałej oliwy i ulubionych przypraw.\n4. Rybę podaj z frytkami i sałatką.",
+			"ingredients": [
+				{
+					"name": "Ziemniaki",
+					"amount": 210.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 15.0
+				},
+				{
+					"name": "Dorsz, świeży",
+					"amount": 150.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 40.0
+				},
+				{
+					"name": "Papryka czerwona",
+					"amount": 75.0
+				}
+			]
+		},
+		{
+			"name": "Zupa krem z zielonego groszku",
+			"type": "dinner",
+			"preparation": "1. W garnku rozgrzej oliwę, dodaj pokrojoną w kostkę cebulę oraz czosnek i podsmaż całość 2-3 minuty.\n2. Dodaj bulion, groszek i gotuj całość ok. 15-20 minut, a następnie zblenduj zupę na krem i dopraw do smaku.\n3. Zupę krem z zielonego groszku przelej do miski, posyp świeżymi ziołami i podaj z pieczywem.\n\nWskazówki:\n- Bulion warzywny możesz zrobić samodzielnie, gotując warzywa, lub wykorzystać bulion w słoiczku z Winiary, który ma znacznie lepszy skład niż popularne kostki rosołowe.",
+			"ingredients": [
+				{
+					"name": "Bulion warzywny (domowy)",
+					"amount": 250.0
+				},
+				{
+					"name": "Groszek zielony, mrożony",
+					"amount": 200.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 50.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 10.0
+				},
+				{
+					"name": "Pietruszka, liście",
+					"amount": 12.0
+				},
+				{
+					"name": "Chleb graham",
+					"amount": 60.0
+				}
+			]
+		},
+		{
+			"name": "Owsianka czekoladowa z truskawkami",
+			"type": "breakfast",
+			"preparation": "1. Do garnka dodaj płatki, mleko, opcjonalnie słodzidło (erytrytol), czekoladę i kakao.\n2. Całość wymieszaj i gotuj na niskiej mocy kuchenki, do momentu, aż owsianka zgęstnieje.\n3. Gotową owsiankę przełóż do miski, dodaj owoce, skyr.",
+			"ingredients": [
+				{
+					"name": "Płatki owsiane",
+					"amount": 35.0
+				},
+				{
+					"name": "Napój sojowy Alpro bez cukru",
+					"amount": 125.0
+				},
+				{
+					"name": "Czekolada gorzka",
+					"amount": 12.0
+				},
+				{
+					"name": "Kakao 16% tłuszczu",
+					"amount": 10.0
+				},
+				{
+					"name": "Truskawki",
+					"amount": 70.0
+				},
+				{
+					"name": "Skyr waniliowy, Piątnica",
+					"amount": 75.0
+				}
+			]
+		},
+		{
+			"name": "Bułka z rukolą, serkiem i łososiem wędzonym",
+			"type": "second_breakfast",
+			"preparation": "1. Pieczywo posmaruj serkiem, nałóż sałatę i kawałki ryby.\n2. Dodaj warzywa.",
+			"ingredients": [
+				{
+					"name": "Bułka żytnia",
+					"amount": 1.0
+				},
+				{
+					"name": "Serek śmietankowy",
+					"amount": 20.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				},
+				{
+					"name": "Łosoś wędzony na zimno",
+					"amount": 45.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 40.0
+				}
+			]
+		},
+		{
+			"name": "Pulpety na tzatzikach z kaszą i fasolką",
+			"type": "lunch",
+			"preparation": "1. Ugotuj kaszę w lekko osolonej wodzie.\n2. Ugotuj fasolkę.\n3. Mielone mięso przełóż do miski, dodaj mąkę, sól, pieprz, słodką paprykę - całość wymieszaj i uformuj małe pulpeciki.\n4. Na patelni rozgrzej olej i usmaż pulpety z każdej strony.\n5. Przygotuj tzatziki - ogórki zetrzyj na tarce, posyp solą, przełóż na sitko i odciśnij z nich wodę.\n6. Dodaj jogurt, oliwę, posiekany koperek i ogórki - dopraw do smaku solą i pieprzem.\n7. Pulpety podaj na tzatzikach, obok nałóż kaszę i fasolkę.",
+			"ingredients": [
+				{
+					"name": "Kasza jęczmienna, pęczak",
+					"amount": 40.0
+				},
+				{
+					"name": "Fasola szparagowa",
+					"amount": 50.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 130.0
+				},
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 10.0
+				},
+				{
+					"name": "Olej rzepakowy",
+					"amount": 5.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 80.0
+				},
+				{
+					"name": "Jogurt naturalny, 1,5% tłuszczu",
+					"amount": 100.0
+				},
+				{
+					"name": "Koper (w pęczkach)",
+					"amount": 10.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Sałatka z pieczonymi, gniecionymi ziemniakami",
+			"type": "dinner",
+			"preparation": "1. Ziemniaki w mundurkach gotuj przez 15-20 minut (w zależności od wielkości ziemniaków).\n2. Przełóż na blachę do pieczenia, zgnieć, skrop oliwą, posyp solą i pieprzem.\n3. Piecz w rozgrzanym do 220 stopni piekarniku przez ok. 35-40 minut.\n4. Do miski dodaj jogurt, przeciśnięty przez praskę czosnek, posiekany koperek i sok z cytryny, wymieszaj.\n5. Dodaj pokrojone w kostkę ogórka i cebulę, posiekany szczypiorek, ziemniaki i wymieszaj.",
+			"ingredients": [
+				{
+					"name": "Ziemniaki",
+					"amount": 210.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 15.0
+				},
+				{
+					"name": "Jogurt grecki light",
+					"amount": 100.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Koper (w pęczkach)",
+					"amount": 5.0
+				},
+				{
+					"name": "Sok cytrynowy",
+					"amount": 6.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 80.0
+				},
+				{
+					"name": "Szczypiorek",
+					"amount": 10.0
+				},
+				{
+					"name": "Cebula czerwona",
+					"amount": 25.0
+				}
+			]
+		},
+		{
+			"name": "Kanapki z pastą z twarożku i pomidorów",
+			"type": "breakfast",
+			"preparation": "1. Twaróg zblenduj razem z pokrojonymi pomidorami i przeciśniętym przez praskę czosnkiem.\n2. Dodaj sól, pieprz, chili i oliwę z oliwek.\n3. Gotową pastę podaj na pieczywie.\n\nWskazówki:\n- Kiwi przechowuj w temperaturze pokojowej, a dojrzałe w lodówce. Możesz je jeść ze skórką.\n\nKroki opisują cały przepis z jadłospisu (2 porcje); ilości składników są na 1 porcję.",
+			"ingredients": [
+				{
+					"name": "Twarożek grani",
+					"amount": 100.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 100.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 2.5
+				},
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 90.0
+				},
+				{
+					"name": "Kiwi",
+					"amount": 75.0
+				}
+			]
+		},
+		{
+			"name": "Koktajl truskawkowy",
+			"type": "second_breakfast",
+			"preparation": "1. Wszystkie składniki dodaj do kielicha blendera i dokładnie zblenduj.\n2. Możesz wykorzystać świeże lub mrożone owoce.",
+			"ingredients": [
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Kefir, 2% tłuszczu",
+					"amount": 400.0
+				},
+				{
+					"name": "Truskawki",
+					"amount": 210.0
+				},
+				{
+					"name": "Płatki owsiane",
+					"amount": 15.0
+				}
+			]
+		},
+		{
+			"name": "Quesadilla z kurczakiem i warzywami",
+			"type": "lunch",
+			"preparation": "1. Mięso pokrój w paski, dopraw solą, pieprzem, słodką papryką, curry, a następnie podsmaż na patelni z dodatkiem oliwy.\n2. Po chwili podaj pokrojone warzywa - odparuj z nich dobrze nadmiar wody.\n3. Cały farsz możesz dowolnie przyprawić do smaku.\n4. Na większą patelnię dodaj placek tortilli.\n5. Ser pokrój drobno i dodaj połowę na placka, na to dodaj cały farsz, pozostały ser i przykryj placek na pół.\n6. Smaż do momentu, aż dół tortilli się zarumieni, a następnie obróć i smaż z drugiej strony.\n7. Podsmażaj, aż drugi placek się zarumieni, a ser się roztopi i połączy całość.\n8. Odłóż do wystygnięcia, a następnie pokrój na 3-4 kawałki.",
+			"ingredients": [
+				{
+					"name": "Tortilla pełnoziarnista",
+					"amount": 1.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 100.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 2.5
+				},
+				{
+					"name": "Papryka czerwona",
+					"amount": 75.0
+				},
+				{
+					"name": "Pieczarka uprawna, świeża",
+					"amount": 120.0
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 62.0
+				},
+				{
+					"name": "Szpinak",
+					"amount": 100.0
+				}
+			]
+		},
+		{
+			"name": "Wrap grecki z sosem tzatziki",
+			"type": "dinner",
+			"preparation": "1. Przygotuj sos tzatziki: obranego i pokrojonego drobno ogórka wymieszaj z jogurtem, oliwą, przeciśniętym przez praskę czosnkiem, solą i posiekanym koperkiem.\n2. Na tortillę nałóż sos tzatziki, na to nałóż sałatę, pokrojone warzywa, oliwki i pokruszony ser.\n3. Zwiń tortillę i przed podaniem podgrzej z obu stron na patelni.",
+			"ingredients": [
+				{
+					"name": "Tortilla pełnoziarnista",
+					"amount": 1.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				},
+				{
+					"name": "Pomidor",
+					"amount": 70.0
+				},
+				{
+					"name": "Oliwki czarne",
+					"amount": 15.0
+				},
+				{
+					"name": "Ser, feta",
+					"amount": 25.0
+				},
+				{
+					"name": "Jogurt grecki light",
+					"amount": 40.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 40.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Koper (w pęczkach)",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Prawie angielskie śniadanie",
+			"type": "breakfast",
+			"preparation": "1. Fasolkę dodaj do garnka, dopraw solą, pieprzem, słodką papryką, chili i gotuj na niskiej mocy kuchenki, co jakiś czas mieszając.\n2. Na patelni rozgrzej olej i usmaż jajka sadzone.\n3. Pieczywo podgrzej w tosterze lub na suchej patelni z dwóch stron, a następnie przekrój je na skos.\n4. Do głębokiego talerza nałóż fasolkę, na to jajka sadzone, całość posyp solą, pieprzem i świeżymi ziołami.\n5. Podaj z pieczywem.",
+			"ingredients": [
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 30.0
+				},
+				{
+					"name": "Fasolka w sosie pomidorowym",
+					"amount": 207.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 2.0
+				},
+				{
+					"name": "Olej rzepakowy",
+					"amount": 2.5
+				},
+				{
+					"name": "Szczypiorek",
+					"amount": 10.0
+				}
+			]
+		},
+		{
+			"name": "Nocna owsianka jagodowa",
+			"type": "second_breakfast",
+			"preparation": "1. Wymieszaj płatki z mlekiem, jogurtem, masłem orzechowym i słodzidłem (opcjonalnie).\n2. Połowę masy przełóż do innej miski i połącz z owocami.\n3. Układaj warstwowo.\n4. Posyp owocami i umieść w lodówce na noc.\n\nWskazówki:\n- Płatki owsiane możesz wybrać górskie lub błyskawiczne.",
+			"ingredients": [
+				{
+					"name": "Płatki owsiane",
+					"amount": 30.0
+				},
+				{
+					"name": "Napój sojowy Alpro bez cukru",
+					"amount": 60.0
+				},
+				{
+					"name": "Skyr waniliowy, Piątnica",
+					"amount": 75.0
+				},
+				{
+					"name": "Masło orzechowe",
+					"amount": 10.0
+				},
+				{
+					"name": "Borówki amerykańskie",
+					"amount": 100.0
+				}
+			]
+		},
+		{
+			"name": "Grecka miska",
+			"type": "lunch",
+			"preparation": "1. Kaszę ugotuj zgodnie z instrukcją na opakowaniu.\n2. Mięso wymieszaj z przyprawami: sól, pieprz, oregano, słodka papryka, bazylia, a następnie uformuj małe pulpety i podsmaż je na patelni z dodatkiem oleju, z każdej strony.\n3. Przygotuj tzatziki: zetrzyj na tarce ogórek, odciśnij go z nadmiaru wody a następnie wymieszaj z jogurtem, czosnkiem, solą i pieprzem.\n4. Pozostałe warzywa pokrój na mniejsze kawałki.\n5. Do miski dodaj sałatę, kaszę, pulpety, tzatziki, pokrojone warzywa i wszystko posyp pokruszonym serem.\n6. Opcjonalnie dodaj listki mięty.",
+			"ingredients": [
+				{
+					"name": "Kasza jęczmienna, pęczak",
+					"amount": 45.0
+				},
+				{
+					"name": "Mięso mielone z indyka",
+					"amount": 100.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 80.0
+				},
+				{
+					"name": "Jogurt naturalny, 1,5% tłuszczu",
+					"amount": 60.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 100.0
+				},
+				{
+					"name": "Ser, feta",
+					"amount": 25.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				},
+				{
+					"name": "Olej rzepakowy",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Kanapki z zieloną pastą",
+			"type": "dinner",
+			"preparation": "1. Do miski dodaj awokado, serek wiejski, świeże zioła, przeciśnięty przez praskę czosnek, sok z cytryny, sól i pieprz.\n2. Całość zblenduj na gładką pastę.\n3. Pieczywo posmaruj pastą.\n4. Dodaj pokrojone warzywa, posyp solą, pieprzem i posiekanymi ziołami.",
+			"ingredients": [
+				{
+					"name": "Awokado",
+					"amount": 70.0
+				},
+				{
+					"name": "Serek wiejski (light)",
+					"amount": 75.0
+				},
+				{
+					"name": "Bazylia (świeża)",
+					"amount": 10.0
+				},
+				{
+					"name": "Pietruszka, liście",
+					"amount": 18.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Sok cytrynowy",
+					"amount": 12.0
+				},
+				{
+					"name": "Bułka żytnia",
+					"amount": 1.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 100.0
+				},
+				{
+					"name": "Szczypiorek",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Szakszuka z pieczarkami i fetą",
+			"type": "breakfast",
+			"preparation": "1. Na patelni z dodatkiem oliwy podsmaż pokrojoną w kostkę cebulę i przeciśnięty przez praskę czosnek.\n2. Po chwili dodaj pokrojone w plastry pieczarki, chwilę podsmaż i dodaj pomidory z puszki.\n3. Dopraw solą, pieprzem, słodką papryką, kminem rzymskim i płatkami chili, a następnie wymieszaj i gotuj przez około 10 minut.\n4. Gdy sos wyraźnie zgęstnieje wbij jajka, przykryj pokrywą i gotuj jeszcze przez 3 - 4 minuty, do momentu, aż białka będą ścięte a żółtka pozostaną półpłynne.\n5. Szakszukę posyp pokruszonym serem, świeżymi ziołami i podaj z pieczywem.",
+			"ingredients": [
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 30.0
+				},
+				{
+					"name": "Pomidory w puszce (krojone)",
+					"amount": 200.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 2.0
+				},
+				{
+					"name": "Pieczarka uprawna, świeża",
+					"amount": 120.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 50.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 2.5
+				},
+				{
+					"name": "Ser, feta",
+					"amount": 20.0
+				},
+				{
+					"name": "Pietruszka, liście",
+					"amount": 6.0
+				}
+			]
+		},
+		{
+			"name": "Ciasto jogurtowe z borówkami",
+			"type": "second_breakfast",
+			"preparation": "1. Do miski przesiej mąkę, dodaj słodzidło, proszek do pieczenia, szczyptę soli.\n2. Dodaj składniki w temperaturze pokojowej (ważne!): jajka, jogurt, olej.\n3. Borówki wymieszaj z dodatkową łyżką słodzidła i skrobią.\n4. Owoce połącz z masą i przełóż do formy (21x12cm).\n5. Piecz w 180 stopniach przez ok. 50 minut (góra-dół).\n6. Po upieczeniu wyjmij ciasto z formy i pozostaw do ostygnięcia.\n\nKroki opisują cały przepis z jadłospisu (5 porcje); ilości składników są na 1 porcję.",
+			"ingredients": [
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 46.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 8.0
+				},
+				{
+					"name": "Proszek do pieczenia",
+					"amount": 0.9
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 0.4
+				},
+				{
+					"name": "Jogurt grecki light",
+					"amount": 40.0
+				},
+				{
+					"name": "Olej rzepakowy",
+					"amount": 8.0
+				},
+				{
+					"name": "Borówki amerykańskie",
+					"amount": 40.0
+				},
+				{
+					"name": "Skrobia ziemniaczana",
+					"amount": 1.0
+				}
+			]
+		},
+		{
+			"name": "Lasagne z patelni",
+			"type": "lunch",
+			"preparation": "1. Podsmaż pokrojoną w kostkę cebulę, startą marchew i przeciśnięty przez praskę czosnek na oliwie.\n2. Dodaj mięso i przyprawy (sól, pieprz, oregano, bazylię, słodką paprykę), podsmaż jeszcze przez kilka minut.\n3. Dodaj passatę, wymieszaj i gotuj jeszcze przez chwilę.\n4. Na górę dodaj kawałki makaronu (dodaj odrobinę wody, jeżeli sos będzie zbyt gęsty) i przykryj pokrywką, gotuj do czasu aż makaron wchłonie wodę i stanie się miękki.\n5. Gotowe danie posyp serem i świeżymi ziołami.\n\nKroki opisują cały przepis z jadłospisu (2 porcje); ilości składników są na 1 porcję.",
+			"ingredients": [
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 2.5
+				},
+				{
+					"name": "Cebula",
+					"amount": 50.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Marchew",
+					"amount": 67.5
+				},
+				{
+					"name": "Mięso mielone z indyka",
+					"amount": 100.0
+				},
+				{
+					"name": "Passata pomidorowa (przecier)",
+					"amount": 175.0
+				},
+				{
+					"name": "Makaron lasagne",
+					"amount": 42.5
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 31.0
+				},
+				{
+					"name": "Bazylia (świeża)",
+					"amount": 4.0
+				}
+			]
+		},
+		{
+			"name": "Fasolka w sosie pomidorowym & grzanki z mozzarellą",
+			"type": "dinner",
+			"preparation": "1. Na pieczywo nałóż ser i podpiecz je kilka minut w piekarniku.\n2. Fasolkę przełóż do garnka, dopraw solą, pieprzem, słodką papryką, chili i podgrzewaj przez kilka minut.\n3. Przełóż ją do miski, posyp świeżymi ziołami i zjedz z grzankami.",
+			"ingredients": [
+				{
+					"name": "Fasolka w sosie pomidorowym",
+					"amount": 207.0
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 63.0
+				},
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 60.0
+				},
+				{
+					"name": "Bazylia (świeża)",
+					"amount": 10.0
+				}
+			]
+		},
+		{
+			"name": "Placuszki z serka wiejskiego",
+			"type": "breakfast",
+			"preparation": "1. Do miski dodaj jajko, serek, mąkę, słodzidło, mleko i proszek do pieczenia, a następnie dokładnie to wymieszaj.\n2. Smaż placki na patelni z dodatkiem oleju, z dwóch stron po kilka minut.\n3. Placki z serka wiejskiego podaj z masłem orzechowym i owocami (użyj świeżych lub mrożonych, mrożone uprzednio rozmroź).",
+			"ingredients": [
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Serek wiejski (light)",
+					"amount": 75.0
+				},
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 35.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Napój sojowy Alpro bez cukru",
+					"amount": 20.0
+				},
+				{
+					"name": "Proszek do pieczenia",
+					"amount": 1.0
+				},
+				{
+					"name": "Olej rzepakowy",
+					"amount": 2.5
+				},
+				{
+					"name": "Masło orzechowe",
+					"amount": 10.0
+				},
+				{
+					"name": "Mrożone maliny",
+					"amount": 120.0
+				}
+			]
+		},
+		{
+			"name": "Sałatka makaronowa z pomidorkami i mozzarellą",
+			"type": "second_breakfast",
+			"preparation": "1. Ugotuj makaron według zaleceń producenta i poczekaj aż lekko ostygnie.\n2. Pomidorki i ser pokrój na kawałki.\n3. Wymieszaj oliwę z octem balsamicznym, musztardą i sokiem z cytryny, dopraw solą i pieprzem.\n4. Wymieszaj makaron z pomidorkami, serem mozzarella, bazylią i całość polej sosem.",
+			"ingredients": [
+				{
+					"name": "Makaron pełnoziarnisty",
+					"amount": 35.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 100.0
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 62.0
+				},
+				{
+					"name": "Bazylia (świeża)",
+					"amount": 10.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Ocet balsamiczny",
+					"amount": 3.0
+				},
+				{
+					"name": "Musztarda",
+					"amount": 10.0
+				},
+				{
+					"name": "Sok cytrynowy",
+					"amount": 3.0
+				}
+			]
+		},
+		{
+			"name": "Leniwe z jogurtem i truskawkami",
+			"type": "lunch",
+			"preparation": "1. Do miski dodaj twaróg, jajko, słodzidło, szczyptę soli i dokładnie zgnieć całość praską do ziemniaków, tak, aby nie było grudek.\n2. Blat podsyp mąką i wyłóż wcześniej przygotowaną masę.\n3. Na wierzch dodaj mąki.\n4. Zagnieć szybko składniki łącząc je w kulę.\n5. Ciasto podziel na 2 części i z każdej uformuj wałek (w razie potrzeby podsyp mąką) następnie rozpłaszcz go szerokim nożem i pokrój ukośnie na kawałki.\n6. Zagotuj lekko osoloną wodę w dużym garnku, dodaj kluski i gotuj do czasu, aż wypłyną na powierzchnię.\n7. Leniwe kluski podaj z jogurtem wymieszanym z masłem orzechowym i owocami.",
+			"ingredients": [
+				{
+					"name": "Ser twarogowy chudy",
+					"amount": 100.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 50.0
+				},
+				{
+					"name": "Jogurt naturalny, 1,5% tłuszczu",
+					"amount": 40.0
+				},
+				{
+					"name": "Masło orzechowe",
+					"amount": 15.0
+				},
+				{
+					"name": "Truskawki",
+					"amount": 70.0
+				}
+			]
+		},
+		{
+			"name": "Fit Chikker®",
+			"type": "dinner",
+			"preparation": "1. Mięso umyj, pokrój na mniejsze kawałki i przełóż do miski.\n2. Dodaj olej, sól, pieprz, słodką i ostrą paprykę, a następnie dokładnie to wymieszaj.\n3. Każdy kawałek mięsa obtocz w bułce tartej wymieszanej z papryką ostrą i przełóż na blaszkę wyłożoną papierem do pieczenia.\n4. Piecz 20-25 minut w 200 stopniach.\n5. Pod koniec pieczenia do piekarnika dodaj przekrojoną na pół bułkę, aby lekko ją podgrzać.\n6. Przygotuj sos: do miseczki dodaj jogurt, musztardę, sól, pieprz i dokładnie wymieszaj.\n7. Tak przygotowanym sosem posmaruj obie połowy bułki.\n8. Na jedną nałóż sałatę, mięso, warzywa i przykryj drugą połową bułki.",
+			"ingredients": [
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 70.0
+				},
+				{
+					"name": "Olej rzepakowy",
+					"amount": 5.0
+				},
+				{
+					"name": "Bułka tarta",
+					"amount": 7.5
+				},
+				{
+					"name": "Bułka żytnia",
+					"amount": 1.0
+				},
+				{
+					"name": "Jogurt naturalny, 1,5% tłuszczu",
+					"amount": 40.0
+				},
+				{
+					"name": "Musztarda",
+					"amount": 20.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				},
+				{
+					"name": "Pomidor",
+					"amount": 70.0
+				}
+			]
+		},
+		{
+			"name": "Kanapki z awokado i łososiem wędzonym",
+			"type": "breakfast",
+			"preparation": "1. Dojrzałe awokado rozgnieć widelcem i dopraw do smaku solą, pieprzem, czosnkiem granulowanym, płatkami chili i sokiem z limonki.\n2. Powstałą pastę nałóż na pieczywo, na to nałóż plastry ryby i plastry warzyw.\n3. Gotowe kanapki posyp solą i pieprzem.",
+			"ingredients": [
+				{
+					"name": "Awokado",
+					"amount": 70.0
+				},
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 90.0
+				},
+				{
+					"name": "Łosoś wędzony na zimno",
+					"amount": 30.0
+				},
+				{
+					"name": "Pomidor",
+					"amount": 140.0
+				}
+			]
+		},
+		{
+			"name": "Serniczek OREO w słoiku",
+			"type": "second_breakfast",
+			"preparation": "1. Z 2 ciastek usuń białą część.\n2. Ciemne herbatniki rozkrusz i wyłóż nimi dno słoiczka.\n3. Do miski dodaj skyr, twaróg oraz pozostałą białą część z ciastek.\n4. Całość zblenduj na gładką masę.\n5. Posiekaj drobno jedno ciasteczko i dodaj do masy, a następnie delikatnie wymieszaj.\n6. Masę przełóż do słoiczka i udekoruj pokrojonymi owocami.\n7. Przed spożyciem możesz schłodzić w lodówce.",
+			"ingredients": [
+				{
+					"name": "Ciastka Oreo",
+					"amount": 3.0
+				},
+				{
+					"name": "Skyr waniliowy, Piątnica",
+					"amount": 150.0
+				},
+				{
+					"name": "Ser twarogowy chudy",
+					"amount": 50.0
+				},
+				{
+					"name": "Truskawki",
+					"amount": 35.0
+				}
+			]
+		},
+		{
+			"name": "Łosoś na kremowym szpinaku",
+			"type": "lunch",
+			"preparation": "1. Ryż ugotuj według instrukcji na opakowaniu.\n2. Rybę dopraw solą i pieprzem a następnie piecz przez 15 minut w 180 stopniach.\n3. Na patelni z dodatkiem oleju podsmaż posiekany szpinak.\n4. Po chwili dodaj pokrojony w cienkie plasterki czosnek, śmietankę, chwilę podgotuj i dopraw sos do smaku solą oraz pieprzem.\n5. Pomidory koktajlowe przekrój na pół i dodaj do sosu.\n6. Rybę podaj na kremowym szpinaku w towarzystwie ryżu.",
+			"ingredients": [
+				{
+					"name": "Ryż basmati",
+					"amount": 50.0
+				},
+				{
+					"name": "Łosoś, świeży",
+					"amount": 100.0
+				},
+				{
+					"name": "Olej rzepakowy",
+					"amount": 2.5
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Szpinak",
+					"amount": 100.0
+				},
+				{
+					"name": "Śmietanka w kartoniku 12%",
+					"amount": 20.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 100.0
+				}
+			]
+		},
+		{
+			"name": "Placuszki z cukinii z twarożkiem i łososiem",
+			"type": "dinner",
+			"preparation": "1. Cukinię zetrzyj na grubych oczkach, posól i odstaw na 10-15 minut.\n2. Po tym czasie z cukinii mocno odciśnij nadmiar wody.\n3. Do cukinii dodaj jajko, mąkę i przyprawy: sól, pieprz, oregano.\n4. Całość dokładnie wymieszaj i smaż na rozgrzanej patelni z olejem w postaci małych placków.\n5. Przygotuj twarożek: twaróg wymieszaj z jogurtem i dopraw do smaku.\n6. Gotowe placki przełóż na talerz, na górę nałóż twarożek, rybę, warzywa i świeże zioła.",
+			"ingredients": [
+				{
+					"name": "Cukinia",
+					"amount": 150.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 45.0
+				},
+				{
+					"name": "Olej rzepakowy",
+					"amount": 2.5
+				},
+				{
+					"name": "Ser twarogowy chudy",
+					"amount": 50.0
+				},
+				{
+					"name": "Jogurt naturalny, 1,5% tłuszczu",
+					"amount": 20.0
+				},
+				{
+					"name": "Łosoś wędzony na zimno",
+					"amount": 30.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 80.0
+				},
+				{
+					"name": "Szczypiorek",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Pieczona owsianka czekoladowa z malinami",
+			"type": "breakfast",
+			"preparation": "1. Do naczynia żaroodpornego dodaj 3/4 owoców.\n2. Do miski dodaj rozgniecionego widelcem banana, płatki, mleko, kakao, słodzidło, proszek do pieczenia i całość dokładnie wymieszaj.\n3. Powstałą masę wylej na owoce i posyp posiekaną czekoladą. Piecz 25 minut w 180 stopniach.\n4. Podaj ze skyrem i pozostałymi owocami.",
+			"ingredients": [
+				{
+					"name": "Mrożone maliny",
+					"amount": 60.0
+				},
+				{
+					"name": "Banan",
+					"amount": 120.0
+				},
+				{
+					"name": "Płatki owsiane",
+					"amount": 25.0
+				},
+				{
+					"name": "Napój sojowy Alpro bez cukru",
+					"amount": 60.0
+				},
+				{
+					"name": "Kakao 16% tłuszczu",
+					"amount": 5.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Proszek do pieczenia",
+					"amount": 1.0
+				},
+				{
+					"name": "Czekolada gorzka",
+					"amount": 6.0
+				},
+				{
+					"name": "Skyr naturalny",
+					"amount": 150.0
+				}
+			]
+		},
+		{
+			"name": "Zupa krem z cukinii",
+			"type": "second_breakfast",
+			"preparation": "1. Podsmaż na oleju posiekaną cebulę razem z przeciśniętym przez praskę czosnkiem.\n2. Dodaj pokrojoną w kostkę cukinię i ziemniaka.\n3. Dolej bulion.\n4. Gotuj około 15 minut aż warzywa zmiękną\n5. Dopraw zupę solą oraz świeżo mielonym pieprzem.\n6. Zmiksuj zupę na krem razem ze śmietanką.\n7. Posyp zupę natką pietruszki i uprażonymi na suchej patelni pestkami dyni.",
+			"ingredients": [
+				{
+					"name": "Olej rzepakowy",
+					"amount": 5.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 50.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Cukinia",
+					"amount": 300.0
+				},
+				{
+					"name": "Ziemniaki",
+					"amount": 70.0
+				},
+				{
+					"name": "Bulion warzywny (domowy)",
+					"amount": 250.0
+				},
+				{
+					"name": "Śmietanka w kartoniku 12%",
+					"amount": 50.0
+				},
+				{
+					"name": "Dynia, pestki, łuskane",
+					"amount": 10.0
+				},
+				{
+					"name": "Pietruszka, liście",
+					"amount": 6.0
+				}
+			]
+		},
+		{
+			"name": "Kotlet z ziemniakami i mizerią",
+			"type": "lunch",
+			"preparation": "1. Ugotuj ziemniaki do miękkości.\n2. Rozbite tłuczkiem mięso dopraw solą, pieprzem i natrzyj przeciśniętym przez praskę czosnkiem.\n3. Obtocz mięso w mące, zanurz w roztrzepanym jajku i obtocz w bułce.\n4. Smaż po kilka minut z każdej strony na oliwie aż panierka się zarumieni.\n5. Warzywa obierz, pokrój w plastry, następnie wymieszaj z jogurtem, szczyptą soli, pieprzu i posiekanymi ziołami.\n6. Kotleta zjedz razem z ugotowanymi ziemniakami i mizerią.",
+			"ingredients": [
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 140.0
+				},
+				{
+					"name": "Ziemniaki",
+					"amount": 140.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 80.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Bułka tarta",
+					"amount": 10.0
+				},
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 10.0
+				},
+				{
+					"name": "Jogurt naturalny, 1,5% tłuszczu",
+					"amount": 40.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Koper (w pęczkach)",
+					"amount": 10.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Tosty a'la pizza",
+			"type": "dinner",
+			"preparation": "1. Passatę wymieszaj z oliwą, ziołami, solą i pieprzem.\n2. Posmaruj sosem kanapki.\n3. Dodaj starty ser i zapiekaj przez ok. 10 minut w 200 stopniach.\n4. Gotowego tosta posyp świeżymi ziołami.\n\nWskazówki:\n- Po otwarciu przechowuj passatę w lodówce w szklanym pojemniku i zużyj w ciągu kilku dni. Nadmiar możesz zamrozić.",
+			"ingredients": [
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 90.0
+				},
+				{
+					"name": "Passata pomidorowa (przecier)",
+					"amount": 70.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 7.5
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 62.0
+				},
+				{
+					"name": "Bazylia (świeża)",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Owsianka czekolada z wiśniami w słoiku",
+			"type": "breakfast",
+			"preparation": "1. Do garnka dodaj płatki, mleko, słodzidło i kakao.\n2. Całość wymieszaj i gotuj na niskiej mocy kuchenki, do momentu, aż owsianka zgęstnieje.\n3. Wiśnie przełóż do garnka i podgotuj z odrobiną wody.\n4. Gotową owsiankę przełóż do słoika, dodaj skyr, wiśnie i orzechy.",
+			"ingredients": [
+				{
+					"name": "Płatki owsiane",
+					"amount": 30.0
+				},
+				{
+					"name": "Mleko spożywcze, 1,5 % tłuszczu",
+					"amount": 125.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Kakao 16% tłuszczu",
+					"amount": 10.0
+				},
+				{
+					"name": "Wiśnie bez pestek, mrożone",
+					"amount": 100.0
+				},
+				{
+					"name": "Skyr waniliowy, Piątnica",
+					"amount": 75.0
+				},
+				{
+					"name": "Orzechy nerkowca (bez soli)",
+					"amount": 12.0
+				}
+			]
+		},
+		{
+			"name": "Bułka z sałatą, szynką i jajkiem",
+			"type": "second_breakfast",
+			"preparation": "1. Pieczywo posmaruj serkiem.\n2. Nałóż sałatę, plastry szynki i plastry ugotowanego jajka.",
+			"ingredients": [
+				{
+					"name": "Bułka żytnia",
+					"amount": 1.0
+				},
+				{
+					"name": "Serek śmietankowy",
+					"amount": 10.0
+				},
+				{
+					"name": "Szynka z piersi kurczaka",
+					"amount": 30.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				}
+			]
+		},
+		{
+			"name": "Kaszotto z kurczakiem, szpinakiem i cukinią",
+			"type": "lunch",
+			"preparation": "1. Na patelni rozgrzej olej i podsmaż mięso.\n2. Po chwili dodaj pokrojone warzywa.\n3. Podsmażaj kilka minut, do momentu, aż warzywa będą miękkie.\n4. Dodaj suchą kaszę i podsmażaj przez 30 sekund. Całość zalej bulionem warzywnym i gotuj do momentu, aż wchłonie się w kaszę.\n5. Kaszotto dopraw do smaku solą, pieprzem, czosnkiem i oregano a następnie przełóż na talerz i posyp świeżymi ziołami.",
+			"ingredients": [
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 15.0
+				},
+				{
+					"name": "Mięso mielone z kurczaka",
+					"amount": 100.0
+				},
+				{
+					"name": "Cukinia",
+					"amount": 150.0
+				},
+				{
+					"name": "Szpinak",
+					"amount": 100.0
+				},
+				{
+					"name": "Kasza jęczmienna, pęczak",
+					"amount": 40.0
+				},
+				{
+					"name": "Bulion warzywny (domowy)",
+					"amount": 200.0
+				},
+				{
+					"name": "Pietruszka, liście",
+					"amount": 12.0
+				}
+			]
+		},
+		{
+			"name": "Sałatka z młodymi ziemniakami i szparagami",
+			"type": "dinner",
+			"preparation": "1. Ugotuj ziemniaki.\n2. Szparagi (bez twardych końcówek) ugrilluj na patelni przez kilka minut z każdej strony.\n3. W misce ułóż sałatę, ziemniaki pokrojone na ćwiartki, połówki pomidorków, szparagi pokrojone na mniejsze części oraz porwany na kawałki lub pokrojony w kostkę ser.\n4. Wymieszaj ze sobą jogurt, oliwę, posiekany koperek, sok z cytryny, sól i pieprz.\n5. Sałatkę polej gotowym dressingiem.",
+			"ingredients": [
+				{
+					"name": "Ziemniaki",
+					"amount": 140.0
+				},
+				{
+					"name": "Szparagi",
+					"amount": 150.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 100.0
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 62.0
+				},
+				{
+					"name": "Jogurt grecki light",
+					"amount": 100.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 7.5
+				},
+				{
+					"name": "Sok cytrynowy",
+					"amount": 3.0
+				},
+				{
+					"name": "Koper (w pęczkach)",
+					"amount": 15.0
+				}
+			]
+		},
+		{
+			"name": "Bajgiel nowojorski",
+			"type": "breakfast",
+			"preparation": "1. Bajgla przekrój na pół, podgrzej go na suchej patelni.\n2. Do środka dodaj serek i rybę.\n3. Złóż bajgla, przekrój go na pół.\n4. Podaj z pokrojonymi warzywami.",
+			"ingredients": [
+				{
+					"name": "Bajgiel z makiem",
+					"amount": 1.0
+				},
+				{
+					"name": "Serek śmietankowy",
+					"amount": 25.0
+				},
+				{
+					"name": "Łosoś wędzony na zimno",
+					"amount": 50.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 80.0
+				}
+			]
+		},
+		{
+			"name": "Koktajl wiśniowy",
+			"type": "second_breakfast",
+			"preparation": "1. Zblenduj składniki ze sobą i przelej do szklanki.",
+			"ingredients": [
+				{
+					"name": "Kefir, 2% tłuszczu",
+					"amount": 300.0
+				},
+				{
+					"name": "Wiśnie bez pestek, mrożone",
+					"amount": 120.0
+				},
+				{
+					"name": "Miód pszczeli",
+					"amount": 12.0
+				},
+				{
+					"name": "Płatki owsiane",
+					"amount": 15.0
+				}
+			]
+		},
+		{
+			"name": "Spaghetti z pesto, pomidorami i mozzarellą",
+			"type": "lunch",
+			"preparation": "1. Makaron ugotuj według instrukcji na opakowaniu, a następnie odcedź go na sitku i dodaj z powrotem do garnka.\n2. Dodaj pesto, pokrojone warzywa, pokrojony w kostkę ser i całość wymieszaj.\n3. Całość podgrzewaj przez kilka minut, cały czas mieszając.\n4. Spaghetti z pesto przełóż na talerz i posyp świeżymi ziołami.",
+			"ingredients": [
+				{
+					"name": "Makaron pełnoziarnisty",
+					"amount": 50.0
+				},
+				{
+					"name": "Pesto zielone z bazylii",
+					"amount": 40.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 150.0
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 80.0
+				},
+				{
+					"name": "Bazylia (świeża)",
+					"amount": 10.0
+				}
+			]
+		},
+		{
+			"name": "Burger z szarpanym kurczakiem",
+			"type": "dinner",
+			"preparation": "1. Mięso dopraw solą, pieprzem i podsmaż go na patelni z dodatkiem oleju.\n2. Gotowe mięso rozszarp za pomocą dwóch widelców.\n3. Na patelnię dodaj wszystkie składniki sosu: wodę, ketchup, sok z cytryny, słodzidło, przyprawy i wcześniej porwane mięso.\n4. Sos gotuj na średnim ogniu, co jakiś czas mieszając, do momentu, aż zgęstnieje.\n5. Bułkę przekrój na pół, dodaj szarpane mięso, sałatę i warzywa.",
+			"ingredients": [
+				{
+					"name": "Bułka żytnia",
+					"amount": 1.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 120.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Keczup",
+					"amount": 15.0
+				},
+				{
+					"name": "Sok cytrynowy",
+					"amount": 12.0
+				},
+				{
+					"name": "Miód pszczeli",
+					"amount": 10.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 40.0
+				}
+			]
+		},
+		{
+			"name": "Nocna owsianka czekoladowa",
+			"type": "breakfast",
+			"preparation": "1. Do miski dodaj płatki, słodzidło, kakao, masło orzechowe i mleko.\n2. Całość dokładnie wymieszaj.\n3. Na dno słoiczka wyłóż owsiankę, dodaj skyr i owoce.\n4. Słoik zakręć i zostaw na całą noc do lodówki.\n5. Rano śniadanie będzie gotowe.\n\nWskazówki:\n- Płatki owsiane możesz wybrać górskie lub błyskawiczne.",
+			"ingredients": [
+				{
+					"name": "Płatki owsiane",
+					"amount": 35.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Skyr naturalny",
+					"amount": 150.0
+				},
+				{
+					"name": "Mleko spożywcze, 1,5 % tłuszczu",
+					"amount": 70.0
+				},
+				{
+					"name": "Masło orzechowe",
+					"amount": 10.0
+				},
+				{
+					"name": "Kakao 16% tłuszczu",
+					"amount": 7.5
+				},
+				{
+					"name": "Maliny",
+					"amount": 60.0
+				},
+				{
+					"name": "Borówki amerykańskie",
+					"amount": 50.0
+				}
+			]
+		},
+		{
+			"name": "Chłodnik z botwinki z jajkiem",
+			"type": "second_breakfast",
+			"preparation": "1. Buraczki obierz i pokrój w małą kostkę.\n2. Łodyżki i liście posiekaj drobno.\n3. Bulion zagotuj, a następnie dodaj pokrojone buraczki i gotuj do miękkości, następnie dodaj łodyżki, liście i gotuj przez około 3-5 minut.\n4. Dodaj sok z cytryny, przypraw do smaku i gotuj jeszcze przez około 1 minutę.\n5. Pozostaw do ostygnięcia.\n6. Do chłodnego wywaru dodaj kefir, oliwę i wymieszaj.\n7. Chłodnik przełóż do lodówki na około 2 godziny.\n8. Chłodnik z botwinki podaj z ugotowanym jajkiem i grzanką.",
+			"ingredients": [
+				{
+					"name": "Botwinka, pęczek",
+					"amount": 280.0
+				},
+				{
+					"name": "Bulion warzywny (domowy)",
+					"amount": 250.0
+				},
+				{
+					"name": "Sok cytrynowy",
+					"amount": 12.0
+				},
+				{
+					"name": "Kefir, 2% tłuszczu",
+					"amount": 100.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 30.0
+				}
+			]
+		},
+		{
+			"name": "Nuggetsy z frytkami, sosem czosnkowym i brokułami",
+			"type": "lunch",
+			"preparation": "1. Mięso umyj i pokrój w grubsze paski.\n2. Płatki przesyp do woreczka i drobno pokrusz.\n3. Do pokruszonych płatków dodaj ulubione przyprawy (tutaj polecam użyć curry i paprykę ostrą).\n4. Obtocz mięso w oliwie a następnie w płatkach i wyłóż na blaszkę.\n5. Ziemniaki obierz, umyj i pokrój na frytki.\n6. Przełóż je do miski, dodaj sól, pieprz, curry, paprykę słodką, rozmaryn i olej rzepakowy, całość dokładnie wymieszaj i przełóż na blaszkę, obok nuggetsów.\n7. Piecz całość do zarumienienia, czyli przez około 30-40min w 220 stopniach.\n8. Warzywa ugotuj na parze. W międzyczasie przygotuj sos: do jogurtu dodaj przeciśnięty przez praskę czosnek, dopraw solą i pieprzem.\n9. Nuggetsy podaj z frytkami, w towarzystwie warzyw i sosu czosnkowego.",
+			"ingredients": [
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 80.0
+				},
+				{
+					"name": "Płatki kukurydziane",
+					"amount": 9.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 7.5
+				},
+				{
+					"name": "Ziemniaki",
+					"amount": 140.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Brokuły",
+					"amount": 150.0
+				},
+				{
+					"name": "Jogurt grecki light",
+					"amount": 100.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Kasza manna z malinami i gorzką czekoladą",
+			"type": "dinner",
+			"preparation": "1. Do garnka dodaj mleko, kaszę, całość wymieszaj i gotuj na niskiej mocy kuchenki, cały czas mieszając do momentu, aż kasza zgęstnieje.\n2. Dodaj jogurt, masło orzechowe i wymieszaj.\n3. Owoce (świeże lub mrożone) wypłukaj pod ciepłą wodą.\n4. Kaszę przełóż do miski, dodaj owoce i czekoladę.",
+			"ingredients": [
+				{
+					"name": "Mleko spożywcze, 1,5 % tłuszczu",
+					"amount": 125.0
+				},
+				{
+					"name": "Kasza manna",
+					"amount": 25.0
+				},
+				{
+					"name": "Skyr waniliowy, Piątnica",
+					"amount": 150.0
+				},
+				{
+					"name": "Maliny",
+					"amount": 90.0
+				},
+				{
+					"name": "Czekolada gorzka",
+					"amount": 6.0
+				},
+				{
+					"name": "Masło orzechowe",
+					"amount": 10.0
+				}
+			]
+		},
+		{
+			"name": "Bruschetta z fasolką i pomidorami",
+			"type": "breakfast",
+			"preparation": "1. Bułkę przekrój na pół i podgrzej ją na suchej patelni lub w tosterze.\n2. Fasolę rozgnieć widelcem z oliwą i ulubionymi ziołami, a następnie nałóż ją na grzanki.\n3. Pozostałe warzywa pokrój w małą kostkę, a następnie całość wymieszaj i dopraw do smaku solą i pieprzem.\n4. Gotową salsę nałóż na grzanki i posyp świeżymi ziołami.",
+			"ingredients": [
+				{
+					"name": "Bułka żytnia",
+					"amount": 1.0
+				},
+				{
+					"name": "Fasola biała (konserwowa)",
+					"amount": 100.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Pomidor",
+					"amount": 140.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 50.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Bazylia (świeża)",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Jednoporcjowy deser z ubitego serka wiejskiego i malin",
+			"type": "second_breakfast",
+			"preparation": "1. Pozostaw jedno ciasteczko do dekoracji, a pozostałe rozgnieć.\n2. W garnku podgrzej owoce.\n3. Serek zblenduj z masłem orzechowym i słodzidłem.\n4. Układaj warstwami ciasteczka, maliny oraz serek.\n5. Udekoruj deser owocami i ciastkiem.",
+			"ingredients": [
+				{
+					"name": "Ciastka Lotus Biscoff",
+					"amount": 3.0
+				},
+				{
+					"name": "Maliny",
+					"amount": 100.0
+				},
+				{
+					"name": "Serek wiejski (light)",
+					"amount": 150.0
+				},
+				{
+					"name": "Masło orzechowe",
+					"amount": 10.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Curry z kurczakiem i warzywami",
+			"type": "lunch",
+			"preparation": "1. Ryż ugotuj zgodnie z instrukcją na opakowaniu.\n2. Na patelni rozgrzej olej i podsmaż posiekaną w kostkę cebulę i czosnek.\n3. Mięso i warzywa pokrój w kostkę, dodaj na patelnię i podsmażaj do miękkości.\n4. Dodaj koncentrat pomidorowy i śmietankę – całość dokładnie wymieszaj i gotuj kilka minut.\n5. Sos dopraw do smaku sokiem z limonki, solą, pieprzem, słodzidłem (erytrytol), curry, papryką ostrą i płatkami chili.\n6. Gotowe curry podaj z ryżem i posyp świeżymi ziołami.\n\nWskazówki:\n- Śmietankę możesz zamienić na mleczko kokosowe.",
+			"ingredients": [
+				{
+					"name": "Ryż basmati",
+					"amount": 40.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 7.5
+				},
+				{
+					"name": "Cebula",
+					"amount": 25.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 110.0
+				},
+				{
+					"name": "Papryka czerwona",
+					"amount": 75.0
+				},
+				{
+					"name": "Cukinia",
+					"amount": 150.0
+				},
+				{
+					"name": "Koncentrat pomidorowy, 30%",
+					"amount": 15.0
+				},
+				{
+					"name": "Śmietanka w kartoniku 12%",
+					"amount": 50.0
+				},
+				{
+					"name": "Limonka",
+					"amount": 29.0
+				},
+				{
+					"name": "Kolendra (świeża)",
+					"amount": 20.0
+				}
+			]
+		},
+		{
+			"name": "Domowy burger",
+			"type": "dinner",
+			"preparation": "1. Cebulę i czosnek podsmaż na patelni.\n2. Do miski dodaj mięso, cebulę, czosnek, dopraw solą, pieprzem, słodką papryką, zrób burgera i usmaż na patelni z dodatkiem oleju z dwóch stron.\n3. Pieczywo podgrzej ją na suchej patelni, a następnie posmaruj keczupem.\n4. Na jedną połowę bułki nałóż sałatę, mięso, warzywa i przykryj drugą połową bułki.",
+			"ingredients": [
+				{
+					"name": "Cebula",
+					"amount": 25.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Mięso mielone z kurczaka",
+					"amount": 90.0
+				},
+				{
+					"name": "Bułka żytnia",
+					"amount": 1.0
+				},
+				{
+					"name": "Keczup",
+					"amount": 15.0
+				},
+				{
+					"name": "Pomidor",
+					"amount": 70.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				}
+			]
+		},
+		{
+			"name": "Placuszki proteinowe",
+			"type": "breakfast",
+			"preparation": "1. Do miski dodaj 3/4 puddingu, mąkę, jajko i proszek do pieczenia.\n2. Masę dokładnie wymieszaj.\n3. Smaż na rozgrzanej patelni posmarowanej olejem z obu stron, aż placki staną się złociste.\n4. Placki ułóż na talerzu, dodaj pozostały pudding oraz owoce.",
+			"ingredients": [
+				{
+					"name": "Pudding proteinowy, waniliowy, Go Active",
+					"amount": 200.0
+				},
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 30.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Proszek do pieczenia",
+					"amount": 1.5
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 2.5
+				},
+				{
+					"name": "Truskawki",
+					"amount": 140.0
+				}
+			]
+		},
+		{
+			"name": "Wrap z szynką, mozzarellą i warzywami",
+			"type": "second_breakfast",
+			"preparation": "1. Placek tortilli posmaruj serkiem śmietankowym.\n2. Nałóż sałatę, pokrojone w paski warzywa, plastry szynki i sera.\n3. Tortillę zawiń i przekrój na pół.",
+			"ingredients": [
+				{
+					"name": "Tortilla pełnoziarnista",
+					"amount": 1.0
+				},
+				{
+					"name": "Serek śmietankowy",
+					"amount": 10.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 10.0
+				},
+				{
+					"name": "Szynka z piersi kurczaka",
+					"amount": 15.0
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 62.0
+				},
+				{
+					"name": "Papryka czerwona",
+					"amount": 38.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 40.0
+				}
+			]
+		},
+		{
+			"name": "Kurczak w sosie bazyliowym z ryżem",
+			"type": "lunch",
+			"preparation": "1. Ryż ugotuj.\n2. Mięso rozbij tłuczkiem w najgrubszej części na filety podobnej grubości.\n3. Dopraw solą, pieprzem oraz papryką.\n4. Rozgrzej patelnię, dodaj oliwę i stopniowo dodaj mięso. Smaż po ok. 3 minuty z każdej strony, aż ładnie się zrumieni.\n5. Dodaj pokrojone pomidorki i rozmieścić je wkoło mięsa, następnie smaż przez minutę.\n6. Na patelnię wlej bulion i zagotuj. Gotuj przez ok. 1 minutę, następnie przewróć mięso na drugą stronę i powtórz gotowanie.\n7. Dodaj śmietankę, wymieszaj i zagotuj.\n8. Dodaj pesto i wymieszaj je z sosem, zagotuj i odstaw z ognia.\n9. Mięso w sosie bazyliowym z pomidorkami podaj z ryżem.\n10. Posyp świeżymi ziołami.",
+			"ingredients": [
+				{
+					"name": "Ryż basmati",
+					"amount": 50.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 100.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 200.0
+				},
+				{
+					"name": "Bulion warzywny (domowy)",
+					"amount": 50.0
+				},
+				{
+					"name": "Śmietanka w kartoniku 12%",
+					"amount": 25.0
+				},
+				{
+					"name": "Pesto zielone z bazylii",
+					"amount": 20.0
+				},
+				{
+					"name": "Bazylia (świeża)",
+					"amount": 10.0
+				}
+			]
+		},
+		{
+			"name": "Bułka z serkiem kremowym i pomidorem",
+			"type": "dinner",
+			"preparation": "1. Pieczywo posmaruj serkiem i nałóż warzywa.\n2. Posyp solą i pieprzem.",
+			"ingredients": [
+				{
+					"name": "Bułka żytnia",
+					"amount": 1.0
+				},
+				{
+					"name": "Serek śmietankowy",
+					"amount": 50.0
+				},
+				{
+					"name": "Pomidor",
+					"amount": 140.0
+				},
+				{
+					"name": "Nektarynka",
+					"amount": 100.0
+				}
+			]
+		},
+		{
+			"name": "Jajko sadzone na pesto",
+			"type": "breakfast",
+			"preparation": "1. Pieczywo podgrzej w tosterze lub na suchej patelni z dwóch stron, warzywa pokrój na mniejsze kawałki.\n2. Na rozgrzaną patelnię dodaj pesto, poczekaj kilka sekund a następnie wbij jajko.\n3. Smaż je do momentu, aż białko się zetnie.\n4. Grzankę posmaruj serkiem, dodaj jajko sadzone na pesto i pokrojone warzywa.",
+			"ingredients": [
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 30.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 100.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 80.0
+				},
+				{
+					"name": "Pesto zielone z bazylii",
+					"amount": 20.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Serek śmietankowy",
+					"amount": 20.0
+				},
+				{
+					"name": "Serek wiejski (light)",
+					"amount": 150.0
+				}
+			]
+		},
+		{
+			"name": "Sernik na zimno w słoiku",
+			"type": "second_breakfast",
+			"preparation": "1. Połowę galaretki wsyp do garnka i zalej 125ml wrzątku, wymieszaj dokładnie i poczekaj aż ostygnie.\n2. Zmiksuj ją z twarogiem i masłem orzechowym, a następnie przełóż całą masę do 2 słoiczków.\n3. Odstaw do lodówki na 30 min.\n4. Po tym czasie wyłóż na górę pokrojone owoce.\n5. Wsyp drugą połowę galaretki do garnka i ponownie zalej 125ml wrzątku, wymieszaj dokładnie i poczekaj, aż ostygnie.\n6. Wylej po równo do każdego słoiczka i odstaw do lodówki na ok. 1-2h.\n\nKroki opisują cały przepis z jadłospisu (2 porcje); ilości składników są na 1 porcję.",
+			"ingredients": [
+				{
+					"name": "Galaretka owocowa (w proszku)",
+					"amount": 37.5
+				},
+				{
+					"name": "Ser twarogowy chudy",
+					"amount": 125.0
+				},
+				{
+					"name": "Masło orzechowe",
+					"amount": 5.0
+				},
+				{
+					"name": "Borówki amerykańskie",
+					"amount": 25.0
+				},
+				{
+					"name": "Maliny",
+					"amount": 30.0
+				},
+				{
+					"name": "Truskawki",
+					"amount": 17.5
+				}
+			]
+		},
+		{
+			"name": "Łosoś podany na spaghetti z cukinią i pomidorkami",
+			"type": "lunch",
+			"preparation": "1. Rybę dopraw solą, pieprzem i piecz przez 15 minut w 180 stopniach.\n2. Makaron ugotuj zgodnie z instrukcją na opakowaniu.\n3. Na patelni z dodatkiem 1/2 porcji oliwy podsmaż pokrojoną w półplastry cukinię.\n4. Po chwili dodaj przekrojone na pół pomidory koktajlowe i podsmażaj całość przez około 5 minut.\n5. Dodaj ugotowany makaron i pozostałą oliwę - całość wymieszaj, dopraw solą, pieprzem i czosnkiem granulowanym.\n6. Makaron z warzywami przełóż na talerz, na to nałóż rybę i całość posyp świeżą sałatą.\n\nWskazówki:\n- Tańszą opcją łososia jest pstrąg łososiowy.",
+			"ingredients": [
+				{
+					"name": "Łosoś, świeży",
+					"amount": 100.0
+				},
+				{
+					"name": "Makaron pełnoziarnisty",
+					"amount": 50.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Cukinia",
+					"amount": 150.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 100.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				}
+			]
+		},
+		{
+			"name": "Zupa z warzywami i fasolką",
+			"type": "dinner",
+			"preparation": "1. W garnku z dodatkiem oliwy podsmaż pokrojoną w kostkę cebulę i przeciśnięty przez praskę czosnek.\n2. Ziemniaki, marchewkę i cukinię pokrój w kostkę, dodaj do garnka i całość podsmaż.\n3. Po chwili dodaj posiekaną kapustę, 2 liście laurowe, pomidory z puszki i bulion.\n4. Gotuj całość przez około 20 minut.\n5. Po tym czasie dodaj fasolę, dopraw do smaku solą, pieprzem, ostrą papryką i gotuj jeszcze kilka minut.\n6. Zupę z warzywami i fasolką przelej do miski i posyp świeżymi ziołami.\n\nKroki opisują cały przepis z jadłospisu (2 porcje); ilości składników są na 1 porcję.",
+			"ingredients": [
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 50.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Ziemniaki",
+					"amount": 70.0
+				},
+				{
+					"name": "Marchew",
+					"amount": 45.0
+				},
+				{
+					"name": "Cukinia",
+					"amount": 75.0
+				},
+				{
+					"name": "Kapusta biała",
+					"amount": 137.5
+				},
+				{
+					"name": "Pomidory w puszce (krojone)",
+					"amount": 200.0
+				},
+				{
+					"name": "Bulion warzywny (domowy)",
+					"amount": 250.0
+				},
+				{
+					"name": "Fasola biała (konserwowa)",
+					"amount": 100.0
+				},
+				{
+					"name": "Pietruszka, liście",
+					"amount": 6.0
+				}
+			]
+		},
+		{
+			"name": "Omlet cesarski ze skyrem i malinami",
+			"type": "breakfast",
+			"preparation": "1. Oddziel białko od żółtka.\n2. Do jednej miski dodaj żółtko, mleko, mąkę, słodzidło i całość dokładnie wymieszaj na jednolitą masę.\n3. W drugiej misce ubij białko, następnie przełóż je do masy i delikatnie wymieszaj łyżką.\n4. Na patelni rozgrzej olej.\n5. Wylej przygotowaną masę i poczekaj, aż dół się zetnie.\n6. Obróć omlet na drugą stronę.\n7. Za pomocą szpatułki rozdzielaj omlet na mniejsze kawałki i całość wymieszaj.\n8. W finalnej wersji ma powstać omlet w postaci małych kęsków, wysmażonych z każdej strony.\n9. Podaj z jogurtem i owocami.",
+			"ingredients": [
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Mleko spożywcze, 1,5 % tłuszczu",
+					"amount": 65.0
+				},
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 45.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Skyr waniliowy, Piątnica",
+					"amount": 75.0
+				},
+				{
+					"name": "Maliny",
+					"amount": 90.0
+				}
+			]
+		},
+		{
+			"name": "Zupa krem z brokułów",
+			"type": "second_breakfast",
+			"preparation": "1. Warzywa podziel na mniejsze kawałki i ugotuj do miękkości w bulionie warzywnym.\n2. Gdy będą miękkie dodaj śmietankę, oliwę, przyprawy: sól, pieprz, czosnek, chili i zblenduj całość na gładki krem.\n3. Zupę krem z brokuł przelej do miski, posyp serem, posiekanymi orzechami, ziołami i podaj z grzanką.\n\nKroki opisują cały przepis z jadłospisu (2 porcje); ilości składników są na 1 porcję.",
+			"ingredients": [
+				{
+					"name": "Brokuły",
+					"amount": 250.0
+				},
+				{
+					"name": "Bulion warzywny (domowy)",
+					"amount": 250.0
+				},
+				{
+					"name": "Śmietanka w kartoniku 12%",
+					"amount": 25.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 2.5
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 31.0
+				},
+				{
+					"name": "Orzechy nerkowca (bez soli)",
+					"amount": 10.0
+				},
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 30.0
+				},
+				{
+					"name": "Koper (w pęczkach)",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Roladki ze szpinakiem, frytki i sałatka",
+			"type": "lunch",
+			"preparation": "1. Ziemniaki pokrój na frytki, a następnie przełóż je do miski, wlej 1/3 porcji oliwy i dodaj przyprawy: sól, pieprz, przyprawę do ziemniaków, paprykę słodką.\n2. Całość wymieszaj i przełóż na blaszkę wyłożoną papierem do pieczenia, piecz około 40 minut.\n3. W międzyczasie mięso rozbij na płasko, przypraw solą, pieprzem i słodką papryką. Na patelni rozgrzej 1/3 porcji oliwy, dodaj szpinak i suszone pomidory.\n4. Poczekaj, aż szpinak zwiędnie, dodaj sól, pieprz i wymieszaj.\n5. Powstały farsz nałóż na mięso, posyp kawałkami mozzarelli i zawiń go w roladę, przypnij wykałaczką.\n6. Roladki dodaj do naczynia żaroodpornego i włóż do piekarnika 20 minut przed końcem pieczenia ziemniaków.\n7. Przygotuj sałatkę - wymieszaj sałatę, pokrojone pomidory, ogórki i pozostałą oliwę.\n8. Roladkę pokrój w grubsze plastry, obok nałóż frytki i sałatkę.",
+			"ingredients": [
+				{
+					"name": "Ziemniaki",
+					"amount": 140.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 7.5
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 110.0
+				},
+				{
+					"name": "Szpinak",
+					"amount": 75.0
+				},
+				{
+					"name": "Suszone pomidory",
+					"amount": 21.0
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 40.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 100.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 80.0
+				}
+			]
+		},
+		{
+			"name": "Tosty z szynką, mozzarellą i szpinakiem",
+			"type": "dinner",
+			"preparation": "1. Szpinak podduś na patelni z dodatkiem czosnku.\n2. Na połowę kromek chleba nałóż ser, szynkę, szpinak i przykryj pozostałymi kromkami chleba.\n3. Tosty podsmaż w tosterze lub na suchej patelni z dwóch stron.\n4. Przekrój je na pół i podaj z pozostałymi warzywami.",
+			"ingredients": [
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 120.0
+				},
+				{
+					"name": "Szpinak",
+					"amount": 25.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 62.0
+				},
+				{
+					"name": "Szynka z piersi kurczaka",
+					"amount": 30.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 50.0
+				}
+			]
+		},
+		{
+			"name": "Kanapki z hummusem i ogórkiem kiszonym",
+			"type": "breakfast",
+			"preparation": "1. Pieczywo posmaruj hummusem i nałóż plastry warzyw.",
+			"ingredients": [
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 60.0
+				},
+				{
+					"name": "Hummus",
+					"amount": 55.0
+				},
+				{
+					"name": "Ogórek kwaszony",
+					"amount": 120.0
+				},
+				{
+					"name": "Skyr naturalny",
+					"amount": 150.0
+				}
+			]
+		},
+		{
+			"name": "Borówkowy sernik z kruszonką",
+			"type": "second_breakfast",
+			"preparation": "1. Przygotuj kruszonkę - wymieszaj mąkę (50 g), masło (30 g) i słodzidło (30g).\n2. Umieść w lodówce.\n3. Ciasteczka rozgnieć i wymieszaj z 20 g roztopionego masła.\n4. Rozprowadź równo po blaszce o średnicy 18 cm, wyłożonej papierem do pieczenia.\n5. Twaróg zblenduj z jajkami, budyniem, ekstraktem waniliowym i 40 g słodzidła.\n6. Masę wylej na ciasteczka.\n7. Owoce wymieszaj z 10 g słodzidła, sokiem z cytryny i 10 g mąki, posyp nimi ciasto.\n8. Dodaj kruszonkę.\n9. Całość piecz w 160 stopniach przez ok. 60 minut.\n10. Pozostaw do ostygnięcia.\n\nKroki opisują cały przepis z jadłospisu (6 porcje); ilości składników są na 1 porcję.",
+			"ingredients": [
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 10.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 13.3
+				},
+				{
+					"name": "Masło ekstra",
+					"amount": 8.3
+				},
+				{
+					"name": "Ciastka Lotus Biscoff",
+					"amount": 1.0
+				},
+				{
+					"name": "Ser twarogowy półtłusty",
+					"amount": 83.3
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 0.5
+				},
+				{
+					"name": "Budyń w proszku",
+					"amount": 4.0
+				},
+				{
+					"name": "Ekstrakt waniliowy (bez alkoholu)",
+					"amount": 0.5
+				},
+				{
+					"name": "Borówki amerykańskie",
+					"amount": 25.0
+				},
+				{
+					"name": "Sok cytrynowy",
+					"amount": 2.0
+				}
+			]
+		},
+		{
+			"name": "Makaron ze szpinakiem, cukinią i burratą",
+			"type": "lunch",
+			"preparation": "1. Makaron ugotuj według instrukcji na opakowaniu.\n2. Na patelnię z dodatkiem oleju dodaj pokrojone warzywa, podsmaż, dopraw solą i pieprzem.\n3. Po chwili dodaj ugotowany makaron, śmietankę, całość dokładnie wymieszaj i przypraw do smaku (sól, pieprz, kurkuma, czosnek granulowany).\n4. Całość podsmażaj jeszcze kilka minut, a następnie przełóż na talerz.\n5. Na górę dodaj ser i posiekane zioła.",
+			"ingredients": [
+				{
+					"name": "Makaron pełnoziarnisty",
+					"amount": 45.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Cukinia",
+					"amount": 150.0
+				},
+				{
+					"name": "Szpinak",
+					"amount": 75.0
+				},
+				{
+					"name": "Śmietanka w kartoniku 12%",
+					"amount": 30.0
+				},
+				{
+					"name": "Burrata",
+					"amount": 60.0
+				},
+				{
+					"name": "Bazylia (świeża)",
+					"amount": 5.0
+				}
+			]
+		},
+		{
+			"name": "Pita z kurczakiem",
+			"type": "dinner",
+			"preparation": "1. Mięso pokrój w cienkie paski, dopraw solą, pieprzem i przyprawą do gyrosa.\n2. Podsmaż na oleju wraz z posiekaną w pióra cebulą.\n3. Przygotuj tzatziki: wymieszaj jogurt ze startym odciśniętym z nadmiaru wody ogórkiem, przeciśniętym przez praskę czosnkiem i pieprzem.\n4. Pitę podgrzej w piekarniku, natnij i posmaruj sosem tzatziki.\n5. Do środka dodaj mięso i warzywa.",
+			"ingredients": [
+				{
+					"name": "Bułka pita",
+					"amount": 1.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 80.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 3.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 25.0
+				},
+				{
+					"name": "Jogurt grecki light",
+					"amount": 40.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 80.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				},
+				{
+					"name": "Cebula czerwona",
+					"amount": 25.0
+				}
+			]
+		},
+		{
+			"name": "Kanapki z pastą jajeczną z suszonymi pomidorami",
+			"type": "breakfast",
+			"preparation": "1. Jajko ugotuj na twardo.\n2. Ostudzone i obrane ze skorupki jajko pokrój w kostkę lub zetrzyj na tarce o grubych oczkach.\n3. Warzywa również pokrój w drobną kostkę i wymieszaj z jajkiem i z majonezem.\n4. Dopraw pastę pieprzem.\n5. Gotową pastę podaj na pieczywie.\n6. Podawaj z warzywami.\n\nWskazówki:\n- Suszone pomidory najlepiej wybierać bez zalewy. Jeśli kupisz pomidory w zalewie, odsącz je na ręczniku papierowym przed dodaniem do potrawy.",
+			"ingredients": [
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 60.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Suszone pomidory",
+					"amount": 28.0
+				},
+				{
+					"name": "Majonez sałatkowy wegański, Go Vege",
+					"amount": 20.0
+				},
+				{
+					"name": "Papryka czerwona",
+					"amount": 75.0
+				}
+			]
+		},
+		{
+			"name": "Jogurt z jabłkiem i orzechami",
+			"type": "second_breakfast",
+			"preparation": "1. Jogurt przełóż do miski.\n2. Na górę dodaj orzechy i pokrojone owoce.",
+			"ingredients": [
+				{
+					"name": "Skyr naturalny",
+					"amount": 150.0
+				},
+				{
+					"name": "Orzechy nerkowca (bez soli)",
+					"amount": 25.0
+				},
+				{
+					"name": "Jabłko",
+					"amount": 150.0
+				}
+			]
+		},
+		{
+			"name": "Spaghetti a'la carbonara",
+			"type": "lunch",
+			"preparation": "1. Makaron ugotuj według instrukcji na opakowaniu.\n2. Na patelni rozgrzej olej i podsmaż przeciśnięty przez praskę czosnek wraz z posiekanymi ziołami (opcjonalnie).\n3. Jajko wbij do miski, dopraw solą, pieprzem i roztrzep widelcem.\n4. Na patelnię dodaj pokrojone w kostkę mięso i delikatnie podsmaż.\n5. Gdy mięso się zarumieni, wrzuć ugotowany makaron i całość wymieszaj.\n6. Odstaw patelnię z kuchenki, dodaj połowę sera i ponownie przemieszaj.\n7. Makaron polej jajkami i szybko wymieszaj.\n8. Pamiętaj, że jajka nie mogą się ściąć, tylko muszą utworzyć kremowy sos.\n9. Przełóż makaron na talerz i posyp resztą tartego sera.",
+			"ingredients": [
+				{
+					"name": "Makaron pełnoziarnisty",
+					"amount": 60.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Filet z kurczaka (wędzony)",
+					"amount": 60.0
+				},
+				{
+					"name": "Ser, parmezan",
+					"amount": 8.0
+				},
+				{
+					"name": "Pietruszka, liście",
+					"amount": 6.0
+				}
+			]
+		},
+		{
+			"name": "Placuszki serowe z malinami",
+			"type": "dinner",
+			"preparation": "1. Do miski dodaj twaróg i zgnieć go widelcem, dodaj jajko, mąkę, słodzidło i ekstrakt waniliowy, całość dokładnie zagnieć.\n2. Powstałe ciasto podziel na kawałki, uformuj mniejsze kulki.\n3. Na patelni rozgrzej olej i smaż kulki z obu stron na małym ogniu, pod przykryciem.\n4. Do garnka dodaj owoce, opcjonalnie słodzidło i gotuj.\n5. Placuszki przełóż na talerz, podawaj z owocami i miętą (opcjonalnie).",
+			"ingredients": [
+				{
+					"name": "Ser twarogowy półtłusty",
+					"amount": 125.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 35.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Ekstrakt waniliowy (bez alkoholu)",
+					"amount": 3.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 1.0
+				},
+				{
+					"name": "Mrożone maliny",
+					"amount": 40.0
+				}
+			]
+		},
+		{
+			"name": "Omlet z brokułami i parmezanem",
+			"type": "breakfast",
+			"preparation": "1. Na patelni rozgrzej olej i podsmaż pokrojone na małe różyczki brokuły.\n2. Jajka wbij do miski, dokładnie wymieszaj i wlej na patelnię, gdy brokuły delikatnie zmiękną.\n3. Dodaj pokrojony na małe kawałki ser i przykryj patelnię pokrywką.\n4. Smaż do momentu, aż wierzch omletu się zetnie, nie obracaj.\n5. Gotowy omlet przekrój na cztery kawałki i podaj z pieczywem oraz pomidorami.",
+			"ingredients": [
+				{
+					"name": "Jaja kurze całe",
+					"amount": 2.0
+				},
+				{
+					"name": "Brokuły",
+					"amount": 100.0
+				},
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 30.0
+				},
+				{
+					"name": "Ser, parmezan",
+					"amount": 10.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Pomidory koktajlowe",
+					"amount": 100.0
+				}
+			]
+		},
+		{
+			"name": "Królewskie mleczko w słoiczku",
+			"type": "second_breakfast",
+			"preparation": "1. Ubij śmietanę na puszystą pianę.\n2. Dodaj jogurt i słodzidło, całość zmiksuj.\n3. Masę przełóż do słoiczka i umieść w lodówce.\n4. W międzyczasie, czekoladę rozpuść w kąpieli wodnej z odrobiną mleka.\n5. Polej masę czekoladą i umieść w lodówce na minimum 2 godziny.",
+			"ingredients": [
+				{
+					"name": "Śmietanka w kartoniku 12%",
+					"amount": 30.0
+				},
+				{
+					"name": "Skyr waniliowy, Piątnica",
+					"amount": 150.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Czekolada mleczna",
+					"amount": 12.0
+				},
+				{
+					"name": "Czekolada gorzka",
+					"amount": 12.0
+				},
+				{
+					"name": "Napój sojowy Alpro bez cukru",
+					"amount": 15.0
+				}
+			]
+		},
+		{
+			"name": "Pieczone pulpeciki podane z batatami i burakiem",
+			"type": "lunch",
+			"preparation": "1. Batata obierz, pokrój na frytki, wymieszaj z olejem i przyprawami: sól, pieprz i słodka papryka.\n2. Frytki przełóż na blaszkę pokrytą papierem do pieczenia i piecz w 220 stopniach przez około 25-30 minut.\n3. Cebulę pokrój w drobną kostkę i podsmaż na patelni z dodatkiem oleju.\n4. Mięso przełóż do miski, dodaj cebulę, mąkę i przyprawy: sól, pieprz, czosnek granulowany i oregano.\n5. Dokładnie wymieszaj i uformuj małe pulpety. Przełóż je do piekarnika 20 minut przed końcem pieczenia batatów.\n6. Ugotowane buraki pokrój w większą kostkę.\n7. Pieczone pulpeciki podaj z frytkami z batatów, z burakami i całość posyp świeżymi ziołami.",
+			"ingredients": [
+				{
+					"name": "Batat",
+					"amount": 200.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 2.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 50.0
+				},
+				{
+					"name": "Mięso mielone z kurczaka",
+					"amount": 110.0
+				},
+				{
+					"name": "Mąka pszenna, typ 1850",
+					"amount": 15.0
+				},
+				{
+					"name": "Buraki, gotowane w wodzie",
+					"amount": 120.0
+				},
+				{
+					"name": "Pietruszka, liście",
+					"amount": 6.0
+				}
+			]
+		},
+		{
+			"name": "Kasza manna z jabłkiem i cynamonem",
+			"type": "dinner",
+			"preparation": "1. Do garnka odmierz kaszę i mleko, a następnie przełóż na kuchenkę i gotuj na średnim ogniu, cały czas mieszając, do momentu, aż kaszka zgęstnieje.\n2. Dodaj słodzidło - ilość dopasuj do swoich preferencji.\n3. Owoce umyj, pokrój w kostkę a następnie przełóż do drugiego garnka i podpraż do momentu, aż zmiękną.\n4. Dodaj cynamon i dokładnie wymieszaj.\n5. Kaszkę przełóż do miski, dodaj jogurt, masło orzechowe i prażone owoce.",
+			"ingredients": [
+				{
+					"name": "Kasza manna",
+					"amount": 30.0
+				},
+				{
+					"name": "Napój sojowy Alpro bez cukru",
+					"amount": 180.0
+				},
+				{
+					"name": "Erytrol",
+					"amount": 5.0
+				},
+				{
+					"name": "Jabłko",
+					"amount": 150.0
+				},
+				{
+					"name": "Cynamon",
+					"amount": 2.0
+				},
+				{
+					"name": "Skyr naturalny",
+					"amount": 75.0
+				},
+				{
+					"name": "Masło orzechowe",
+					"amount": 12.0
+				}
+			]
+		},
+		{
+			"name": "Bajgiel z awokado, łososiem i rzodkiewką",
+			"type": "breakfast",
+			"preparation": "1. Awokado pokrój w plastry i nałóż na pieczywo.\n2. Dopraw do smaku solą, pieprzem, czosnkiem granulowanym i płatkami chili.\n3. Na górę dodaj plastry ryby i pokrojone warzywa.",
+			"ingredients": [
+				{
+					"name": "Bajgiel",
+					"amount": 1.0
+				},
+				{
+					"name": "Awokado",
+					"amount": 70.0
+				},
+				{
+					"name": "Łosoś wędzony na zimno",
+					"amount": 30.0
+				},
+				{
+					"name": "Rzodkiewka",
+					"amount": 30.0
+				}
+			]
+		},
+		{
+			"name": "Zupa krem z kalafiora",
+			"type": "second_breakfast",
+			"preparation": "1. Zeszklij drobno posiekaną cebulę w garnku.\n2. Dodaj pokrojonego w kostkę pozostałe warzywa.\n3. Zalej całość bulionem i mlekiem, gotuj ok. 25 min aż warzywa zmiękną.\n4. Zmiksuj zupę na krem i podaj z grzanką.\n\nWskazówki:\n- Bulion warzywny możesz zrobić samodzielnie, gotując warzywa, lub wykorzystać bulion w słoiczku z Winiary, który ma znacznie lepszy skład niż popularne kostki rosołowe.\n\nKroki opisują cały przepis z jadłospisu (2 porcje); ilości składników są na 1 porcję.",
+			"ingredients": [
+				{
+					"name": "Bulion warzywny (domowy)",
+					"amount": 125.0
+				},
+				{
+					"name": "Napój sojowy Alpro bez cukru",
+					"amount": 125.0
+				},
+				{
+					"name": "Kalafior",
+					"amount": 200.0
+				},
+				{
+					"name": "Ziemniaki",
+					"amount": 35.0
+				},
+				{
+					"name": "Seler korzeniowy",
+					"amount": 30.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 25.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 10.0
+				},
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 30.0
+				}
+			]
+		},
+		{
+			"name": "Łosoś na duszonych warzywach z frytkami z batatów",
+			"type": "lunch",
+			"preparation": "1. Bataty umyj, pokrój na frytki, dopraw solą, pieprzem, słodką papryką, polej oliwą i przełóż na blaszkę wyłożoną papierem do pieczenia.\n2. Piecz w 220 stopniach przez około 30 minut.\n3. Rybę umyj, dopraw solą, pieprzem i dodaj do piekarnika 15 minut przed końcem pieczenia.\n4. Na patelni podduś pokrojone warzywa.\n5. Rybę podaj na duszonych warzywach w towarzystwie frytek z batatów.\n\nWskazówki:\n- Tańszą opcją łososia jest pstrąg łososiowy.",
+			"ingredients": [
+				{
+					"name": "Batat",
+					"amount": 100.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 3.0
+				},
+				{
+					"name": "Łosoś, świeży",
+					"amount": 120.0
+				},
+				{
+					"name": "Cukinia",
+					"amount": 150.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 25.0
+				},
+				{
+					"name": "Papryka czerwona",
+					"amount": 150.0
+				}
+			]
+		},
+		{
+			"name": "Kurczakburger z frytkami",
+			"type": "dinner",
+			"preparation": "1. Ziemniaki pokrój w frytki, dopraw solą, pieprzem i słodką papryką.\n2. Polej oliwą i upiecz w 220 stopniach, około 25 minut.\n3. Mięso rozbij na płasko, dopraw dowolnymi przyprawami i podsmaż na patelni z dwóch stron.\n4. Pieczywo przekrój na pół i podgrzej obie połówki na suchej patelni, a następnie posmaruj je keczupem.\n5. Na jedną połówkę nałóż mięso i pokrojone warzywa, przykryj drugą połową bułki.\n6. Burgera podaj z frytkami.",
+			"ingredients": [
+				{
+					"name": "Ziemniaki",
+					"amount": 70.0
+				},
+				{
+					"name": "Pomidor",
+					"amount": 70.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 100.0
+				},
+				{
+					"name": "Bułka żytnia",
+					"amount": 1.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 40.0
+				},
+				{
+					"name": "Keczup",
+					"amount": 15.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 3.0
+				}
+			]
+		},
+		{
+			"name": "Pieczona owsianka sernikobrownie z malinami",
+			"type": "breakfast",
+			"preparation": "1. Do miski dodaj płatki, mleko, banana, kakao, słodzidło (2/3 porcji) i proszek do pieczenia, całość zblenduj.\n2. W drugiej misce wymieszaj zblendowany twaróg ze skyrem i pozostałym słodzidłem.\n3. Do naczynia żaroodpornego wylej masę czekoladową, na to masę waniliową, dodaj owoce i posiekaną czekoladę. Piecz w 180 stopniach przez 50 minut.\n\nKroki opisują cały przepis z jadłospisu (2 porcje); ilości składników są na 1 porcję.",
+			"ingredients": [
+				{
+					"name": "Płatki owsiane",
+					"amount": 40.0
+				},
+				{
+					"name": "Napój sojowy Alpro bez cukru",
+					"amount": 85.0
+				},
+				{
+					"name": "Banan",
+					"amount": 60.0
+				},
+				{
+					"name": "Kakao 16% tłuszczu",
+					"amount": 7.5
+				},
+				{
+					"name": "Erytrol",
+					"amount": 7.5
+				},
+				{
+					"name": "Proszek do pieczenia",
+					"amount": 0.8
+				},
+				{
+					"name": "Ser twarogowy półtłusty",
+					"amount": 25.0
+				},
+				{
+					"name": "Skyr waniliowy, Piątnica",
+					"amount": 37.5
+				},
+				{
+					"name": "Mrożone maliny",
+					"amount": 60.0
+				},
+				{
+					"name": "Czekolada gorzka",
+					"amount": 6.0
+				}
+			]
+		},
+		{
+			"name": "Sałatka z brokułem, jajkiem i kukurydzą",
+			"type": "second_breakfast",
+			"preparation": "1. Brokuły ugotuj w osolonej wodzie.\n2. Jajko ugotuj na twardo.\n3. Słonecznik upraż na suchej patelni.\n4. Sałatę posiekaj, cebulę pokrój w drobną kostkę, jajko w nieco większą.\n5. Przygotuj sos - wymieszaj majonez, musztardę, sok z cytryny, słodzidło, czosnek granulowany, sól i pieprz.\n6. Dodaj do miski wszystkie składniki, sałatkę polej sosem i wymieszaj.",
+			"ingredients": [
+				{
+					"name": "Brokuły",
+					"amount": 100.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Słonecznik, nasiona, łuskane",
+					"amount": 5.0
+				},
+				{
+					"name": "Sałata rzymska",
+					"amount": 105.0
+				},
+				{
+					"name": "Cebula czerwona",
+					"amount": 25.0
+				},
+				{
+					"name": "Kukurydza, konserwowa",
+					"amount": 40.0
+				},
+				{
+					"name": "Majonez sałatkowy wegański, Go Vege",
+					"amount": 10.0
+				},
+				{
+					"name": "Musztarda",
+					"amount": 10.0
+				},
+				{
+					"name": "Sok cytrynowy",
+					"amount": 18.0
+				},
+				{
+					"name": "Miód pszczeli",
+					"amount": 12.0
+				}
+			]
+		},
+		{
+			"name": "Orzo z kurczakiem i groszkiem",
+			"type": "lunch",
+			"preparation": "1. Na oliwie podsmaż pokrojone w kostkę mięso i cebulę.\n2. Dodaj przyprawy (sól, pieprz, czosnek, oregano), groszek, makaron i podsmaż.\n3. Dodaj bulion i gotuj aż makaron stanie się miękki.\n4. Dodaj serek i dopraw całość do smaku, wymieszaj.\n5. Posyp świeżymi ziołami.",
+			"ingredients": [
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 10.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 100.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 25.0
+				},
+				{
+					"name": "Groszek zielony, mrożony",
+					"amount": 60.0
+				},
+				{
+					"name": "Makaron orzo (w kształcie ryżu)",
+					"amount": 45.0
+				},
+				{
+					"name": "Bulion warzywny (domowy)",
+					"amount": 150.0
+				},
+				{
+					"name": "Serek śmietankowy",
+					"amount": 15.0
+				},
+				{
+					"name": "Bazylia (świeża)",
+					"amount": 3.0
+				}
+			]
+		},
+		{
+			"name": "Sałatka letnia ze szparagami",
+			"type": "dinner",
+			"preparation": "1. Szparagi umyj, odłam z nich twarde końce a następnie ugotuj je na parze do miękkości.\n2. Jajko ugotuj na twardo.\n3. Do miski dodaj posiekaną sałatę, jogurt, musztardę, sól, pieprz, czosnek granulowany i całość dokładnie wymieszaj.\n4. Dodaj pokrojoną w kostkę paprykę i ser.\n5. Na górę sałatki dodaj ugotowane i pokrojone na mniejsze kawałki szparagi.\n6. Jajko obierz ze skorupki, pokrój na cztery części i dodaj na sałatę.\n7. Pieczywo podpiecz na grzanki.\n8. Letnią sałatkę podawaj z grzankami.",
+			"ingredients": [
+				{
+					"name": "Szparagi",
+					"amount": 120.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Sałata rzymska",
+					"amount": 70.0
+				},
+				{
+					"name": "Jogurt grecki light",
+					"amount": 40.0
+				},
+				{
+					"name": "Musztarda",
+					"amount": 20.0
+				},
+				{
+					"name": "Papryka czerwona",
+					"amount": 75.0
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 62.0
+				},
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 30.0
+				}
+			]
+		},
+		{
+			"name": "Śniadaniowy burger z omletem",
+			"type": "breakfast",
+			"preparation": "1. Bułkę przekrój na pół i podgrzej na suchej patelni z dwóch stron.\n2. Jajka wbij do miseczki, dopraw solą i dokładnie wymieszaj.\n3. Opcjonalnie do jajek możesz dodać posiekane zioła.\n4. Na patelni rozgrzej odrobinę oleju i smaż jajko w postaci omletu z dwóch stron.\n5. Bułkę posmaruj hummusem, nałóż sałatę, paski warzyw i omlet (złóż go na pół i ponownie na pół).\n6. Przykryj drugą połówką bułki.",
+			"ingredients": [
+				{
+					"name": "Bułka żytnia",
+					"amount": 1.0
+				},
+				{
+					"name": "Jaja kurze całe",
+					"amount": 1.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 2.5
+				},
+				{
+					"name": "Hummus",
+					"amount": 25.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 10.0
+				},
+				{
+					"name": "Papryka czerwona",
+					"amount": 75.0
+				}
+			]
+		},
+		{
+			"name": "Grzanki z łososiem i szparagami",
+			"type": "second_breakfast",
+			"preparation": "1. Odłam twarde końcówki szparagów i ugrilluj je na patelni posmarowanej oliwą aż zmiękną.\n2. Przygotuj grzanki w tosterze lub na suchej patelni.\n3. Grzanki posmaruj serkiem, na wierzchu ułóż plastry ryby oraz kawałki grillowanych szparagów.\n4. Wierzch posyp posiekanymi ziołami.",
+			"ingredients": [
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 60.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 3.0
+				},
+				{
+					"name": "Łosoś wędzony na zimno",
+					"amount": 50.0
+				},
+				{
+					"name": "Szparagi",
+					"amount": 60.0
+				},
+				{
+					"name": "Serek śmietankowy",
+					"amount": 20.0
+				},
+				{
+					"name": "Koper (w pęczkach)",
+					"amount": 2.5
+				}
+			]
+		},
+		{
+			"name": "Bowl z kurczakiem i pieczonym kalafiorem",
+			"type": "lunch",
+			"preparation": "1. Warzywa i mięso pokrój na mniejsze kawałki.\n2. Całość przełóż na blaszkę wyłożoną papierem do pieczenia, polej oliwą, dopraw solą, pieprzem i ulubionymi przyprawami.\n3. Piecz w 220 stopniach przez 30-40 minut.\n4. Przełóż wszystko do miski z dodatkiem sałaty.",
+			"ingredients": [
+				{
+					"name": "Batat",
+					"amount": 200.0
+				},
+				{
+					"name": "Kalafior",
+					"amount": 150.0
+				},
+				{
+					"name": "Papryka czerwona",
+					"amount": 75.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 120.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 10.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				}
+			]
+		},
+		{
+			"name": "Sałatka makaronowa z orzo i kurczakiem",
+			"type": "dinner",
+			"preparation": "1. Makaron ugotuj według instrukcji na opakowaniu.\n2. Na patelni rozgrzej olej.\n3. Mięso pokrój w kostkę, dopraw solą, pieprzem, papryką słodką i ostrą, wymieszaj i podsmaż na patelni.\n4. Warzywa pokrój w drobną kostkę.\n5. Do miski dodaj ugotowany makaron, mięso i warzywa.\n6. Polej sosem przygotowanym na bazie jogurtu, majonezu i musztardy, a następnie całość wymieszaj.",
+			"ingredients": [
+				{
+					"name": "Makaron orzo (w kształcie ryżu)",
+					"amount": 30.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 80.0
+				},
+				{
+					"name": "Papryka czerwona",
+					"amount": 75.0
+				},
+				{
+					"name": "Ogórek",
+					"amount": 40.0
+				},
+				{
+					"name": "Jogurt grecki light",
+					"amount": 20.0
+				},
+				{
+					"name": "Majonez sałatkowy wegański, Go Vege",
+					"amount": 10.0
+				},
+				{
+					"name": "Musztarda",
+					"amount": 10.0
+				},
+				{
+					"name": "Kukurydza, konserwowa",
+					"amount": 45.0
+				}
+			]
+		},
+		{
+			"name": "Omlet z warzywami",
+			"type": "breakfast",
+			"preparation": "1. Do miski wbij jajka, dodaj pokrojone drobno warzywa - całość dokładnie wymieszaj i dopraw solą, pieprzem i oregano.\n2. Powstałą masę usmaż w postaci omletu na dobrze rozgrzanej patelni z dodatkiem oleju, kilka minut z każdej strony.\n3. Gotowy omlet przełóż na talerz, podaj z pieczywem i sałatą.",
+			"ingredients": [
+				{
+					"name": "Jaja kurze całe",
+					"amount": 2.0
+				},
+				{
+					"name": "Cukinia",
+					"amount": 150.0
+				},
+				{
+					"name": "Pieczarka uprawna, świeża",
+					"amount": 120.0
+				},
+				{
+					"name": "Papryka czerwona",
+					"amount": 150.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Chleb żytni na zakwasie",
+					"amount": 30.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				}
+			]
+		},
+		{
+			"name": "Mus czekoladowy",
+			"type": "second_breakfast",
+			"preparation": "1. Żelatynę rozpuść w gorącej wodzie i pozostaw do ostygnięcia.\n2. Do miski dodaj mleko (200 ml) i śnieżkę, ubij na puszystą masę.\n3. Dodaj pudding i kakao, miksuj stopniowo dolewając żelatynę, do połączenia składników.\n4. Przelej do pucharków i umieść w lodówce na kilka godzin.\n5. Udekoruj kakao i borówkami.\n\nKroki opisują cały przepis z jadłospisu (2 porcje); ilości składników są na 1 porcję.",
+			"ingredients": [
+				{
+					"name": "Żelatyna",
+					"amount": 6.0
+				},
+				{
+					"name": "Woda",
+					"amount": 25.0
+				},
+				{
+					"name": "Śnieżna chmurka dr. Oetker",
+					"amount": 30.0
+				},
+				{
+					"name": "Pudding proteinowy, czekoladowy, Go Active",
+					"amount": 100.0
+				},
+				{
+					"name": "Kakao 16% tłuszczu",
+					"amount": 20.0
+				},
+				{
+					"name": "Borówki amerykańskie",
+					"amount": 100.0
+				}
+			]
+		},
+		{
+			"name": "Jednogarnkowe tagliatelle z kurczakiem",
+			"type": "lunch",
+			"preparation": "1. Na patelni z dodatkiem oliwy podsmaż mięso zamarynowane w ulubionych przyprawach.\n2. Mięso odstaw, na tej samej patelni podsmaż pokrojone warzywa.\n3. Dodaj wodę, śmietankę, czosnek, słodką paprykę, bazylię, sól i pieprz, całość wymieszaj.\n4. Dodaj makaron i gotuj do czasu, aż wchłonie nadmiar płynu.\n5. Dodaj pokrojone w plastry mięso, posyp serem i posiekanymi ziołami.",
+			"ingredients": [
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 5.0
+				},
+				{
+					"name": "Mięso z piersi kurczaka, bez skóry",
+					"amount": 60.0
+				},
+				{
+					"name": "Czosnek",
+					"amount": 5.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 50.0
+				},
+				{
+					"name": "Pieczarka uprawna, świeża",
+					"amount": 80.0
+				},
+				{
+					"name": "Woda",
+					"amount": 100.0
+				},
+				{
+					"name": "Śmietanka w kartoniku 12%",
+					"amount": 20.0
+				},
+				{
+					"name": "Makaron pełnoziarnisty",
+					"amount": 50.0
+				},
+				{
+					"name": "Mozzarella light",
+					"amount": 62.0
+				},
+				{
+					"name": "Pietruszka, liście",
+					"amount": 12.0
+				}
+			]
+		},
+		{
+			"name": "Fishburger",
+			"type": "dinner",
+			"preparation": "1. Rybę umieść w misce.\n2. Dodaj jogurt (1 łyżka), oliwę, sól, pieprz i paprykę słodką, całość wymieszaj.\n3. Rybę obtocz w pokruszonych płatkach.\n4. Przełóż na blachę do pieczenia i piecz przez ok. 25 minut w 180 stopniach.\n5. Przygotuj sos tatarski - wymieszaj jogurt, majonez, sok z cytryny, sól i pieprz oraz posiekane: cebulę, koperek i ogórek.\n6. Bułkę przekrój na pół i posmaruj spód sosem.\n7. Dodaj sałatę i ułóż na niej upieczone filety.\n8. Następnie dodaj pokrojonego w plastry pomidora.\n9. Przykryj drugą połową bułki.",
+			"ingredients": [
+				{
+					"name": "Dorsz, świeży",
+					"amount": 70.0
+				},
+				{
+					"name": "Oliwa z oliwek",
+					"amount": 3.0
+				},
+				{
+					"name": "Płatki kukurydziane",
+					"amount": 7.0
+				},
+				{
+					"name": "Jogurt grecki light",
+					"amount": 40.0
+				},
+				{
+					"name": "Majonez sałatkowy wegański, Go Vege",
+					"amount": 10.0
+				},
+				{
+					"name": "Sok cytrynowy",
+					"amount": 12.0
+				},
+				{
+					"name": "Cebula",
+					"amount": 25.0
+				},
+				{
+					"name": "Ogórek kwaszony",
+					"amount": 60.0
+				},
+				{
+					"name": "Koper (w pęczkach)",
+					"amount": 2.5
+				},
+				{
+					"name": "Bułka żytnia",
+					"amount": 1.0
+				},
+				{
+					"name": "Rukola",
+					"amount": 20.0
+				},
+				{
+					"name": "Pomidor",
+					"amount": 70.0
+				}
+			]
+		}
+	]
+}

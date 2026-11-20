@@ -15,6 +15,9 @@
 		const base = mealNutrition(meal.items);
 		return Object.fromEntries(users.map((u) => [u.key, forUser(base, u.multiplier)]));
 	});
+
+	/** Multiplier for cooking everyone's portions at once. */
+	const totalMultiplier = users.reduce((sum, u) => sum + u.multiplier, 0);
 </script>
 
 <svelte:head>
@@ -51,6 +54,7 @@
 					{#each users as user (user.key)}
 						<th scope="col" class="amount" style:color={user.color}>{user.name}</th>
 					{/each}
+					<th scope="col" class="amount total">{pl.meals.amountsTotal}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -63,6 +67,10 @@
 								{pl.units[item.ingredient.unit]}
 							</td>
 						{/each}
+						<td class="amount total">
+							{formatAmount(item.amount * totalMultiplier, item.ingredient.unit)}
+							{pl.units[item.ingredient.unit]}
+						</td>
 					</tr>
 				{/each}
 			</tbody>
@@ -161,6 +169,9 @@
 		text-align: right;
 		white-space: nowrap;
 		font-variant-numeric: tabular-nums;
+	}
+	.amounts .total {
+		font-weight: 700;
 	}
 	.preparation {
 		margin: 0;

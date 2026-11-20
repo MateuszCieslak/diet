@@ -108,6 +108,7 @@ export const pl = {
 		preparation: 'Przygotowanie',
 		preparationPlaceholder: 'Opisz kolejne kroki…',
 		amountsPerUser: 'Ilości na osobę',
+		amountsTotal: 'Razem',
 		ingredient: 'Składnik',
 		nutrition: 'Wartości odżywcze',
 		delete: 'Usuń posiłek',
