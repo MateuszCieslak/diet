@@ -22,7 +22,8 @@ export const pl = {
 		maxLength: (max: number) => `Najwyżej ${max} znaków`,
 		max: (max: string) => `Wartość nie może być większa niż ${max}`,
 		invalid: 'Nieprawidłowa wartość',
-		nameTaken: 'Posiłek o tej nazwie już istnieje'
+		nameTaken: 'Posiłek o tej nazwie już istnieje',
+		nothingSelected: 'Wybierz co najmniej jeden posiłek'
 	},
 	nav: {
 		label: 'Nawigacja główna',
@@ -137,6 +138,25 @@ export const pl = {
 		tapToAdd: 'Dotknij, aby dodać',
 		actionFailed: 'Nie udało się zapisać zmiany. Odśwież stronę i spróbuj ponownie.',
 		mealMissing: 'Tego posiłku już nie ma.'
+	},
+	shoppingFromPlan: {
+		title: 'Lista z planu',
+		selectDay: (day: string) => `Wybierz cały dzień: ${day}`,
+		selected: (count: number) =>
+			count === 1
+				? '1 posiłek'
+				: count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 12 || count % 100 > 14)
+					? `${count} posiłki`
+					: `${count} posiłków`,
+		create: 'Utwórz listę zakupów',
+		empty: 'Od dziś nie ma zaplanowanych posiłków.',
+		goToPlan: 'Przejdź do planu',
+		modeTitle: 'Na liście są niekupione produkty',
+		modeNote:
+			'Połącz: dodaj nowe ilości do obecnej listy. Zastąp: wyczyść listę i utwórz ją od nowa.',
+		merge: 'Połącz',
+		replace: 'Zastąp',
+		failed: 'Nie udało się utworzyć listy. Odśwież stronę i spróbuj ponownie.'
 	},
 	nutrition: {
 		person: 'Osoba',
