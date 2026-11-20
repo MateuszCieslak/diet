@@ -195,6 +195,8 @@ export const pl = {
 		tick: (name: string) => `Oznacz jako kupione: ${name}`,
 		untick: (name: string) => `Przywróć na listę: ${name}`,
 		editAmount: (name: string) => `Zmień ilość: ${name}`,
+		addAmount: (name: string) => `Dodaj ilość: ${name}`,
+		addAmountPill: '+ ilość',
 		amountFor: (name: string) => `Ilość: ${name}`,
 		saveFailed: 'Nie udało się zapisać zmiany. Sprawdź połączenie i spróbuj ponownie.',
 		addFailed: 'Nie udało się dodać pozycji. Sprawdź połączenie i spróbuj ponownie.'

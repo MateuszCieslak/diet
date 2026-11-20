@@ -4,6 +4,7 @@
 	import CheckIcon from '$lib/components/icons/CheckIcon.svelte';
 	import PlusIcon from '$lib/components/icons/PlusIcon.svelte';
 	import { units } from '$lib/config/units';
+	import AmountPill from '$lib/components/AmountPill.svelte';
 	import { pl } from '$lib/i18n/pl';
 	import { createListPoller } from '$lib/list-poller';
 	import { formatAmount } from '$lib/nutrition';
@@ -364,14 +365,12 @@
 									else if (e.key === 'Escape') stopEditing();
 								}}
 							/>
-						{:else if item.amount !== null}
-							<button
-								class="pill"
-								aria-label={pl.shopping.editAmount(item.name)}
+						{:else}
+							<AmountPill
+								name={item.name}
+								text={amountText(item)}
 								onclick={() => startEditing(item)}
-							>
-								{amountText(item)}
-							</button>
+							/>
 						{/if}
 					</li>
 					{#if editingId === item.id && amountError}
@@ -623,33 +622,16 @@
 		color: var(--color-muted);
 		text-decoration: line-through;
 	}
-	.pill,
 	.amount-edit {
-		min-width: 64px;
+		width: 88px;
 		height: 36px;
 		margin-right: var(--space-2);
 		padding: 0 10px;
-		border: 1px solid var(--color-border);
+		border: 1px solid var(--color-accent);
 		border-radius: var(--radius-sm);
 		background: var(--color-bg);
 		color: var(--color-ink);
 		font-weight: 600;
-		white-space: nowrap;
-	}
-	.pill {
-		/* The pill stays 36px tall in the row; the hit area is padded out to 44px. */
-		position: relative;
-		font-size: var(--font-size-secondary);
-		cursor: pointer;
-	}
-	.pill::before {
-		position: absolute;
-		inset: -4px;
-		content: '';
-	}
-	.amount-edit {
-		width: 88px;
-		border-color: var(--color-accent);
 	}
 	.amount-edit[aria-invalid='true'] {
 		border-color: var(--color-danger);
