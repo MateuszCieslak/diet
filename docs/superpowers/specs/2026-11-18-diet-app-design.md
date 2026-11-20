@@ -410,18 +410,21 @@ drizzle/                          generated migrations
 
 ## CI/CD
 
-**Now:** GitHub Actions on push and pull request: `pnpm install --frozen-lockfile`, oxlint,
-`prettier --check`, `svelte-check`, Vitest (with Playwright browsers for browser mode), `pnpm build`.
-No deploy job.
+Job `ci` on every push and pull request: `pnpm install --frozen-lockfile`, oxlint, `prettier --check`,
+`svelte-check`, Vitest (with Playwright browsers for browser mode), `pnpm build`.
 
-**Deferred to the beta phase (out of scope for this design):** deploying to the VPS (upload `build/`
-over SSH, run migrations, restart PM2), server provisioning, and choosing the deploy branch. Until
-then, the builder only keeps the app deployable: adapter-node build, configuration through env vars,
-and migrations as plain SQL files in `drizzle/`.
+Job `deploy` after `ci`, on pushes to `master` only (GitHub environment `production`, one deploy at a
+time): build, pack a release tarball (`build/`, `drizzle/`, `scripts/`, `package.json`, lockfile and
+production `node_modules` installed on the runner), copy it to the VPS with `appleboy/scp-action`, then
+with `appleboy/ssh-action`: unpack to `releases/<sha>`, run `scripts/migrate.js` (drizzle's mysql2
+migrator; same tracking table as `drizzle-kit migrate`, so drizzle-kit is not needed on the server),
+switch the `current` symlink, run the configured restart command, keep the last 5 releases. Because the
+release ships its own `node_modules`, `drizzle-orm` and `mysql2` are runtime `dependencies`.
 
-When deploying, the server configuration (not the repo) must also set adapter-node's `ORIGIN` (the
-public URL; without it form actions fail behind the proxy), `ADDRESS_HEADER=X-Forwarded-For` (the real
-client IP for login throttling) and, if 3000 is taken, `PORT`.
+The server's `shared/.env` holds the app environment, including adapter-node's `ORIGIN` (the public URL;
+without it form actions fail behind the proxy), `ADDRESS_HEADER=X-Forwarded-For` (the real client IP for
+login throttling) and, if 3000 is taken, `PORT`. Secrets, variables and server requirements are listed
+in `AGENTS.md` ("Deployment"). Server provisioning (nginx, TLS, the service definition) stays manual.
 
 ## Left to the builder
 

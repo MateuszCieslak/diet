@@ -20,7 +20,7 @@ write down recipe for the meal or create shopping list.
 - **E2E tests:** None for now (may add Playwright later).
 - **Package manager:** pnpm 10 (pinned in `package.json`).
 - **Runtime:** Node 22 LTS (`engines.node: ">=22"` in `package.json`).
-- **CI/CD:** GitHub Actions: lint, test, build. Deployment (copy `build/` to the VPS over SSH and restart the app process under PM2/systemd) is planned for the beta phase and not set up yet.
+- **CI/CD:** GitHub Actions (`.github/workflows/ci.yml`). Job `ci` runs on every push and pull request: lint, format check, type check, tests, build. Job `deploy` runs after it on pushes to `master`: builds, packs a self-contained release (`build/`, `drizzle/`, `scripts/`, production `node_modules`), copies it with `appleboy/scp-action`, then over `appleboy/ssh-action` applies migrations (`scripts/migrate.js`), switches the `current` symlink and restarts the service. Details in the "Deployment" section.
 - **Database:** MySQL.
 - **Data access:** Drizzle ORM (`drizzle-orm/mysql2` driver); schema defined in TypeScript, migrations generated with `drizzle-kit` and reviewed before applying.
 - **Hosting:** Self-managed VPS (owned by the project author). Built with `@sveltejs/adapter-node`, run as a plain Node process under PM2/systemd (no Docker).
@@ -134,3 +134,36 @@ src/
 drizzle/                     generated SQL migrations (reviewed before applying)
 docs/                        idea.md (product), superpowers/specs (technical design), superpowers/plans
 ```
+
+## Deployment
+
+Pushing to `master` deploys to the VPS when the `ci` job passes.
+
+**GitHub configuration** (repository settings, environment `production`):
+
+| Name | Kind | Value |
+|---|---|---|
+| `VPS_HOST` | secret | server host name or IP |
+| `VPS_USER` | secret | SSH user that owns `DEPLOY_PATH` |
+| `VPS_SSH_KEY` | secret | private key for that user |
+| `VPS_PORT` | secret (optional) | SSH port, default 22 |
+| `DEPLOY_PATH` | variable | app directory on the server, e.g. `/srv/diet` |
+| `RESTART_COMMAND` | variable | e.g. `pm2 reload diet` or `sudo systemctl restart diet` |
+
+**Server layout** under `DEPLOY_PATH`:
+
+- `shared/.env`: the app's environment (`DATABASE_URL`, `APP_PASSWORD`, `SESSION_SECRET`, `PHOTOS_DIR`,
+  `TZ`, `BODY_SIZE_LIMIT`, plus adapter-node's `ORIGIN`, `ADDRESS_HEADER=X-Forwarded-For` and `PORT` if
+  needed). Managed on the server; never deployed.
+- `releases/<commit sha>/`: one directory per deploy; the newest 5 are kept.
+- `current`: symlink to the live release.
+
+**Requirements on the server:** Node 22 on the deploy user's non-interactive `PATH`, linux-x64 (the
+release's `node_modules` is installed on the GitHub runner), and the service started from the symlink with
+the shared environment, as a **single process**, e.g.
+`node --env-file=<DEPLOY_PATH>/shared/.env <DEPLOY_PATH>/current/build` (PM2: fork mode, 1 instance).
+
+**Order of a deploy:** unpack into a new release directory → `node --env-file=shared/.env scripts/migrate.js`
+→ switch `current` → `RESTART_COMMAND` → prune old releases. If the migration fails, `current` is not
+switched and the old release keeps running. Migrations are the generated SQL files in `drizzle/`; review
+them before pushing. `scripts/migrate.js` uses the same `__drizzle_migrations` table as `pnpm db:migrate`.

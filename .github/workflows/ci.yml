@@ -21,3 +21,72 @@ jobs:
       - run: pnpm check
       - run: pnpm test
       - run: pnpm build
+
+  # Build a self-contained release (app + production node_modules + migrations), copy it to the VPS,
+  # apply migrations, switch the `current` symlink and restart. Server layout under DEPLOY_PATH:
+  #   shared/.env      environment for the app and migrations (managed on the server, never deployed)
+  #   releases/<sha>/  one directory per deploy; the last 5 are kept
+  #   current          symlink to the live release
+  deploy:
+    needs: ci
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    environment: production
+    concurrency:
+      group: deploy-production
+      cancel-in-progress: false
+    env:
+      RELEASE: diet-${{ github.sha }}.tar.gz
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+
+      - name: Pack release
+        run: |
+          mkdir release
+          cp -r build drizzle scripts package.json pnpm-lock.yaml release/
+          # Production dependencies are installed here (linux-x64, like the VPS), so the server
+          # needs only Node 22. --ignore-scripts skips the `prepare` script (svelte-kit sync).
+          (cd release && pnpm install --prod --frozen-lockfile --ignore-scripts)
+          tar -czf "$RELEASE" -C release .
+
+      - name: Copy release to the VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          source: ${{ env.RELEASE }}
+          target: ${{ vars.DEPLOY_PATH }}/incoming
+
+      - name: Migrate and restart
+        uses: appleboy/ssh-action@v1.0.3
+        env:
+          APP_DIR: ${{ vars.DEPLOY_PATH }}
+          SHA: ${{ github.sha }}
+          RESTART_COMMAND: ${{ vars.RESTART_COMMAND }}
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          envs: APP_DIR,SHA,RESTART_COMMAND,RELEASE
+          script_stop: true
+          script: |
+            set -e
+            REL="$APP_DIR/releases/$SHA"
+            mkdir -p "$REL"
+            tar -xzf "$APP_DIR/incoming/$RELEASE" -C "$REL"
+            rm -f "$APP_DIR/incoming/$RELEASE"
+            # Migrate before switching: if it fails, the old release keeps running.
+            node --env-file="$APP_DIR/shared/.env" "$REL/scripts/migrate.js"
+            ln -sfn "$REL" "$APP_DIR/current"
+            eval "$RESTART_COMMAND"
+            cd "$APP_DIR/releases" && ls -1t | tail -n +6 | xargs -r rm -rf
