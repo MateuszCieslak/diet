@@ -2,6 +2,7 @@
 export const categories = [
 	'vegetables',
 	'fruit',
+	'frozen',
 	'dairy',
 	'meat',
 	'fish',

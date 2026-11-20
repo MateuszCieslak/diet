@@ -220,6 +220,7 @@ export const pl = {
 	categories: {
 		vegetables: 'Warzywa',
 		fruit: 'Owoce',
+		frozen: 'Mrożonki',
 		dairy: 'Nabiał',
 		meat: 'Mięso',
 		fish: 'Ryby',
