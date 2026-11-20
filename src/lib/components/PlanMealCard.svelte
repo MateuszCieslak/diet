@@ -197,7 +197,12 @@
 		color: var(--color-subtle);
 	}
 	.text {
+		position: relative;
+		display: flex;
 		flex: 1;
+		flex-direction: column;
+		justify-content: center;
+		align-self: stretch;
 		min-width: 0;
 	}
 	h3 {
@@ -209,6 +214,12 @@
 	h3 a {
 		color: inherit;
 		text-decoration: none;
+	}
+	/* The whole title block is the tap target, not just the text line. */
+	h3 a::after {
+		content: '';
+		position: absolute;
+		inset: 0;
 	}
 	h3 a:hover {
 		text-decoration: underline;
