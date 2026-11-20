@@ -34,6 +34,7 @@
 	--gutter: 16px;
 
 	--font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+	--font-size-tiny: 10px;
 	--font-size-label: 12px;
 	--font-size-secondary: 14px;
 	--font-size-body: 16px;

@@ -27,6 +27,7 @@
 				"allow": ["**/*.css"]
 			}
 		],
-		"unicorn/require-module-specifiers": "off"
+		"unicorn/require-module-specifiers": "off",
+		"no-underscore-dangle": ["warn", { "allow": ["__APP_VERSION__"] }]
 	}
 }

@@ -5,6 +5,7 @@ import type { Unit } from '$lib/config/units';
 /** All user-facing strings (Polish). Later tasks add keys as they need them. */
 export const pl = {
 	appName: 'Dieta',
+	version: (version: string) => `wersja ${version}`,
 	common: {
 		close: 'Zamknij',
 		back: 'Wstecz',

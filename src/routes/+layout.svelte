@@ -47,6 +47,7 @@
 				</li>
 			{/each}
 		</ul>
+		<p class="version">{pl.version(__APP_VERSION__)}</p>
 	</nav>
 {/if}
 
@@ -55,7 +56,7 @@
 		max-width: var(--content-max-width);
 		margin: 0 auto;
 		/* Keep the last content above the fixed bottom navigation. */
-		padding-bottom: calc(64px + env(safe-area-inset-bottom));
+		padding-bottom: calc(80px + env(safe-area-inset-bottom));
 	}
 	nav {
 		position: fixed;
@@ -87,6 +88,14 @@
 	}
 	a[aria-current='page'] {
 		color: var(--color-accent);
+	}
+	.version {
+		margin: 0;
+		padding-bottom: 2px;
+		color: var(--color-subtle);
+		font-size: var(--font-size-tiny);
+		line-height: 1.2;
+		text-align: center;
 	}
 	a:focus-visible {
 		outline: 2px solid var(--color-accent);
