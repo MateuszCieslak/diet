@@ -6,6 +6,6 @@
 export type User = { key: string; name: string; multiplier: number; color: string; tint: string };
 
 export const users: readonly User[] = [
-	{ key: 'user1', name: 'Ewka', multiplier: 1.0, color: '#2457A6', tint: '#F3F6FB' },
+	{ key: 'user1', name: 'Ewelina', multiplier: 1.0, color: '#2457A6', tint: '#F3F6FB' },
 	{ key: 'user2', name: 'Mati', multiplier: 1.5, color: '#B0531A', tint: '#FBF4EF' }
 ];

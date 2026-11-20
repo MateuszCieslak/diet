@@ -9,6 +9,8 @@
 	let { data }: PageProps = $props();
 	const meal = $derived(data.meal);
 	const table = $derived(data.table);
+	// With one person eating, the total would just repeat their column.
+	const showTotal = $derived(table.columns.length > 1);
 
 	// Dates are calendar days, so format them at UTC midnight to avoid any time-zone shift.
 	const dayFormat = new Intl.DateTimeFormat('pl-PL', {
@@ -59,6 +61,9 @@
 						{#each table.columns as user (user.key)}
 							<th scope="col" class="amount" style:color={user.color}>{user.name}</th>
 						{/each}
+						{#if showTotal}
+							<th scope="col" class="amount total">{pl.cooking.total}</th>
+						{/if}
 					</tr>
 				</thead>
 				<tbody>
@@ -68,6 +73,9 @@
 							{#each row.amounts as amount, c (table.columns[c].key)}
 								<td class="amount" style:background={table.columns[c].tint}>{amount}</td>
 							{/each}
+							{#if showTotal}
+								<td class="amount total">{row.total}</td>
+							{/if}
 						</tr>
 					{/each}
 				</tbody>
@@ -77,6 +85,9 @@
 						{#each table.kcal as kcal, c (table.columns[c].key)}
 							<td class="amount" style:color={table.columns[c].color}>{kcal}</td>
 						{/each}
+						{#if showTotal}
+							<td class="amount total">{table.totalKcal}</td>
+						{/if}
 					</tr>
 				</tfoot>
 			</table>
@@ -171,6 +182,10 @@
 		text-align: right;
 		white-space: nowrap;
 		font-variant-numeric: tabular-nums;
+	}
+	.amounts .total {
+		border-left: 1px solid var(--color-divider);
+		font-weight: 700;
 	}
 	.preparation {
 		margin: 0;

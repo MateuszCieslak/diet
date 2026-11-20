@@ -107,8 +107,8 @@ export const pl = {
 		perPortion: 'Na porcję',
 		preparation: 'Przygotowanie',
 		preparationPlaceholder: 'Opisz kolejne kroki…',
-		amountsPerUser: 'Ilości na osobę',
-		amountsTotal: 'Razem',
+		amount: 'Ilość',
+		standardPortion: 'Porcja',
 		ingredient: 'Składnik',
 		nutrition: 'Wartości odżywcze',
 		delete: 'Usuń posiłek',
@@ -147,6 +147,7 @@ export const pl = {
 		ingredient: 'Składnik',
 		ingredients: 'Składniki',
 		kcalPerPortion: 'kcal / porcja',
+		total: 'Razem',
 		allExcluded: 'Nikt nie je tego posiłku. Dotknij osoby na planie, aby ją dodać.',
 		preparation: 'Przygotowanie'
 	},

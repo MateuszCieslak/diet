@@ -38,10 +38,17 @@ test('one column per included user with multiplied amounts', () => {
 	);
 	expect(t.columns.map((c) => c.key)).toEqual(['a', 'b']);
 	expect(t.rows).toEqual([
-		{ name: 'Ryż', amounts: ['70 g', '84 g'] },
-		{ name: 'Czosnek', amounts: ['1 szt.', '1,2 szt.'] }
+		{ name: 'Ryż', amounts: ['70 g', '84 g'], total: '154 g' },
+		{ name: 'Czosnek', amounts: ['1 szt.', '1,2 szt.'], total: '2,2 szt.' }
 	]);
 	expect(t.kcal).toEqual(['249', '299']); // 249 × 1.2 = 298.8 → rounds to 299
+	expect(t.totalKcal).toBe('548'); // 249 × 2.2 = 547.8
+});
+
+test('the total counts only users who eat the meal', () => {
+	const t = cookingTable({ items: [{ ingredient: rice, amount: 70 }], excludedUserKeys: ['a'] }, u);
+	expect(t.rows[0].total).toBe('84 g');
+	expect(t.totalKcal).toBe('294'); // 245 × 1.2
 });
 
 test('excluded users get no column; all excluded gives no columns', () => {

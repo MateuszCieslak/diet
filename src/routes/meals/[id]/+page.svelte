@@ -1,23 +1,16 @@
 <script lang="ts">
-	import NutritionTable from '$lib/components/NutritionTable.svelte';
 	import ArrowLeftIcon from '$lib/components/icons/ArrowLeftIcon.svelte';
 	import PencilIcon from '$lib/components/icons/PencilIcon.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
-	import { users } from '$lib/config/users';
 	import { pl } from '$lib/i18n/pl';
-	import { formatAmount, forUser, mealNutrition } from '$lib/nutrition';
+	import { formatAmount, formatKcal, formatMacro, mealNutrition } from '$lib/nutrition';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 	const meal = $derived(data.meal);
 
-	const perUser = $derived.by(() => {
-		const base = mealNutrition(meal.items);
-		return Object.fromEntries(users.map((u) => [u.key, forUser(base, u.multiplier)]));
-	});
-
-	/** Multiplier for cooking everyone's portions at once. */
-	const totalMultiplier = users.reduce((sum, u) => sum + u.multiplier, 0);
+	// The standard portion only; per-person amounts are shown for meals in the plan.
+	const nutrition = $derived(mealNutrition(meal.items));
 </script>
 
 <svelte:head>
@@ -46,29 +39,20 @@
 	</ul>
 
 	<section class="card">
-		<h2 class="section-label">{pl.meals.amountsPerUser}</h2>
+		<h2 class="section-label">{pl.meals.ingredients}</h2>
 		<table class="amounts">
 			<thead>
 				<tr>
 					<th scope="col">{pl.meals.ingredient}</th>
-					{#each users as user (user.key)}
-						<th scope="col" class="amount" style:color={user.color}>{user.name}</th>
-					{/each}
-					<th scope="col" class="amount total">{pl.meals.amountsTotal}</th>
+					<th scope="col" class="amount">{pl.meals.amount}</th>
 				</tr>
 			</thead>
 			<tbody>
 				{#each meal.items as item, i (i)}
 					<tr>
 						<th scope="row">{item.ingredient.name}</th>
-						{#each users as user (user.key)}
-							<td class="amount" style:background={user.tint}>
-								{formatAmount(item.amount * user.multiplier, item.ingredient.unit)}
-								{pl.units[item.ingredient.unit]}
-							</td>
-						{/each}
-						<td class="amount total">
-							{formatAmount(item.amount * totalMultiplier, item.ingredient.unit)}
+						<td class="amount">
+							{formatAmount(item.amount, item.ingredient.unit)}
 							{pl.units[item.ingredient.unit]}
 						</td>
 					</tr>
@@ -79,7 +63,32 @@
 
 	<section class="card">
 		<h2 class="section-label">{pl.meals.nutrition}</h2>
-		<NutritionTable {perUser} />
+		<table class="amounts nutrition">
+			<thead>
+				<tr>
+					<th scope="col"><span class="visually-hidden">{pl.meals.standardPortion}</span></th>
+					<th scope="col" class="amount">{pl.nutrition.kcal}</th>
+					<th scope="col" class="amount">
+						<abbr title={pl.nutrition.protein}>{pl.nutrition.proteinShort}</abbr>
+					</th>
+					<th scope="col" class="amount">
+						<abbr title={pl.nutrition.fat}>{pl.nutrition.fatShort}</abbr>
+					</th>
+					<th scope="col" class="amount">
+						<abbr title={pl.nutrition.carbs}>{pl.nutrition.carbsShort}</abbr>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">{pl.meals.standardPortion}</th>
+					<td class="amount kcal">{formatKcal(nutrition.kcal)}</td>
+					<td class="amount">{formatMacro(nutrition.protein)}</td>
+					<td class="amount">{formatMacro(nutrition.fat)}</td>
+					<td class="amount">{formatMacro(nutrition.carbs)}</td>
+				</tr>
+			</tbody>
+		</table>
 	</section>
 
 	{#if meal.preparation}
@@ -170,7 +179,10 @@
 		white-space: nowrap;
 		font-variant-numeric: tabular-nums;
 	}
-	.amounts .total {
+	.nutrition abbr {
+		text-decoration: none;
+	}
+	.nutrition .kcal {
 		font-weight: 700;
 	}
 	.preparation {
