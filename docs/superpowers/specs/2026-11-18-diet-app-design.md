@@ -418,7 +418,7 @@ time): build, pack a release tarball (`build/`, `drizzle/`, `scripts/`, `package
 production `node_modules` installed on the runner), copy it to the VPS with `appleboy/scp-action`, then
 with `appleboy/ssh-action`: unpack to `releases/<sha>`, run `scripts/migrate.js` (drizzle's mysql2
 migrator; same tracking table as `drizzle-kit migrate`, so drizzle-kit is not needed on the server),
-switch the `current` symlink, run the configured restart command, keep the last 5 releases. Because the
+switch the `current` symlink, restart the service (supervisor), keep the last 5 releases. Because the
 release ships its own `node_modules`, `drizzle-orm` and `mysql2` are runtime `dependencies`.
 
 The server's `shared/.env` holds the app environment, including adapter-node's `ORIGIN` (the public URL;

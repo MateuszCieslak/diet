@@ -139,31 +139,42 @@ docs/                        idea.md (product), superpowers/specs (technical des
 
 Pushing to `master` deploys to the VPS when the `ci` job passes.
 
-**GitHub configuration** (repository settings, environment `production`):
+**GitHub secrets** (environment `production`):
 
-| Name | Kind | Value |
-|---|---|---|
-| `VPS_HOST` | secret | server host name or IP |
-| `VPS_USER` | secret | SSH user that owns `DEPLOY_PATH` |
-| `VPS_SSH_KEY` | secret | private key for that user |
-| `VPS_PORT` | secret (optional) | SSH port, default 22 |
-| `DEPLOY_PATH` | variable | app directory on the server, e.g. `/srv/diet` |
-| `RESTART_COMMAND` | variable | e.g. `pm2 reload diet` or `sudo systemctl restart diet` |
+| Secret | Value |
+|---|---|
+| `HOST` | server host name or IP |
+| `USERNAME` | SSH user that owns `/var/www/diet` |
+| `SSHKEY` | private key for that user |
+| `PASSWORD` | passphrase of that key |
+| `PORT` | SSH port (optional, default 22) |
 
-**Server layout** under `DEPLOY_PATH`:
+The app directory (`/var/www/diet`) and the restart command (`sudo service supervisor restart`) are set
+in `.github/workflows/ci.yml`. The deploy user needs passwordless sudo for that command.
+
+**Server layout** under `/var/www/diet`:
 
 - `shared/.env`: the app's environment (`DATABASE_URL`, `APP_PASSWORD`, `SESSION_SECRET`, `PHOTOS_DIR`,
   `TZ`, `BODY_SIZE_LIMIT`, plus adapter-node's `ORIGIN`, `ADDRESS_HEADER=X-Forwarded-For` and `PORT` if
   needed). Managed on the server; never deployed.
+- `incoming/diet.tar.gz`: the uploaded release, deleted after unpacking.
 - `releases/<commit sha>/`: one directory per deploy; the newest 5 are kept.
+  `ls -l /var/www/diet/current` shows the live commit; to roll back, point `current` at an older
+  release and restart.
 - `current`: symlink to the live release.
 
 **Requirements on the server:** Node 22 on the deploy user's non-interactive `PATH`, linux-x64 (the
-release's `node_modules` is installed on the GitHub runner), and the service started from the symlink with
-the shared environment, as a **single process**, e.g.
-`node --env-file=<DEPLOY_PATH>/shared/.env <DEPLOY_PATH>/current/build` (PM2: fork mode, 1 instance).
+release's `node_modules` is installed on the GitHub runner), and a supervisor program that starts the app from the symlink with the shared environment, as a
+**single process** (the daily cleanup must run once):
+
+```ini
+[program:diet]
+command=node --env-file=/var/www/diet/shared/.env /var/www/diet/current/build
+directory=/var/www/diet/current
+numprocs=1
+```
 
 **Order of a deploy:** unpack into a new release directory → `node --env-file=shared/.env scripts/migrate.js`
-→ switch `current` → `RESTART_COMMAND` → prune old releases. If the migration fails, `current` is not
+→ switch `current` → restart supervisor → prune old releases. If the migration fails, `current` is not
 switched and the old release keeps running. Migrations are the generated SQL files in `drizzle/`; review
 them before pushing. `scripts/migrate.js` uses the same `__drizzle_migrations` table as `pnpm db:migrate`.
