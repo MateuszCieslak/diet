@@ -126,6 +126,11 @@
 		gap: var(--space-4);
 		padding: var(--space-4) var(--gutter);
 	}
+	/* Fields default to the page background (they usually sit on white cards); this form sits
+	   directly on the page, so they need the surface color to stand out. */
+	.form :global(:is(input, select)) {
+		background: var(--color-surface);
+	}
 	.locked {
 		display: flex;
 		flex-direction: column;
