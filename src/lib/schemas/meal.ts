@@ -1,6 +1,7 @@
 import * as v from 'valibot';
 import { mealTypes, type MealTypeKey } from '$lib/config/meal-types';
 import { pl } from '$lib/i18n/pl';
+import type { Nutrition } from '$lib/nutrition';
 import { decimalInput, nameInput } from './common';
 import type { Ingredient } from './ingredient';
 
@@ -57,6 +58,18 @@ export type MealDetail = {
 	types: MealTypeKey[];
 	items: MealItem[];
 };
+
+/** A row of the meals list and the meal picker; `base` is one average portion. */
+export type MealListItem = {
+	id: number;
+	name: string;
+	photo: string | null;
+	types: MealTypeKey[];
+	base: Nutrition;
+};
+
+/** One page of `GET /api/meals`; `nextCursor` is `null` on the last page. */
+export type MealListPage = { items: MealListItem[]; nextCursor: string | null };
 
 /** Reads the meal form fields (everything except the photo) for `mealSchema`. */
 export function readMealForm(form: FormData) {
