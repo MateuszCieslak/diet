@@ -359,8 +359,9 @@ section labels: 12–13px, weight 700, letter-spacing 0.06em, muted color.
   logs everyone out.
 - `hooks.server.ts` `handle` redirects every request without a valid cookie to `/login`, except
   `/login` itself, and returns 401 for `/api/*`.
-- Login throttling: an in-memory limit of 5 failed attempts per IP per 15 minutes (trusting
-  `X-Forwarded-For` from the reverse proxy, via adapter-node `ADDRESS_HEADER`).
+- Login throttling: an in-memory limit of 5 failed attempts per IP per 15 minutes. The IP comes from
+  `event.getClientAddress()`; behind the reverse proxy the server must set adapter-node's
+  `ADDRESS_HEADER` (see the deployment note under CI/CD).
 
 ## Daily cleanup
 
@@ -376,7 +377,6 @@ This requires a single app process: PM2 `fork` mode, 1 instance.
 ## Environment variables
 
 `DATABASE_URL`, `APP_PASSWORD`, `SESSION_SECRET`, `PHOTOS_DIR`, `TZ=Europe/Warsaw`, plus adapter-node's
-`ORIGIN` (the public URL; needed for form actions behind a proxy), `PORT`, `ADDRESS_HEADER` and
 `BODY_SIZE_LIMIT=10M` (the default of 512K would reject photos). Read them through `$env/dynamic/private`.
 Commit `.env.example`, never `.env`.
 
@@ -418,6 +418,10 @@ No deploy job.
 over SSH, run migrations, restart PM2), server provisioning, and choosing the deploy branch. Until
 then, the builder only keeps the app deployable: adapter-node build, configuration through env vars,
 and migrations as plain SQL files in `drizzle/`.
+
+When deploying, the server configuration (not the repo) must also set adapter-node's `ORIGIN` (the
+public URL; without it form actions fail behind the proxy), `ADDRESS_HEADER=X-Forwarded-For` (the real
+client IP for login throttling) and, if 3000 is taken, `PORT`.
 
 ## Left to the builder
 

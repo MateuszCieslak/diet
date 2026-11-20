@@ -92,9 +92,6 @@ Read on the server through `$env/dynamic/private` (never `$env/static`). Copy `.
 | `SESSION_SECRET` | HMAC key for the session cookie. Changing it logs everyone out. |
 | `PHOTOS_DIR` | Absolute path of the directory for meal photos (`<uuid>.webp`). |
 | `TZ` | `Europe/Warsaw`. Decides "today" in the plan and the cleanup cutoff. |
-| `ORIGIN` | adapter-node: the public URL; form actions fail behind a proxy without it. |
-| `PORT` | adapter-node: the HTTP port. |
-| `ADDRESS_HEADER` | adapter-node: `X-Forwarded-For` behind the reverse proxy (used by login throttling). |
 | `BODY_SIZE_LIMIT` | adapter-node: `10M`. The 512K default rejects photo uploads. |
 
 The built server (`node build`) does not read `.env`; PM2/systemd must provide the variables (or
