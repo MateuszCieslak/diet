@@ -21,7 +21,8 @@ export const pl = {
 		min: (min: string) => `Wartość nie może być mniejsza niż ${min}`,
 		maxLength: (max: number) => `Najwyżej ${max} znaków`,
 		max: (max: string) => `Wartość nie może być większa niż ${max}`,
-		invalid: 'Nieprawidłowa wartość'
+		invalid: 'Nieprawidłowa wartość',
+		nameTaken: 'Posiłek o tej nazwie już istnieje'
 	},
 	nav: {
 		label: 'Nawigacja główna',
@@ -65,6 +66,53 @@ export const pl = {
 		hideConfirm: 'Usuń',
 		hideNote:
 			'Składnik zniknie z listy i wyszukiwania. Posiłki, plan i lista zakupów, które go używają, zostaną bez zmian.'
+	},
+	meals: {
+		newTitle: 'Nowy posiłek',
+		editTitle: 'Edytuj posiłek',
+		edit: 'Edytuj',
+		name: 'Nazwa',
+		namePlaceholder: 'np. Owsianka z jabłkiem',
+		types: 'Rodzaj posiłku',
+		typesRequired: 'Wybierz co najmniej jeden rodzaj posiłku',
+		photo: 'Zdjęcie',
+		photoAdd: 'Dodaj zdjęcie',
+		photoChange: 'Zmień zdjęcie',
+		photoHint: 'JPG, PNG lub HEIC, do 10 MB',
+		photoTooLarge: 'Zdjęcie jest za duże (najwyżej 10 MB)',
+		photoInvalid: 'Nie udało się wczytać zdjęcia. Wybierz plik JPG, PNG lub WebP.',
+		photoAlt: (name: string) => `Zdjęcie: ${name}`,
+		ingredients: 'Składniki',
+		itemsRequired: 'Dodaj co najmniej jeden składnik',
+		itemsMissing: 'Jeden ze składników już nie istnieje. Usuń go i dodaj ponownie.',
+		removeItem: (name: string) => `Usuń składnik ${name}`,
+		amountFor: (name: string) => `Ilość: ${name}`,
+		ingredientSearch: 'Dodaj składnik',
+		ingredientSearchPlaceholder: 'Szukaj składnika, np. jajko',
+		ingredientNoResults: 'Brak pasujących składników.',
+		ingredientAdded: 'dodany',
+		ingredientSearchFailed: 'Nie udało się wyszukać składników.',
+		perPortion: 'Na porcję',
+		preparation: 'Przygotowanie',
+		preparationPlaceholder: 'Opisz kolejne kroki…',
+		amountsPerUser: 'Ilości na osobę',
+		ingredient: 'Składnik',
+		nutrition: 'Wartości odżywcze',
+		delete: 'Usuń posiłek',
+		deleteTitle: 'Usunąć posiłek?',
+		deleteConfirm: 'Usuń',
+		deleteNote: 'Posiłek zniknie z bazy. Posiłki już dodane do planu zostaną bez zmian.'
+	},
+	nutrition: {
+		person: 'Osoba',
+		kcal: 'kcal',
+		protein: 'Białko',
+		fat: 'Tłuszcz',
+		carbs: 'Węgl.',
+		proteinShort: 'B',
+		fatShort: 'T',
+		carbsShort: 'W',
+		excluded: '—'
 	},
 	units: {
 		g: 'g',
