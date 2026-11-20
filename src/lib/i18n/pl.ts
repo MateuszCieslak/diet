@@ -68,6 +68,16 @@ export const pl = {
 			'Składnik zniknie z listy i wyszukiwania. Posiłki, plan i lista zakupów, które go używają, zostaną bez zmian.'
 	},
 	meals: {
+		title: 'Posiłki',
+		searchLabel: 'Szukaj posiłku',
+		searchPlaceholder: 'Szukaj posiłku, np. owsianka',
+		allTypes: 'Wszystkie',
+		empty: 'Nie ma jeszcze żadnych posiłków.',
+		noResults: 'Brak posiłków pasujących do wyszukiwania.',
+		loadFailed: 'Nie udało się wczytać posiłków.',
+		retry: 'Spróbuj ponownie',
+		loading: 'Wczytywanie…',
+		kcalPerPortion: (kcal: string) => `${kcal} kcal / porcja`,
 		newTitle: 'Nowy posiłek',
 		editTitle: 'Edytuj posiłek',
 		edit: 'Edytuj',
