@@ -166,6 +166,19 @@ export const pl = {
 		replace: 'Zastąp',
 		failed: 'Nie udało się utworzyć listy. Odśwież stronę i spróbuj ponownie.'
 	},
+	planEdit: {
+		title: 'Edytuj posiłek w planie',
+		note: 'Zmiany dotyczą tylko tego dnia. Przepis w bazie posiłków pozostaje bez zmian.',
+		saveAsRecipe: 'Zapisz jako nowy przepis',
+		saveAsRecipeTitle: 'Nowy przepis',
+		saveAsRecipeNote:
+			'Wybierz rodzaj posiłku. Nazwa, składniki, przygotowanie i zdjęcie zostaną skopiowane.',
+		saveAsRecipeConfirm: 'Utwórz przepis',
+		recipeSaved: (name: string) => `Zapisano przepis „${name}”.`,
+		openRecipe: 'Zobacz przepis',
+		recipeFailed: 'Nie udało się utworzyć przepisu. Popraw zaznaczone pola powyżej.',
+		reorderFailed: 'Nie udało się zmienić kolejności. Spróbuj ponownie.'
+	},
 	nutrition: {
 		person: 'Osoba',
 		kcal: 'kcal',

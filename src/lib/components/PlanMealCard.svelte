@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { dragHandle } from 'svelte-dnd-action';
 	import { enhance } from '$app/forms';
 	import GripIcon from '$lib/components/icons/GripIcon.svelte';
 	import ImageIcon from '$lib/components/icons/ImageIcon.svelte';
@@ -39,8 +40,10 @@
 
 <article class="card">
 	<div class="top">
-		<!-- Drag to reorder arrives in a later task; the handle is only visual for now. -->
-		<span class="handle" title={pl.plan.dragHandle} aria-hidden="true"><GripIcon size={20} /></span>
+		<!-- Works inside the plan page's `dragHandleZone`, which sets its role and tabindex. -->
+		<span class="handle" use:dragHandle aria-label={pl.plan.dragHandle}>
+			<GripIcon size={20} />
+		</span>
 		{#if meal.photo}
 			<img class="photo" src="/photos/{meal.photo}" alt="" loading="lazy" />
 		{:else}
@@ -141,7 +144,19 @@
 	.handle {
 		display: inline-flex;
 		flex-shrink: 0;
+		align-items: center;
+		justify-content: center;
+		width: var(--touch-target);
+		height: var(--touch-target);
+		/* A full touch target that takes only the icon's width in the row. */
+		margin: 0 calc(-1 * var(--space-3));
+		border-radius: var(--radius-md);
 		color: var(--color-subtle);
+		touch-action: none;
+	}
+	.handle:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: -2px;
 	}
 	.photo {
 		flex-shrink: 0;

@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { tick } from 'svelte';
-	import { enhance } from '$app/forms';
+	import { flip } from 'svelte/animate';
+	import { dragHandleZone, type DndEvent } from 'svelte-dnd-action';
+	import { deserialize, enhance } from '$app/forms';
 	import MealPicker from '$lib/components/MealPicker.svelte';
 	import NutritionTable from '$lib/components/NutritionTable.svelte';
 	import PlanMealCard from '$lib/components/PlanMealCard.svelte';
@@ -42,6 +44,46 @@
 		pickerOpen = true;
 	}
 
+	const flipDurationMs = 150;
+
+	/** The last order the server confirmed; `items` is what the list shows while dragging. */
+	let order = $derived(dayMeals);
+	let items = $derived(order);
+	let reordering = $state(false);
+	let reorderError = $state<string | null>(null);
+
+	function consider(event: CustomEvent<DndEvent<PlanMeal>>) {
+		items = event.detail.items;
+	}
+
+	async function finalize(event: CustomEvent<DndEvent<PlanMeal>>) {
+		items = event.detail.items;
+		const ids = items.map((m) => m.id);
+		if (ids.every((id, i) => id === order[i]?.id)) return;
+
+		reordering = true;
+		reorderError = null;
+		const body = new FormData();
+		body.set('date', data.date);
+		body.set('ids', JSON.stringify(ids));
+		try {
+			const response = await fetch('?/reorder', {
+				method: 'POST',
+				body,
+				headers: { 'x-sveltekit-action': 'true' }
+			});
+			const result = deserialize(await response.text());
+			if (result.type !== 'success') throw new Error(`Reorder failed: ${result.type}`);
+			// No invalidation: the list already shows the new order.
+			order = items;
+		} catch {
+			items = order;
+			reorderError = pl.planEdit.reorderFailed;
+		} finally {
+			reordering = false;
+		}
+	}
+
 	async function pick(meal: MealListItem) {
 		pickedMealId = meal.id;
 		pickerOpen = false;
@@ -62,6 +104,9 @@
 	{#if form?.error}
 		<p class="error" role="alert">{form.error}</p>
 	{/if}
+	{#if reorderError}
+		<p class="error" role="alert">{reorderError}</p>
+	{/if}
 
 	{#if dayMeals.length > 0}
 		<section class="card summary">
@@ -69,13 +114,28 @@
 			<NutritionTable perUser={totals} />
 		</section>
 
-		<section class="stack" aria-label={pl.plan.meals}>
-			{#each dayMeals as meal (meal.id)}
-				<PlanMealCard
-					{meal}
-					types={meal.sourceMealId === null ? [] : (data.types[meal.sourceMealId] ?? [])}
-					onReplace={() => openPicker(meal)}
-				/>
+		<!-- The library's built-in screen reader texts are English, so they are turned off. -->
+		<section
+			class="stack"
+			aria-label={pl.plan.meals}
+			use:dragHandleZone={{
+				items,
+				flipDurationMs,
+				dragDisabled: reordering,
+				dropTargetStyle: {},
+				autoAriaDisabled: true
+			}}
+			onconsider={consider}
+			onfinalize={finalize}
+		>
+			{#each items as meal (meal.id)}
+				<div class="item" animate:flip={{ duration: flipDurationMs }}>
+					<PlanMealCard
+						{meal}
+						types={meal.sourceMealId === null ? [] : (data.types[meal.sourceMealId] ?? [])}
+						onReplace={() => openPicker(meal)}
+					/>
+				</div>
 			{/each}
 		</section>
 	{:else}
@@ -146,6 +206,13 @@
 		margin: 0;
 		color: var(--color-danger);
 		font-size: var(--font-size-secondary);
+	}
+	.item {
+		border-radius: var(--radius-lg);
+	}
+	.item:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 2px;
 	}
 	.add {
 		display: flex;

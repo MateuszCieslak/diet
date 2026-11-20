@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import { enhance } from '$app/forms';
 	import ArrowLeftIcon from '$lib/components/icons/ArrowLeftIcon.svelte';
 	import ImageIcon from '$lib/components/icons/ImageIcon.svelte';
@@ -29,9 +30,11 @@
 		title: string;
 		backHref: string;
 		action?: string;
+		/** Extra content at the end of the form, e.g. buttons that post to another action. */
+		children?: Snippet;
 	};
 
-	let { mode, initial, errors = {}, title, backHref, action }: Props = $props();
+	let { mode, initial, errors = {}, title, backHref, action, children }: Props = $props();
 
 	type Row = { key: number; ingredient: Ingredient; amount: string };
 
@@ -117,8 +120,9 @@
 	use:enhance={() => {
 		submitting = true;
 		return async ({ update }) => {
-			// Keep the typed values after a failed submit; a success redirects anyway.
-			await update({ reset: false });
+			// Keep the typed values after a submit. A success either redirects or returns data
+			// (e.g. "save as recipe"); reloading the page data then would reset the edits.
+			await update({ reset: false, invalidateAll: false });
 			submitting = false;
 		};
 	}}
@@ -256,6 +260,8 @@
 			<p class="error">{errors.preparation}</p>
 		{/if}
 	</div>
+
+	{@render children?.()}
 </form>
 
 <style>
