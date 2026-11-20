@@ -1,6 +1,6 @@
 import type { User } from '$lib/config/users';
 import type { Ingredient } from '$lib/schemas/ingredient';
-import { buildFromPlan, planListCreation } from './shopping';
+import { addIngredientAmount, buildFromPlan, planListCreation } from './shopping';
 
 const users: User[] = [
 	{ key: 'a', name: 'A', multiplier: 1, color: '', tint: '' },
@@ -67,4 +67,11 @@ test('merge into an open item without an amount counts it as 0', () => {
 		updates: [{ id: 4, amount: 2.5 }],
 		insert: []
 	});
+});
+
+test('addIngredientAmount', () => {
+	expect(addIngredientAmount(null, null)).toBeNull();
+	expect(addIngredientAmount(null, 2)).toBe(2);
+	expect(addIngredientAmount(150, null)).toBe(150);
+	expect(addIngredientAmount(0.1, 0.2)).toBe(0.3);
 });

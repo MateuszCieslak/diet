@@ -23,6 +23,15 @@ function round2(n: number): number {
 }
 
 /**
+ * Adds a quick-added amount to an open item of the same ingredient. A missing amount counts as 0,
+ * but when both are missing the result stays `null`.
+ */
+export function addIngredientAmount(existing: number | null, added: number | null): number | null {
+	if (existing === null && added === null) return null;
+	return round2((existing ?? 0) + (added ?? 0));
+}
+
+/**
  * Sums `amount × Σ multipliers of non-excluded users` per ingredient. A meal everyone skips adds
  * nothing, and amounts that end up ≤ 0 are dropped. Sorted by `ingredientId`.
  */

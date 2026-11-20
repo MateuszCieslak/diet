@@ -1,5 +1,5 @@
 import * as v from 'valibot';
-import { itemPatchSchema, manualItemSchema } from './shopping';
+import { itemPatchSchema, manualItemSchema, quickAddSchema } from './shopping';
 
 test('patch schema', () => {
 	expect(v.safeParse(itemPatchSchema, {}).success).toBe(false);
@@ -26,4 +26,15 @@ test('manual item schema', () => {
 	expect(v.parse(manualItemSchema, { name: 'Zapałki' })).toEqual({ name: 'Zapałki' });
 	expect(v.safeParse(manualItemSchema, { name: ' ' }).success).toBe(false);
 	expect(v.safeParse(manualItemSchema, { name: 'Mleko', unit: 'kg' }).success).toBe(false);
+});
+
+test('quickAddSchema accepts both shapes', () => {
+	expect(v.parse(quickAddSchema, { ingredientId: 3, amount: '1,5' })).toEqual({
+		ingredientId: 3,
+		amount: 1.5
+	});
+	expect(v.parse(quickAddSchema, { ingredientId: 3 })).toEqual({ ingredientId: 3 });
+	expect(v.parse(quickAddSchema, { name: 'Zapałki' })).toMatchObject({ name: 'Zapałki' });
+	expect(v.safeParse(quickAddSchema, { ingredientId: 0 }).success).toBe(false);
+	expect(v.safeParse(quickAddSchema, {}).success).toBe(false);
 });

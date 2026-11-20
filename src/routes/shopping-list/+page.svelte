@@ -8,7 +8,13 @@
 	import { createListPoller } from '$lib/list-poller';
 	import { formatAmount } from '$lib/nutrition';
 	import { formErrors } from '$lib/schemas/common';
-	import { itemPatchSchema, manualItemSchema, type ItemPatch } from '$lib/schemas/shopping';
+	import type { Ingredient } from '$lib/schemas/ingredient';
+	import {
+		ingredientItemSchema,
+		itemPatchSchema,
+		manualItemSchema,
+		type ItemPatch
+	} from '$lib/schemas/shopping';
 	import { groupShoppingItems, type ShoppingItemView } from '$lib/shopping-view';
 	import type { PageProps } from './$types';
 
@@ -26,6 +32,17 @@
 	let addErrors = $state<Record<string, string>>({});
 	let adding = $state(false);
 	let nameInput = $state<HTMLInputElement>();
+	let amountInput = $state<HTMLInputElement>();
+
+	/** The ingredient picked from the suggestions; editing the name unlinks it. */
+	let linked = $state<Ingredient | null>(null);
+	let suggestions = $state<Ingredient[]>([]);
+	let suggestionsOpen = $state(false);
+	let activeIndex = $state(-1);
+	const suggestionsId = $props.id();
+
+	const debounceMs = 300;
+	const maxSuggestions = 6;
 
 	let editingId = $state<number | null>(null);
 	let amountDraft = $state('');
@@ -58,6 +75,61 @@
 		};
 	});
 
+	$effect(() => {
+		const q = newName.trim();
+		if (q === '' || linked) {
+			suggestions = [];
+			return;
+		}
+		const controller = new AbortController();
+		const timer = setTimeout(async () => {
+			try {
+				const res = await fetch(`/api/ingredients?q=${encodeURIComponent(q)}`, {
+					signal: controller.signal
+				});
+				if (!res.ok) throw new Error(`HTTP ${res.status}`);
+				suggestions = ((await res.json()) as Ingredient[]).slice(0, maxSuggestions);
+				activeIndex = -1;
+			} catch (e) {
+				if (controller.signal.aborted) return;
+				// Suggestions are optional: without them the row still adds a manual item.
+				console.error(e);
+				suggestions = [];
+			}
+		}, debounceMs);
+		return () => {
+			clearTimeout(timer);
+			controller.abort();
+		};
+	});
+
+	const showSuggestions = $derived(suggestionsOpen && suggestions.length > 0);
+
+	function pickSuggestion(ingredient: Ingredient) {
+		linked = ingredient;
+		newName = ingredient.name;
+		suggestionsOpen = false;
+		activeIndex = -1;
+		amountInput?.focus();
+	}
+
+	function handleNameKeydown(event: KeyboardEvent) {
+		if (!showSuggestions) return;
+		if (event.key === 'ArrowDown') {
+			event.preventDefault();
+			activeIndex = (activeIndex + 1) % suggestions.length;
+		} else if (event.key === 'ArrowUp') {
+			event.preventDefault();
+			activeIndex = activeIndex <= 0 ? suggestions.length - 1 : activeIndex - 1;
+		} else if (event.key === 'Enter' && activeIndex >= 0) {
+			event.preventDefault();
+			pickSuggestion(suggestions[activeIndex]);
+		} else if (event.key === 'Escape') {
+			event.preventDefault();
+			suggestionsOpen = false;
+		}
+	}
+
 	function amountText(item: ShoppingItemView): string {
 		if (item.amount === null) return '';
 		// Items without a unit are counted like pieces: at most 1 decimal.
@@ -67,6 +139,11 @@
 
 	function replaceItem(updated: ShoppingItemView) {
 		items = items.map((i) => (i.id === updated.id ? updated : i));
+	}
+
+	/** A quick add may return an existing row with a larger amount, so it replaces that row. */
+	function upsertItem(item: ShoppingItemView) {
+		items = [...items.filter((i) => i.id !== item.id), item];
 	}
 
 	/** Applies `patch` optimistically, then saves it; on failure the item is rolled back. */
@@ -105,10 +182,6 @@
 	function saveAmount(item: ShoppingItemView) {
 		if (editingId !== item.id) return;
 		const blank = amountDraft.trim() === '';
-		if (blank && !item.manual) {
-			amountError = pl.errors.required;
-			return;
-		}
 		const parsed = v.safeParse(itemPatchSchema, { amount: blank ? null : amountDraft });
 		if (!parsed.success) {
 			amountError = parsed.issues[0].message;
@@ -120,11 +193,9 @@
 
 	async function addItem(event: SubmitEvent) {
 		event.preventDefault();
-		const parsed = v.safeParse(manualItemSchema, {
-			name: newName,
-			amount: newAmount,
-			unit: newUnit
-		});
+		const parsed = linked
+			? v.safeParse(ingredientItemSchema, { ingredientId: linked.id, amount: newAmount })
+			: v.safeParse(manualItemSchema, { name: newName, amount: newAmount, unit: newUnit });
 		if (!parsed.success) {
 			addErrors = formErrors(parsed.issues);
 			return;
@@ -140,7 +211,9 @@
 				body: JSON.stringify(parsed.output)
 			});
 			if (!res.ok) throw new Error(`HTTP ${res.status}`);
-			items = [...items, await res.json()];
+			upsertItem(await res.json());
+			linked = null;
+			suggestionsOpen = false;
 			newName = '';
 			newAmount = '';
 			newUnit = '';
@@ -167,20 +240,60 @@
 		</a>
 	</div>
 	<form class="quick-add" onsubmit={addItem} novalidate>
-		<label class="name">
-			<span class="visually-hidden">{pl.shopping.name}</span>
-			<input
-				bind:this={nameInput}
-				bind:value={newName}
-				placeholder={pl.shopping.namePlaceholder}
-				maxlength={120}
-				autocomplete="off"
-				aria-invalid={addErrors.name ? 'true' : undefined}
-			/>
-		</label>
+		<div class="name">
+			<label>
+				<span class="visually-hidden">{pl.shopping.name}</span>
+				<input
+					bind:this={nameInput}
+					bind:value={newName}
+					oninput={() => {
+						linked = null;
+						suggestionsOpen = true;
+					}}
+					onkeydown={handleNameKeydown}
+					onblur={() => (suggestionsOpen = false)}
+					placeholder={pl.shopping.namePlaceholder}
+					maxlength={120}
+					autocomplete="off"
+					role="combobox"
+					aria-autocomplete="list"
+					aria-expanded={showSuggestions}
+					aria-controls={suggestionsId}
+					aria-activedescendant={showSuggestions && activeIndex >= 0
+						? `${suggestionsId}-${activeIndex}`
+						: undefined}
+					aria-invalid={addErrors.name ? 'true' : undefined}
+				/>
+			</label>
+			<ul
+				id={suggestionsId}
+				class="suggestions"
+				role="listbox"
+				aria-label={pl.shopping.suggestions}
+				hidden={!showSuggestions}
+			>
+				{#each suggestions as ingredient, index (ingredient.id)}
+					<!-- The input keeps focus and handles the keyboard (combobox pattern). -->
+					<!-- svelte-ignore a11y_click_events_have_key_events -->
+					<li
+						id="{suggestionsId}-{index}"
+						role="option"
+						aria-selected={index === activeIndex}
+						onpointerdown={(e) => e.preventDefault()}
+						onclick={() => pickSuggestion(ingredient)}
+					>
+						<span class="suggestion-name">{ingredient.name}</span>
+						<span class="suggestion-meta">
+							{pl.categories[ingredient.category]} · {pl.units[ingredient.unit]}
+						</span>
+					</li>
+				{/each}
+			</ul>
+		</div>
 		<label>
 			<span class="visually-hidden">{pl.shopping.amount}</span>
 			<input
+				bind:this={amountInput}
 				class="amount"
 				bind:value={newAmount}
 				inputmode="decimal"
@@ -189,21 +302,27 @@
 				aria-invalid={addErrors.amount ? 'true' : undefined}
 			/>
 		</label>
-		<label>
-			<span class="visually-hidden">{pl.shopping.unit}</span>
-			<select bind:value={newUnit}>
-				<option value="">{pl.shopping.noUnit}</option>
-				{#each units as unit (unit)}
-					<option value={unit}>{pl.units[unit]}</option>
-				{/each}
-			</select>
-		</label>
+		{#if linked}
+			<span class="unit-label">{pl.units[linked.unit]}</span>
+		{:else}
+			<label>
+				<span class="visually-hidden">{pl.shopping.unit}</span>
+				<select bind:value={newUnit}>
+					<option value="">{pl.shopping.noUnit}</option>
+					{#each units as unit (unit)}
+						<option value={unit}>{pl.units[unit]}</option>
+					{/each}
+				</select>
+			</label>
+		{/if}
 		<button class="add" type="submit" aria-label={pl.shopping.addLabel} disabled={adding}>
 			<PlusIcon size={20} />
 		</button>
 	</form>
-	{#if addErrors.name || addErrors.amount || addErrors.unit}
-		<p class="error" role="alert">{addErrors.name ?? addErrors.amount ?? addErrors.unit}</p>
+	{#if addErrors.name || addErrors.amount || addErrors.unit || addErrors.ingredientId}
+		<p class="error" role="alert">
+			{addErrors.name ?? addErrors.amount ?? addErrors.unit ?? addErrors.ingredientId}
+		</p>
 	{/if}
 </header>
 
@@ -323,12 +442,61 @@
 		background: var(--color-accent-soft);
 	}
 	.quick-add {
+		/* The suggestions dropdown spans the whole row. */
+		position: relative;
 		display: flex;
 		gap: 6px;
 	}
-	.quick-add label.name {
+	.quick-add .name {
 		flex: 1;
 		min-width: 0;
+	}
+	.suggestions {
+		position: absolute;
+		z-index: 10;
+		top: calc(100% + 4px);
+		right: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		list-style: none;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		background: var(--color-surface);
+		box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+	}
+	.suggestions[hidden] {
+		display: none;
+	}
+	.suggestions li {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		gap: 2px;
+		min-height: var(--touch-target);
+		padding: 6px var(--space-3);
+		cursor: pointer;
+	}
+	.suggestions li[aria-selected='true'],
+	.suggestions li:hover {
+		background: var(--color-accent-soft);
+	}
+	.suggestion-name {
+		font-weight: 600;
+	}
+	.suggestion-meta {
+		color: var(--color-muted);
+		font-size: var(--font-size-secondary);
+	}
+	.unit-label {
+		display: flex;
+		align-items: center;
+		min-width: 44px;
+		padding: 0 6px;
+		color: var(--color-muted);
+		font-weight: 600;
 	}
 	.quick-add input,
 	.quick-add select {
