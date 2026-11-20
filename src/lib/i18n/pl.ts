@@ -113,6 +113,31 @@ export const pl = {
 		deleteConfirm: 'Usuń',
 		deleteNote: 'Posiłek zniknie z bazy. Posiłki już dodane do planu zostaną bez zmian.'
 	},
+	plan: {
+		title: 'Plan',
+		previousWeek: 'Poprzedni tydzień',
+		nextWeek: 'Następny tydzień',
+		today: 'Dziś',
+		week: 'Dni tygodnia',
+		/** Monday first, matching `weekOf`. */
+		weekdaysShort: ['Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So', 'Nd'],
+		hasMeals: 'zaplanowane posiłki',
+		daySummary: 'Podsumowanie dnia',
+		meals: 'Posiłki',
+		empty: 'Na ten dzień nie ma jeszcze posiłków.',
+		addMeal: 'Dodaj posiłek',
+		replaceMeal: 'Zamień posiłek',
+		dragHandle: 'Przeciągnij, aby zmienić kolejność',
+		menu: (name: string) => `Opcje: ${name}`,
+		replace: 'Zamień',
+		edit: 'Edytuj',
+		remove: 'Usuń',
+		eats: (name: string) => `${name} je ten posiłek`,
+		notEating: 'nie je',
+		tapToAdd: 'Dotknij, aby dodać',
+		actionFailed: 'Nie udało się zapisać zmiany. Odśwież stronę i spróbuj ponownie.',
+		mealMissing: 'Tego posiłku już nie ma.'
+	},
 	nutrition: {
 		person: 'Osoba',
 		kcal: 'kcal',
