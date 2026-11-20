@@ -138,6 +138,14 @@ export const pl = {
 		actionFailed: 'Nie udało się zapisać zmiany. Odśwież stronę i spróbuj ponownie.',
 		mealMissing: 'Tego posiłku już nie ma.'
 	},
+	cooking: {
+		edit: 'Edytuj posiłek w planie',
+		ingredient: 'Składnik',
+		ingredients: 'Składniki',
+		kcalPerPortion: 'kcal / porcja',
+		allExcluded: 'Nikt nie je tego posiłku. Dotknij osoby na planie, aby ją dodać.',
+		preparation: 'Przygotowanie'
+	},
 	nutrition: {
 		person: 'Osoba',
 		kcal: 'kcal',
