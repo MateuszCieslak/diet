@@ -179,6 +179,24 @@ export const pl = {
 		recipeFailed: 'Nie udało się utworzyć przepisu. Popraw zaznaczone pola powyżej.',
 		reorderFailed: 'Nie udało się zmienić kolejności. Spróbuj ponownie.'
 	},
+	shopping: {
+		title: 'Zakupy',
+		fromPlan: 'Z planu',
+		addLabel: 'Dodaj do listy',
+		name: 'Nazwa',
+		namePlaceholder: 'Dodaj coś…',
+		amount: 'Ilość',
+		unit: 'Jednostka',
+		noUnit: '—',
+		empty: 'Lista jest pusta. Utwórz ją z planu albo dodaj coś powyżej.',
+		done: (count: number) => `Kupione (${count})`,
+		tick: (name: string) => `Oznacz jako kupione: ${name}`,
+		untick: (name: string) => `Przywróć na listę: ${name}`,
+		editAmount: (name: string) => `Zmień ilość: ${name}`,
+		amountFor: (name: string) => `Ilość: ${name}`,
+		saveFailed: 'Nie udało się zapisać zmiany. Sprawdź połączenie i spróbuj ponownie.',
+		addFailed: 'Nie udało się dodać pozycji. Sprawdź połączenie i spróbuj ponownie.'
+	},
 	nutrition: {
 		person: 'Osoba',
 		kcal: 'kcal',
