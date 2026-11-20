@@ -1,8 +1,8 @@
-import { eq, gte, max } from 'drizzle-orm';
+import { and, asc, eq, gte, isNull, max } from 'drizzle-orm';
 import type { CategoryKey } from '$lib/config/categories';
 import type { Unit } from '$lib/config/units';
 import type { ItemPatch, ManualItemInput } from '$lib/schemas/shopping';
-import type { ExistingItem, ListCreation } from '$lib/shopping';
+import { addIngredientAmount, type ExistingItem, type ListCreation } from '$lib/shopping';
 import type { ShoppingItemView } from '$lib/shopping-view';
 import { db } from '$lib/server/db';
 import { toNumOrNull } from '$lib/server/db/decimal';
@@ -58,13 +58,6 @@ export async function applyListCreation(
 			);
 		}
 	});
-}
-
-/** Thrown by `patchItem` when clearing the amount of an item built from the plan. */
-export class AmountRequiredError extends Error {
-	constructor() {
-		super('Only manual items can have no amount');
-	}
 }
 
 function selectItemViews() {
@@ -125,17 +118,52 @@ export async function addManualItem(data: ManualItemInput): Promise<ShoppingItem
 }
 
 /**
- * Ticks or unticks an item (`done_at` becomes now or null) and/or changes its amount. Returns
- * `null` when the item does not exist. Throws `AmountRequiredError` when clearing the amount of an
- * item built from the plan.
+ * Adds a picked ingredient: increases the amount of the open item with that ingredient, or inserts
+ * a new ingredient-linked row. The caller checks that the ingredient exists and is visible.
+ */
+export async function addIngredientItem(
+	ingredientId: number,
+	amount: number | null
+): Promise<ShoppingItemView> {
+	const id = await db.transaction(async (tx) => {
+		const [open] = await tx
+			.select({ id: shoppingListItems.id, amount: shoppingListItems.amount })
+			.from(shoppingListItems)
+			.where(
+				and(eq(shoppingListItems.ingredientId, ingredientId), isNull(shoppingListItems.doneAt))
+			)
+			.orderBy(asc(shoppingListItems.id))
+			.limit(1)
+			.for('update');
+		if (open) {
+			const total = addIngredientAmount(toNumOrNull(open.amount), amount);
+			await tx
+				.update(shoppingListItems)
+				.set({ amount: total === null ? null : String(total) })
+				.where(eq(shoppingListItems.id, open.id));
+			return open.id;
+		}
+		const [inserted] = await tx
+			.insert(shoppingListItems)
+			.values({ ingredientId, amount: amount === null ? null : String(amount) })
+			.$returningId();
+		return inserted.id;
+	});
+	const item = await getItemView(id);
+	if (!item) throw new Error(`Shopping list item ${id} vanished after insert`);
+	return item;
+}
+
+/**
+ * Ticks or unticks an item (`done_at` becomes now or null) and/or changes its amount (`null`
+ * clears it). Returns `null` when the item does not exist.
  */
 export async function patchItem(id: number, patch: ItemPatch): Promise<ShoppingItemView | null> {
 	const [current] = await db
-		.select({ ingredientId: shoppingListItems.ingredientId })
+		.select({ id: shoppingListItems.id })
 		.from(shoppingListItems)
 		.where(eq(shoppingListItems.id, id));
 	if (!current) return null;
-	if (patch.amount === null && current.ingredientId !== null) throw new AmountRequiredError();
 
 	const set: Partial<typeof shoppingListItems.$inferInsert> = {};
 	if (patch.done !== undefined) set.doneAt = patch.done ? new Date() : null;

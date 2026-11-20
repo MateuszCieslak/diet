@@ -4,6 +4,8 @@
 	import GripIcon from '$lib/components/icons/GripIcon.svelte';
 	import ImageIcon from '$lib/components/icons/ImageIcon.svelte';
 	import MoreIcon from '$lib/components/icons/MoreIcon.svelte';
+	import Button from '$lib/components/ui/Button.svelte';
+	import Dialog from '$lib/components/ui/Dialog.svelte';
 	import type { MealTypeKey } from '$lib/config/meal-types';
 	import { users } from '$lib/config/users';
 	import { pl } from '$lib/i18n/pl';
@@ -24,6 +26,7 @@
 	const menuId = $props.id();
 	let menuOpen = $state(false);
 	let menuRoot = $state<HTMLElement>();
+	let confirmOpen = $state(false);
 
 	const perUser = $derived(planMealPerUser(meal, users));
 
@@ -81,10 +84,16 @@
 					</li>
 					<li><a href="/plan/{meal.id}/edit">{pl.plan.edit}</a></li>
 					<li>
-						<form method="POST" action="?/remove" use:enhance>
-							<input type="hidden" name="planMealId" value={meal.id} />
-							<button type="submit" class="danger">{pl.plan.remove}</button>
-						</form>
+						<button
+							type="button"
+							class="danger"
+							onclick={() => {
+								menuOpen = false;
+								confirmOpen = true;
+							}}
+						>
+							{pl.plan.remove}
+						</button>
 					</li>
 				</ul>
 			{/if}
@@ -125,6 +134,21 @@
 		{/each}
 	</div>
 </article>
+
+<Dialog bind:open={confirmOpen} title={pl.plan.removeTitle(meal.name)}>
+	<form
+		method="POST"
+		action="?/remove"
+		class="confirm-actions"
+		use:enhance={() => {
+			confirmOpen = false;
+		}}
+	>
+		<input type="hidden" name="planMealId" value={meal.id} />
+		<Button variant="outline" onclick={() => (confirmOpen = false)}>{pl.common.cancel}</Button>
+		<Button type="submit" variant="danger">{pl.plan.remove}</Button>
+	</form>
+</Dialog>
 
 <style>
 	.card {
@@ -227,8 +251,10 @@
 		box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
 		list-style: none;
 	}
-	.menu-list form {
-		margin: 0;
+	.confirm-actions {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-2);
 	}
 	.menu-list a,
 	.menu-list button {
