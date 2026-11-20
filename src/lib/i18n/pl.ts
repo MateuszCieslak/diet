@@ -228,6 +228,8 @@ export const pl = {
 		spices: 'Przyprawy',
 		fats: 'Tłuszcze',
 		drinks: 'Napoje',
+		alcohol: 'Alkohol',
+		household: 'Chemia',
 		other: 'Inne'
 	} satisfies Record<CategoryKey, string>,
 	mealTypes: {

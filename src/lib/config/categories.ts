@@ -10,6 +10,8 @@ export const categories = [
 	'spices',
 	'fats',
 	'drinks',
+	'alcohol',
+	'household',
 	'other'
 ] as const;
 
