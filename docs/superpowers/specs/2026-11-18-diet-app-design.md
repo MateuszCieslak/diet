@@ -335,6 +335,8 @@ section labels: 12–13px, weight 700, letter-spacing 0.06em, muted color.
   - **Z planu** is in the header, with a quick-add row (name, amount, unit, +) below it. The name field
     shows a dropdown of matching ingredients (name, category, unit) while typing.
   - Groups have uppercase labels, and each item row has a large tick box, the name and an amount pill (tap to edit).
+    An item without an amount shows a muted "+ ilość" pill instead; tapping it opens the same inline
+    amount input. The unit never changes (ingredient's unit, or the manual item's unit, or none).
   - The **Kupione (n)** section sits on the muted background, with ticked boxes and struck-through names.
 
 ## Photos

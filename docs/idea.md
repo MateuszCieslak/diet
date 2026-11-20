@@ -95,7 +95,7 @@ There is only one shopping list.
 ### Editing the list
 
 - The user can change the amount of any item (just the number, unit comes from the ingredient,
-  e.g. 2 pcs → 1 pc).
+  e.g. 2 pcs → 1 pc). An item added without an amount can get one later.
 - The user can quickly add an item: name required, amount and unit optional. While typing the name,
   matching ingredients from the ingredients database are suggested.
   - Picking a suggestion adds that ingredient: it goes to the ingredient's category group and uses its
