@@ -5,6 +5,9 @@
 	import ImageIcon from '$lib/components/icons/ImageIcon.svelte';
 	import XIcon from '$lib/components/icons/XIcon.svelte';
 	import IngredientPicker from '$lib/components/IngredientPicker.svelte';
+	import ItemEditDialog from '$lib/components/ItemEditDialog.svelte';
+	import PencilIcon from '$lib/components/icons/PencilIcon.svelte';
+	import TrashIcon from '$lib/components/icons/TrashIcon.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import Chip from '$lib/components/ui/Chip.svelte';
 	import NumberField from '$lib/components/ui/NumberField.svelte';
@@ -80,7 +83,30 @@
 	}
 
 	function addRow(ingredient: Ingredient) {
+		if (mode === 'planMeal') {
+			// A planned meal edits items in the dialog, so a new item starts there too.
+			openEdit(null, { ingredient, amount: 0 });
+			return;
+		}
 		rows = [...rows, { key: nextKey++, ingredient, amount: '' }];
+	}
+
+	/** The item open in the edit dialog (planned meals); `key` is `null` for a new item. */
+	let editing = $state<{ key: number | null; item: MealItem } | null>(null);
+	let editOpen = $state(false);
+
+	function openEdit(key: number | null, item: MealItem) {
+		editing = { key, item };
+		editOpen = true;
+	}
+
+	function applyEdit(item: MealItem) {
+		const amount = amountFormat.format(item.amount);
+		const key = editing?.key ?? null;
+		rows =
+			key === null
+				? [...rows, { key: nextKey++, ingredient: item.ingredient, amount }]
+				: rows.map((r) => (r.key === key ? { ...r, ingredient: item.ingredient, amount } : r));
 	}
 
 	function removeRow(key: number) {
@@ -191,7 +217,37 @@
 		<h2 class="section-label" id="{formId}-ingredients">{pl.meals.ingredients}</h2>
 		<input type="hidden" name="items" value={itemsJson} />
 
-		{#if rows.length > 0}
+		{#if rows.length > 0 && mode === 'planMeal'}
+			<ul class="rows">
+				{#each rows as row, i (row.key)}
+					{@const error = errors[`items.${i}.amount`] ?? errors[`items.${i}.ingredientId`]}
+					<li class="item">
+						<div class="item-text">
+							<span class="item-name">{row.ingredient.name}</span>
+							<span class="muted item-amount">{row.amount} {pl.units[row.ingredient.unit]}</span>
+							{#if error}<span class="error">{error}</span>{/if}
+						</div>
+						<Button
+							variant="ghost"
+							iconOnly
+							aria-label={pl.planEdit.editItemLabel(row.ingredient.name)}
+							onclick={() =>
+								openEdit(row.key, { ingredient: row.ingredient, amount: parseAmount(row.amount) })}
+						>
+							<PencilIcon size={20} />
+						</Button>
+						<Button
+							variant="ghost"
+							iconOnly
+							aria-label={pl.meals.removeItem(row.ingredient.name)}
+							onclick={() => removeRow(row.key)}
+						>
+							<TrashIcon size={20} />
+						</Button>
+					</li>
+				{/each}
+			</ul>
+		{:else if rows.length > 0}
 			<ul class="rows">
 				{#each rows as row, i (row.key)}
 					<li>
@@ -263,6 +319,17 @@
 
 	{@render children?.()}
 </form>
+
+{#if editing}
+	<!-- Outside the form: its amount field must not be submitted, and Enter must not save the meal. -->
+	<ItemEditDialog
+		bind:open={editOpen}
+		item={editing.item}
+		isNew={editing.key === null}
+		pickedIds={rows.map((r) => r.ingredient.id)}
+		onApply={applyEdit}
+	/>
+{/if}
 
 <style>
 	.header {
@@ -367,6 +434,23 @@
 	.amount {
 		flex: 1;
 		min-width: 0;
+	}
+	.rows li.item {
+		align-items: center;
+	}
+	.item-text {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		min-width: 0;
+	}
+	.item-name {
+		font-weight: 600;
+		overflow-wrap: anywhere;
+	}
+	.item-amount {
+		font-size: var(--font-size-secondary);
+		font-variant-numeric: tabular-nums;
 	}
 	.summary {
 		display: flex;
