@@ -4,6 +4,7 @@ import { env } from '$env/dynamic/private';
 import { users } from '$lib/config/users';
 import { isIsoDate, todayIn, weekOf } from '$lib/dates';
 import { pl } from '$lib/i18n/pl';
+import { portionsInput } from '$lib/schemas/plan';
 import {
 	ExcludedUserError,
 	PlanNotFoundError,
@@ -11,6 +12,7 @@ import {
 	getPlanForDates,
 	getSourceMealTypes,
 	removePlanMeal,
+	setPlanMealPortions,
 	reorderDay,
 	replacePlanMeal,
 	toggleEaten,
@@ -33,6 +35,7 @@ const schemas = {
 		planMealId: idInput,
 		userKey: v.picklist(users.map((u) => u.key))
 	}),
+	setPortions: v.object({ planMealId: idInput, portions: portionsInput }),
 	reorder: v.object({
 		date: dateInput,
 		ids: v.pipe(v.string(), v.parseJson(), v.array(v.pipe(v.number(), v.integer(), v.minValue(1))))
@@ -101,6 +104,13 @@ export const actions: Actions = {
 			if (e instanceof ExcludedUserError) return invalid();
 			throw e;
 		}
+	},
+	setPortions: async ({ request }) => {
+		const parsed = v.safeParse(schemas.setPortions, Object.fromEntries(await request.formData()));
+		// The dialog shows the message next to the field, so send the field's own error.
+		if (!parsed.success) return fail(400, { error: parsed.issues[0].message });
+		const { planMealId, portions } = parsed.output;
+		return run(() => setPlanMealPortions(planMealId, portions));
 	},
 	reorder: async ({ request }) => {
 		const data = await read(request, schemas.reorder);

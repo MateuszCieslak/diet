@@ -8,6 +8,7 @@
 	import MoreIcon from '$lib/components/icons/MoreIcon.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import Dialog from '$lib/components/ui/Dialog.svelte';
+	import NumberField from '$lib/components/ui/NumberField.svelte';
 	import type { MealTypeKey } from '$lib/config/meal-types';
 	import { users } from '$lib/config/users';
 	import { pl } from '$lib/i18n/pl';
@@ -32,6 +33,27 @@
 	let menuOpen = $state(false);
 	let menuRoot = $state<HTMLElement>();
 	let confirmOpen = $state(false);
+	let portionsOpen = $state(false);
+	let portionsText = $state('');
+	let portionsError = $state<string | undefined>();
+	const portionsFormat = new Intl.NumberFormat('pl-PL', {
+		maximumFractionDigits: 2,
+		useGrouping: false
+	});
+
+	function openPortions() {
+		menuOpen = false;
+		portionsText = portionsFormat.format(meal.portions);
+		portionsError = undefined;
+		portionsOpen = true;
+	}
+
+	const subtitle = $derived(
+		[
+			...types.map((t) => pl.mealTypes[t]),
+			...(meal.portions === 1 ? [] : [pl.plan.portions(meal.portions)])
+		].join(' · ')
+	);
 
 	const perUser = $derived(planMealPerUser(meal, users));
 
@@ -59,8 +81,8 @@
 		{/if}
 		<div class="text">
 			<h3><a href="/plan/{meal.id}">{meal.name}</a></h3>
-			{#if types.length > 0}
-				<p class="muted types">{types.map((t) => pl.mealTypes[t]).join(' · ')}</p>
+			{#if subtitle}
+				<p class="muted types">{subtitle}</p>
 			{/if}
 		</div>
 		<div class="menu" bind:this={menuRoot}>
@@ -88,6 +110,9 @@
 						</button>
 					</li>
 					<li><a href="/plan/{meal.id}/edit">{pl.plan.edit}</a></li>
+					<li>
+						<button type="button" onclick={openPortions}>{pl.plan.portionsMenu}</button>
+					</li>
 					<li>
 						<button
 							type="button"
@@ -156,6 +181,32 @@
 		{/each}
 	</div>
 </article>
+
+<Dialog bind:open={portionsOpen} title={pl.plan.portionsTitle} subtitle={pl.plan.portionsNote}>
+	<form
+		method="POST"
+		action="?/setPortions"
+		class="stack portions-form"
+		use:enhance={() =>
+			async ({ result, update }) => {
+				if (result.type === 'failure') {
+					portionsError = String(result.data?.error ?? pl.plan.actionFailed);
+					return;
+				}
+				portionsOpen = false;
+				await update();
+			}}
+	>
+		<input type="hidden" name="planMealId" value={meal.id} />
+		<NumberField
+			name="portions"
+			label={pl.plan.portionsLabel}
+			bind:value={portionsText}
+			error={portionsError}
+		/>
+		<Button type="submit">{pl.plan.portionsSave}</Button>
+	</form>
+</Dialog>
 
 <Dialog bind:open={confirmOpen} title={pl.plan.removeTitle(meal.name)}>
 	<form
@@ -310,6 +361,9 @@
 	}
 	.menu-list .danger {
 		color: var(--color-danger);
+	}
+	.portions-form {
+		gap: var(--space-4);
 	}
 	.tiles {
 		display: grid;

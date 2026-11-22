@@ -3,6 +3,8 @@ import type { MealTypeKey } from '$lib/config/meal-types';
 import type { Unit } from '$lib/config/units';
 
 /** All user-facing strings (Polish). Later tasks add keys as they need them. */
+const portionsFormat = new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 2 });
+
 export const pl = {
 	appName: 'Dieta',
 	version: (version: string) => `wersja ${version}`,
@@ -138,6 +140,18 @@ export const pl = {
 		removeTitle: (name: string) => `Usunąć „${name}” z tego dnia?`,
 		eats: (name: string) => `${name} je ten posiłek`,
 		eaten: 'Zjedzone',
+		portionsMenu: 'Ilość porcji',
+		portionsTitle: 'Ilość porcji',
+		portionsNote: 'Kalorie, ilości do gotowania i lista zakupów zostaną przemnożone.',
+		portionsLabel: 'Porcje',
+		portionsSave: 'Zapisz',
+		portions: (n: number) => {
+			const text = portionsFormat.format(n);
+			if (!Number.isInteger(n)) return `${text} porcji`;
+			if (n === 1) return `${text} porcja`;
+			const few = n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14);
+			return `${text} ${few ? 'porcje' : 'porcji'}`;
+		},
 		markEaten: (name: string) => `Zjedzone: ${name}`,
 		notEating: 'nie je',
 		tapToAdd: 'Dotknij, aby dodać',
