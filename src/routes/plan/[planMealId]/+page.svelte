@@ -184,7 +184,7 @@
 	.multiplier {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: flex-end;
 		gap: var(--space-3);
 		color: var(--color-muted);
 		font-size: var(--font-size-secondary);
