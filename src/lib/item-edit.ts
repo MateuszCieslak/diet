@@ -1,10 +1,10 @@
 import type { Unit } from '$lib/config/units';
 import { itemNutrition, type IngredientValues } from '$lib/nutrition';
 
-/** A typed amount (`1,5` or `1.5`) as a number, or `null` unless it is a positive number. */
+/** A typed amount (`1,5` or `1.5`) as a number; `null` unless positive with at most 2 decimals (DECIMAL(8,2)). */
 export function parseAmountInput(text: string): number | null {
 	const trimmed = text.trim();
-	if (!/^\d+([.,]\d+)?$/.test(trimmed)) return null;
+	if (!/^\d+([.,]\d{1,2})?$/.test(trimmed)) return null;
 	const value = Number(trimmed.replace(',', '.'));
 	return value > 0 ? value : null;
 }

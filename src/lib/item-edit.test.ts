@@ -37,3 +37,9 @@ test('matchKcalAmount never rounds down to zero', () => {
 test('matchKcalAmount pieces have no float noise', () => {
 	expect(matchKcalAmount(78 * 3.7, egg)).toBe(3.7);
 });
+
+test('parseAmountInput allows at most two decimals, like the database column', () => {
+	expect(parseAmountInput('1,55')).toBe(1.55);
+	expect(parseAmountInput('1,555')).toBeNull();
+	expect(parseAmountInput('0,004')).toBeNull();
+});
