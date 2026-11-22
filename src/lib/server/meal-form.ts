@@ -3,7 +3,7 @@ import { env } from '$env/dynamic/private';
 import { pl } from '$lib/i18n/pl';
 import { formErrors } from '$lib/schemas/common';
 import { mealSchema, readMealForm, type MealInput } from '$lib/schemas/meal';
-import { maxPhotoBytes, savePhoto } from '$lib/server/photos';
+import { InvalidPhotoError, maxPhotoBytes, savePhoto } from '$lib/server/photos';
 import { existingIngredientIds } from '$lib/server/repositories/ingredients';
 
 type MealSubmission =
@@ -32,8 +32,11 @@ export async function readMealSubmission(form: FormData): Promise<MealSubmission
 	if (!env.PHOTOS_DIR) throw new Error('PHOTOS_DIR is not set');
 	try {
 		return { ok: true, data: parsed.output, photo: await savePhoto(file, env.PHOTOS_DIR) };
-	} catch {
-		// sharp rejects files that are not images.
+	} catch (e) {
+		// Only an unreadable image is the user's problem; anything else (e.g. PHOTOS_DIR not
+		// writable) is rethrown, logged by SvelteKit and shown as a server error.
+		if (!(e instanceof InvalidPhotoError)) throw e;
+		console.error(`Rejected photo "${file.name}" (${file.type || 'no type'}):`, e.cause);
 		return { ok: false, errors: { photo: pl.meals.photoInvalid } };
 	}
 }

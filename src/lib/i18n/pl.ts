@@ -90,7 +90,7 @@ export const pl = {
 		photo: 'Zdjęcie',
 		photoAdd: 'Dodaj zdjęcie',
 		photoChange: 'Zmień zdjęcie',
-		photoHint: 'JPG, PNG lub HEIC, do 10 MB',
+		photoHint: 'JPG, PNG lub WebP, do 10 MB',
 		photoTooLarge: 'Zdjęcie jest za duże (najwyżej 10 MB)',
 		photoInvalid: 'Nie udało się wczytać zdjęcia. Wybierz plik JPG, PNG lub WebP.',
 		photoAlt: (name: string) => `Zdjęcie: ${name}`,

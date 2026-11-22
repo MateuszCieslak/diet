@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import { writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import sharp from 'sharp';
 
@@ -18,11 +18,29 @@ export async function processPhoto(input: Buffer): Promise<Buffer> {
 		.toBuffer();
 }
 
-/** Processes an uploaded photo, writes it to `dir` and returns the new file name. */
+/** The upload could not be decoded as an image (not an image, or a format sharp cannot read). */
+export class InvalidPhotoError extends Error {
+	constructor(cause: unknown) {
+		super('Photo could not be processed', { cause });
+		this.name = 'InvalidPhotoError';
+	}
+}
+
+/**
+ * Processes an uploaded photo, writes it to `dir` (created if missing) and returns the new file
+ * name. Throws `InvalidPhotoError` for unreadable images; any other error (e.g. the directory is
+ * not writable) is a server problem and is thrown as is.
+ */
 export async function savePhoto(file: File, dir: string): Promise<string> {
 	if (file.size > maxPhotoBytes) throw new Error('Photo is too large');
-	const output = await processPhoto(Buffer.from(await file.arrayBuffer()));
+	let output: Buffer;
+	try {
+		output = await processPhoto(Buffer.from(await file.arrayBuffer()));
+	} catch (e) {
+		throw new InvalidPhotoError(e);
+	}
 	const name = `${randomUUID()}.webp`;
+	await mkdir(dir, { recursive: true });
 	await writeFile(join(dir, name), output);
 	return name;
 }

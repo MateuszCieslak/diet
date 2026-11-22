@@ -146,7 +146,7 @@
 					class="visually-hidden"
 					type="file"
 					name="photo"
-					accept="image/*"
+					accept="image/jpeg,image/png,image/webp"
 					aria-invalid={errors.photo ? 'true' : undefined}
 					onchange={handlePhotoChange}
 				/>
