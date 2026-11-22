@@ -2,13 +2,39 @@
 	import ArrowLeftIcon from '$lib/components/icons/ArrowLeftIcon.svelte';
 	import PencilIcon from '$lib/components/icons/PencilIcon.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
+	import { users } from '$lib/config/users';
+	import { cookingTable } from '$lib/cooking';
 	import { pl } from '$lib/i18n/pl';
+	import { parseAmountInput } from '$lib/item-edit';
+	import { loadPortionMultiplier, savePortionMultiplier } from '$lib/portion-multiplier';
 	import { keepScreenOn } from '$lib/wake-lock';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 	const meal = $derived(data.meal);
-	const table = $derived(data.table);
+
+	// A per-device portion multiplier for cooking more (or less) than one portion. It only changes
+	// the amounts shown here; the planned meal itself is untouched.
+	const multiplierFormat = new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 2 });
+	let multiplier = $state(1);
+	let multiplierText = $state('1');
+	const multiplierInvalid = $derived(parseAmountInput(multiplierText) === null);
+
+	// localStorage exists only in the browser, so the saved value is read after mounting.
+	$effect(() => {
+		multiplier = loadPortionMultiplier(meal.id);
+		multiplierText = multiplierFormat.format(multiplier);
+	});
+
+	function setMultiplier(text: string) {
+		multiplierText = text;
+		const value = parseAmountInput(text);
+		if (value === null) return; // keep the last valid value while typing
+		multiplier = value;
+		savePortionMultiplier(meal.id, value);
+	}
+
+	const table = $derived(cookingTable(meal, users, multiplier));
 	// With one person eating, the total would just repeat their column.
 	const showTotal = $derived(table.columns.length > 1);
 
@@ -54,6 +80,17 @@
 		{#if table.columns.length === 0}
 			<p class="note">{pl.cooking.allExcluded}</p>
 		{:else}
+			<label class="multiplier">
+				<span>{pl.cooking.portionMultiplier}</span>
+				<input
+					type="text"
+					inputmode="decimal"
+					autocomplete="off"
+					value={multiplierText}
+					oninput={(e) => setMultiplier(e.currentTarget.value)}
+					aria-invalid={multiplierInvalid ? 'true' : undefined}
+				/>
+			</label>
 			<table class="amounts">
 				<thead>
 					<tr>
@@ -143,6 +180,34 @@
 		margin: 0;
 		color: var(--color-muted);
 		font-size: var(--font-size-body);
+	}
+	.multiplier {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-3);
+		color: var(--color-muted);
+		font-size: var(--font-size-secondary);
+		font-weight: 600;
+	}
+	.multiplier input {
+		width: 5rem;
+		min-height: var(--touch-target);
+		padding: 0 var(--space-3);
+		border: 1px solid var(--color-border-strong);
+		border-radius: var(--radius-md);
+		background: var(--color-surface);
+		color: var(--color-ink);
+		font-size: var(--font-size-body);
+		text-align: right;
+		font-variant-numeric: tabular-nums;
+	}
+	.multiplier input:focus {
+		outline: 2px solid var(--color-accent);
+		outline-offset: -1px;
+	}
+	.multiplier input[aria-invalid='true'] {
+		border-color: var(--color-danger);
 	}
 	.amounts {
 		width: 100%;

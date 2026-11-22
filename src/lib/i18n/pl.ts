@@ -150,6 +150,7 @@ export const pl = {
 		ingredients: 'Składniki',
 		kcalPerPortion: 'kcal / porcja',
 		total: 'Razem',
+		portionMultiplier: 'Mnożnik porcji',
 		allExcluded: 'Nikt nie je tego posiłku. Dotknij osoby na planie, aby ją dodać.',
 		preparation: 'Przygotowanie'
 	},

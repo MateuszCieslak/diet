@@ -14,10 +14,14 @@ export type CookingTable = {
 	totalKcal: string;
 };
 
-/** Columns follow config order and skip excluded people; rows keep the meal's item order. */
+/**
+ * Columns follow config order and skip excluded people; rows keep the meal's item order.
+ * `portionMultiplier` scales the amounts (e.g. cooking for two days); kcal stay per portion.
+ */
 export function cookingTable(
 	meal: Pick<PlanMeal, 'items' | 'excludedUserKeys'>,
-	users: readonly User[]
+	users: readonly User[],
+	portionMultiplier = 1
 ): CookingTable {
 	const columns = users.filter((u) => !meal.excludedUserKeys.includes(u.key));
 	const perUser = planMealPerUser(meal, columns);
@@ -29,8 +33,8 @@ export function cookingTable(
 				`${formatAmount(n, ingredient.unit)} ${pl.units[ingredient.unit]}`;
 			return {
 				name: ingredient.name,
-				amounts: columns.map((u) => format(amount * u.multiplier)),
-				total: format(amount * totalMultiplier)
+				amounts: columns.map((u) => format(amount * u.multiplier * portionMultiplier)),
+				total: format(amount * totalMultiplier * portionMultiplier)
 			};
 		}),
 		kcal: columns.map((u) => formatKcal(perUser[u.key]?.kcal ?? 0)),

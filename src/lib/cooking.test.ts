@@ -56,3 +56,11 @@ test('excluded users get no column; all excluded gives no columns', () => {
 	expect(cookingTable(meal, u).columns.map((c) => c.key)).toEqual(['b']);
 	expect(cookingTable({ ...meal, excludedUserKeys: ['a', 'b'] }, u).columns).toEqual([]);
 });
+
+test('a portion multiplier scales amounts and the total, not kcal per portion', () => {
+	const meal = { items: [{ ingredient: rice, amount: 70 }], excludedUserKeys: [] };
+	const t = cookingTable(meal, u, 2);
+	expect(t.rows[0]).toEqual({ name: 'Ryż', amounts: ['140 g', '168 g'], total: '308 g' });
+	expect(t.kcal).toEqual(['245', '294']);
+	expect(t.totalKcal).toBe('539');
+});
