@@ -115,6 +115,18 @@ export const planMealExclusions = mysqlTable(
 	(t) => [primaryKey({ columns: [t.planMealId, t.userKey] })]
 );
 
+/** People who already ate a planned meal; always a subset of the people who eat it. */
+export const planMealEaten = mysqlTable(
+	'plan_meal_eaten',
+	{
+		planMealId: int('plan_meal_id')
+			.notNull()
+			.references(() => planMeals.id, { onDelete: 'cascade' }),
+		userKey: varchar('user_key', { length: 32 }).notNull()
+	},
+	(t) => [primaryKey({ columns: [t.planMealId, t.userKey] })]
+);
+
 /** One shared list, so there is no list table. `ingredientId` null means a manual item. */
 export const shoppingListItems = mysqlTable('shopping_list_items', {
 	id: int('id').autoincrement().primaryKey(),
@@ -146,7 +158,8 @@ export const mealIngredientsRelations = relations(mealIngredients, ({ one }) => 
 export const planMealsRelations = relations(planMeals, ({ one, many }) => ({
 	sourceMeal: one(meals, { fields: [planMeals.sourceMealId], references: [meals.id] }),
 	ingredients: many(planMealIngredients),
-	exclusions: many(planMealExclusions)
+	exclusions: many(planMealExclusions),
+	eaten: many(planMealEaten)
 }));
 
 export const planMealIngredientsRelations = relations(planMealIngredients, ({ one }) => ({
@@ -163,6 +176,13 @@ export const planMealIngredientsRelations = relations(planMealIngredients, ({ on
 export const planMealExclusionsRelations = relations(planMealExclusions, ({ one }) => ({
 	planMeal: one(planMeals, {
 		fields: [planMealExclusions.planMealId],
+		references: [planMeals.id]
+	})
+}));
+
+export const planMealEatenRelations = relations(planMealEaten, ({ one }) => ({
+	planMeal: one(planMeals, {
+		fields: [planMealEaten.planMealId],
 		references: [planMeals.id]
 	})
 }));

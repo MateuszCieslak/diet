@@ -11,6 +11,8 @@ export type PlanMeal = {
 	preparation: string | null;
 	items: MealItem[];
 	excludedUserKeys: string[];
+	/** People who already ate it; always a subset of the people who eat it. */
+	eatenUserKeys: string[];
 };
 
 /** A new order must list exactly the day's current ids: same set, same length, no duplicates. */

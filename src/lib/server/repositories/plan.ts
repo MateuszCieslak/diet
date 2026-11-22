@@ -9,6 +9,7 @@ import {
 	mealIngredients,
 	mealTypeLinks,
 	meals,
+	planMealEaten,
 	planMealExclusions,
 	planMealIngredients,
 	planMeals
@@ -31,7 +32,8 @@ function queryPlanMeals(where: SQL) {
 				orderBy: [asc(planMealIngredients.position), asc(planMealIngredients.id)],
 				with: { ingredient: true }
 			},
-			exclusions: true
+			exclusions: true,
+			eaten: true
 		}
 	});
 }
@@ -51,7 +53,8 @@ function toPlanMeal(row: PlanMealRow): PlanMeal {
 			ingredient: toIngredient(i.ingredient),
 			amount: toNum(i.amount)
 		})),
-		excludedUserKeys: row.exclusions.map((e) => e.userKey)
+		excludedUserKeys: row.exclusions.map((e) => e.userKey),
+		eatenUserKeys: row.eaten.map((e) => e.userKey)
 	};
 }
 
@@ -141,12 +144,14 @@ export async function addMealToDay(date: string, mealId: number): Promise<void> 
 	});
 }
 
-/** Overwrites the copy with the meal's data; position and exclusions stay. */
+/** Overwrites the copy with the meal's data; position and exclusions stay, eaten marks go. */
 export async function replacePlanMeal(planMealId: number, mealId: number): Promise<void> {
 	await db.transaction(async (tx) => {
 		await lockPlanMeal(tx, planMealId);
 		const source = await readSourceMeal(tx, mealId);
 		await tx.update(planMeals).set(source.fields).where(eq(planMeals.id, planMealId));
+		// Nobody has eaten the new meal yet.
+		await tx.delete(planMealEaten).where(eq(planMealEaten.planMealId, planMealId));
 		await tx.delete(planMealIngredients).where(eq(planMealIngredients.planMealId, planMealId));
 		await insertItems(tx, planMealId, source.items);
 	});
@@ -159,7 +164,7 @@ export async function removePlanMeal(id: number): Promise<void> {
 	});
 }
 
-/** Excludes the user from the planned meal, or includes them again. */
+/** Excluding a user also drops their eaten mark, so eaten stays a subset of who eats it. */
 export async function toggleExclusion(planMealId: number, userKey: string): Promise<void> {
 	if (!users.some((u) => u.key === userKey)) throw new Error(`Unknown user key: ${userKey}`);
 	await db.transaction(async (tx) => {
@@ -169,8 +174,36 @@ export async function toggleExclusion(planMealId: number, userKey: string): Prom
 			eq(planMealExclusions.userKey, userKey)
 		);
 		const [existing] = await tx.select().from(planMealExclusions).where(match);
-		if (existing) await tx.delete(planMealExclusions).where(match);
-		else await tx.insert(planMealExclusions).values({ planMealId, userKey });
+		if (existing) {
+			await tx.delete(planMealExclusions).where(match);
+		} else {
+			await tx.insert(planMealExclusions).values({ planMealId, userKey });
+			await tx
+				.delete(planMealEaten)
+				.where(and(eq(planMealEaten.planMealId, planMealId), eq(planMealEaten.userKey, userKey)));
+		}
+	});
+}
+
+/** The user is excluded from the planned meal, so they cannot have eaten it. */
+export class ExcludedUserError extends Error {}
+
+/** Marks the planned meal as eaten by the user, or clears the mark. */
+export async function toggleEaten(planMealId: number, userKey: string): Promise<void> {
+	if (!users.some((u) => u.key === userKey)) throw new Error(`Unknown user key: ${userKey}`);
+	await db.transaction(async (tx) => {
+		await lockPlanMeal(tx, planMealId);
+		const [excluded] = await tx
+			.select()
+			.from(planMealExclusions)
+			.where(
+				and(eq(planMealExclusions.planMealId, planMealId), eq(planMealExclusions.userKey, userKey))
+			);
+		if (excluded) throw new ExcludedUserError('Cannot mark an excluded user as eaten');
+		const match = and(eq(planMealEaten.planMealId, planMealId), eq(planMealEaten.userKey, userKey));
+		const [existing] = await tx.select().from(planMealEaten).where(match);
+		if (existing) await tx.delete(planMealEaten).where(match);
+		else await tx.insert(planMealEaten).values({ planMealId, userKey });
 	});
 }
 
