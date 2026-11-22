@@ -163,6 +163,7 @@ export const pl = {
 		ingredient: 'Składnik',
 		ingredients: 'Składniki',
 		kcalPerPortion: 'kcal / porcja',
+		kcalForPortions: (portions: string) => `kcal (${portions})`,
 		total: 'Razem',
 		portionMultiplier: 'Kalkulator',
 		allExcluded: 'Nikt nie je tego posiłku. Dotknij osoby na planie, aby ją dodać.',

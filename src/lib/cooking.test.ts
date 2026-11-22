@@ -71,3 +71,11 @@ test('the portion count multiplies amounts and kcal per person', () => {
 	expect(t.rows[0].amounts).toEqual(['140 g', '168 g']);
 	expect(t.kcal).toEqual(['490', '588']);
 });
+
+test('the kcal row label names the portion count when it is not 1', () => {
+	const meal = { items: [{ ingredient: rice, amount: 70 }], excludedUserKeys: [] };
+	expect(cookingTable(meal, u).kcalLabel).toBe('kcal / porcja');
+	expect(cookingTable({ ...meal, portions: 2 }, u).kcalLabel).toBe('kcal (2 porcje)');
+	// The device-only calculator changes amounts, not who eats how much.
+	expect(cookingTable(meal, u, 3).kcalLabel).toBe('kcal / porcja');
+});

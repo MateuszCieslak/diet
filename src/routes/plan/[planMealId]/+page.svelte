@@ -118,7 +118,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<th scope="row">{pl.cooking.kcalPerPortion}</th>
+						<th scope="row">{table.kcalLabel}</th>
 						{#each table.kcal as kcal, c (table.columns[c].key)}
 							<td class="amount" style:color={table.columns[c].color}>{kcal}</td>
 						{/each}
