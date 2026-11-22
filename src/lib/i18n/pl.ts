@@ -182,7 +182,15 @@ export const pl = {
 		recipeSaved: (name: string) => `Zapisano przepis „${name}”.`,
 		openRecipe: 'Zobacz przepis',
 		recipeFailed: 'Nie udało się utworzyć przepisu. Popraw zaznaczone pola powyżej.',
-		reorderFailed: 'Nie udało się zmienić kolejności. Spróbuj ponownie.'
+		reorderFailed: 'Nie udało się zmienić kolejności. Spróbuj ponownie.',
+		editItem: 'Edytuj składnik',
+		editItemLabel: (name: string) => `Edytuj ${name}`,
+		replace: 'Zamień składnik',
+		before: 'Było',
+		after: 'Będzie',
+		matchKcal: 'Dopasuj kcal',
+		apply: 'Zastosuj',
+		cancel: 'Anuluj'
 	},
 	shopping: {
 		title: 'Zakupy',
