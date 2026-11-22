@@ -1,0 +1,1 @@
+ALTER TABLE `plan_meals` ADD `portions` decimal(5,2) DEFAULT '1' NOT NULL;

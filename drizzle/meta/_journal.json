@@ -15,6 +15,13 @@
       "when": 1795355753259,
       "tag": "0001_happy_the_executioner",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1795358184565,
+      "tag": "0002_reflective_jack_murdock",
+      "breakpoints": true
     }
   ]
 }

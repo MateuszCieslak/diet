@@ -10,6 +10,8 @@ export type PlanMeal = {
 	photo: string | null;
 	preparation: string | null;
 	items: MealItem[];
+	/** Portions eaten (shared by all users); multiplies nutrition, cooking amounts and shopping. */
+	portions: number;
 	excludedUserKeys: string[];
 	/** People who already ate it; always a subset of the people who eat it. */
 	eatenUserKeys: string[];

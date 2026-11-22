@@ -87,6 +87,8 @@ export const planMeals = mysqlTable(
 		name: varchar('name', { length: 120 }).notNull(),
 		photoPath: varchar('photo_path', { length: 64 }),
 		preparation: text('preparation'),
+		/** How many portions of the meal are eaten; multiplies nutrition, cooking and shopping. */
+		portions: decimal('portions', { precision: 5, scale: 2 }).notNull().default('1'),
 		createdAt: createdAt()
 	},
 	(t) => [index('plan_meals_date_position_idx').on(t.date, t.position)]

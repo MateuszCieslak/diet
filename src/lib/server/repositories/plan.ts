@@ -49,6 +49,7 @@ function toPlanMeal(row: PlanMealRow): PlanMeal {
 		name: row.name,
 		photo: row.photoPath,
 		preparation: row.preparation,
+		portions: toNum(row.portions),
 		items: row.ingredients.map((i) => ({
 			ingredient: toIngredient(i.ingredient),
 			amount: toNum(i.amount)
@@ -144,16 +145,33 @@ export async function addMealToDay(date: string, mealId: number): Promise<void> 
 	});
 }
 
-/** Overwrites the copy with the meal's data; position and exclusions stay, eaten marks go. */
+/**
+ * Overwrites the copy with the meal's data; position and exclusions stay, eaten marks go and the
+ * portion count returns to 1.
+ */
 export async function replacePlanMeal(planMealId: number, mealId: number): Promise<void> {
 	await db.transaction(async (tx) => {
 		await lockPlanMeal(tx, planMealId);
 		const source = await readSourceMeal(tx, mealId);
-		await tx.update(planMeals).set(source.fields).where(eq(planMeals.id, planMealId));
+		await tx
+			.update(planMeals)
+			.set({ ...source.fields, portions: '1' })
+			.where(eq(planMeals.id, planMealId));
 		// Nobody has eaten the new meal yet.
 		await tx.delete(planMealEaten).where(eq(planMealEaten.planMealId, planMealId));
 		await tx.delete(planMealIngredients).where(eq(planMealIngredients.planMealId, planMealId));
 		await insertItems(tx, planMealId, source.items);
+	});
+}
+
+/** Sets how many portions of the planned meal are eaten (validated by the caller). */
+export async function setPlanMealPortions(planMealId: number, portions: number): Promise<void> {
+	await db.transaction(async (tx) => {
+		await lockPlanMeal(tx, planMealId);
+		await tx
+			.update(planMeals)
+			.set({ portions: portions.toFixed(2) })
+			.where(eq(planMeals.id, planMealId));
 	});
 }
 
