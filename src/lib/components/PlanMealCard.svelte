@@ -24,7 +24,7 @@
 
 	/**
 	 * A planned meal: header with menu, then one tile per person that toggles their exclusion, with
-	 * a check button for people who eat it that marks it as eaten.
+	 * an "eaten" toggle below the tile for people who eat it.
 	 */
 	let { meal, types, onReplace }: Props = $props();
 
@@ -137,8 +137,7 @@
 					</button>
 				</form>
 				{#if n}
-					<!-- A sibling of the tile button, not inside it: buttons cannot be nested. -->
-					<form method="POST" action="?/toggleEaten" use:enhance class="eaten-form">
+					<form method="POST" action="?/toggleEaten" use:enhance>
 						<input type="hidden" name="planMealId" value={meal.id} />
 						<input type="hidden" name="userKey" value={user.key} />
 						<button
@@ -149,6 +148,7 @@
 							aria-label={pl.plan.markEaten(user.name)}
 						>
 							{#if eaten}<CheckIcon size={18} />{:else}<CircleIcon size={18} />{/if}
+							{pl.plan.eaten}
 						</button>
 					</form>
 				{/if}
@@ -317,36 +317,34 @@
 		gap: var(--space-2);
 	}
 	.person-tile {
-		position: relative;
 		display: flex;
+		flex-direction: column;
+		gap: var(--space-1);
+	}
+	.person-tile form {
+		display: flex;
+		margin: 0;
 	}
 	.person-tile > form:first-child {
-		display: flex;
 		flex: 1;
-		margin: 0;
-	}
-	.eaten-form {
-		position: absolute;
-		top: 0;
-		right: 0;
-		margin: 0;
 	}
 	.eaten {
-		display: grid;
-		place-items: center;
-		width: var(--touch-target);
-		height: var(--touch-target);
-		padding: 0;
-		border: none;
-		background: none;
+		display: inline-flex;
+		flex: 1;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-1);
+		min-height: var(--touch-target);
+		padding: 0 var(--space-3);
+		border: 1px solid var(--person-color);
+		border-radius: var(--radius-md);
+		background: var(--color-surface);
 		color: var(--person-color);
+		font-size: var(--font-size-secondary);
+		font-weight: 600;
 		cursor: pointer;
 	}
-	.eaten :global(svg) {
-		padding: 3px;
-		border-radius: var(--radius-pill);
-	}
-	.eaten.done :global(svg) {
+	.eaten.done {
 		background: var(--person-color);
 		color: var(--color-surface);
 	}
@@ -358,8 +356,6 @@
 		gap: 2px;
 		min-height: var(--touch-target);
 		padding: var(--space-2) var(--space-3);
-		/* Room for the eaten check button in the top-right corner. */
-		padding-right: var(--touch-target);
 		border: 1px solid transparent;
 		border-radius: var(--radius-md);
 		background: var(--person-tint);

@@ -137,6 +137,7 @@ export const pl = {
 		remove: 'Usuń',
 		removeTitle: (name: string) => `Usunąć „${name}” z tego dnia?`,
 		eats: (name: string) => `${name} je ten posiłek`,
+		eaten: 'Zjedzone',
 		markEaten: (name: string) => `Zjedzone: ${name}`,
 		notEating: 'nie je',
 		tapToAdd: 'Dotknij, aby dodać',
