@@ -256,6 +256,7 @@ export const pl = {
 		fish: 'Ryby',
 		grains: 'Produkty zbożowe',
 		bakery: 'Pieczywo',
+		driedFruitNuts: 'Bakalie',
 		spices: 'Przyprawy',
 		fats: 'Tłuszcze',
 		drinks: 'Napoje',

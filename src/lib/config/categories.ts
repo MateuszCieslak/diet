@@ -8,6 +8,7 @@ export const categories = [
 	'fish',
 	'grains',
 	'bakery',
+	'driedFruitNuts',
 	'spices',
 	'fats',
 	'drinks',
