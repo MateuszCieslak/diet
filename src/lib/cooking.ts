@@ -19,13 +19,15 @@ export type CookingTable = {
  * `portionMultiplier` scales the amounts (e.g. cooking for two days); kcal stay per portion.
  */
 export function cookingTable(
-	meal: Pick<PlanMeal, 'items' | 'excludedUserKeys'>,
+	meal: Pick<PlanMeal, 'items' | 'excludedUserKeys'> & { portions?: number },
 	users: readonly User[],
 	portionMultiplier = 1
 ): CookingTable {
 	const columns = users.filter((u) => !meal.excludedUserKeys.includes(u.key));
 	const perUser = planMealPerUser(meal, columns);
 	const totalMultiplier = columns.reduce((sum, u) => sum + u.multiplier, 0);
+	// The meal's stored portions and the device-only calculator both scale the amounts.
+	const scale = (meal.portions ?? 1) * portionMultiplier;
 	return {
 		columns,
 		rows: meal.items.map(({ ingredient, amount }) => {
@@ -33,8 +35,8 @@ export function cookingTable(
 				`${formatAmount(n, ingredient.unit)} ${pl.units[ingredient.unit]}`;
 			return {
 				name: ingredient.name,
-				amounts: columns.map((u) => format(amount * u.multiplier * portionMultiplier)),
-				total: format(amount * totalMultiplier * portionMultiplier)
+				amounts: columns.map((u) => format(amount * u.multiplier * scale)),
+				total: format(amount * totalMultiplier * scale)
 			};
 		}),
 		kcal: columns.map((u) => formatKcal(perUser[u.key]?.kcal ?? 0)),

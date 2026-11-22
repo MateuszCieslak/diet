@@ -49,3 +49,9 @@ test('formatting', () => {
 	expect(formatAmount(1.25, 'pcs')).toBe('1,3');
 	expect(formatAmount(2, 'pcs')).toBe('2');
 });
+test('the portion count multiplies per-user nutrition and eaten kcal', () => {
+	const meal = { items: [{ ingredient: egg, amount: 2 }], excludedUserKeys: [], portions: 2 };
+	expect(planMealPerUser(meal, users).a?.kcal).toBe(280);
+	expect(planMealPerUser(meal, users).b?.kcal).toBe(420);
+	expect(dayEatenKcal([{ ...meal, eatenUserKeys: ['a'] }], users)).toEqual({ a: 280, b: 0 });
+});

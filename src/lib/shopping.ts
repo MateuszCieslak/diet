@@ -32,18 +32,19 @@ export function addIngredientAmount(existing: number | null, added: number | nul
 }
 
 /**
- * Sums `amount × Σ multipliers of non-excluded users` per ingredient. A meal everyone skips adds
+ * Sums `amount × portions × Σ multipliers of non-excluded users` per ingredient. A meal everyone skips adds
  * nothing, and amounts that end up ≤ 0 are dropped. Sorted by `ingredientId`.
  */
 export function buildFromPlan(
-	meals: Pick<PlanMeal, 'items' | 'excludedUserKeys'>[],
+	meals: (Pick<PlanMeal, 'items' | 'excludedUserKeys'> & { portions?: number })[],
 	users: readonly User[]
 ): BuiltItem[] {
 	const totals = new Map<number, number>();
 	for (const meal of meals) {
-		const factor = users
-			.filter((u) => !meal.excludedUserKeys.includes(u.key))
-			.reduce((sum, u) => sum + u.multiplier, 0);
+		const factor =
+			users
+				.filter((u) => !meal.excludedUserKeys.includes(u.key))
+				.reduce((sum, u) => sum + u.multiplier, 0) * (meal.portions ?? 1);
 		if (factor <= 0) continue;
 		for (const item of meal.items) {
 			const id = item.ingredient.id;

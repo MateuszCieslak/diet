@@ -5,7 +5,8 @@ export type Nutrition = { kcal: number; protein: number; fat: number; carbs: num
 /** An ingredient's values: per 100 g / 100 ml, or per 1 piece for `pcs`. */
 export type IngredientValues = Nutrition & { unit: Unit };
 export type CalcItem = { ingredient: IngredientValues; amount: number };
-export type CalcPlanMeal = { items: CalcItem[]; excludedUserKeys: string[] };
+/** `portions` (default 1) is how many portions of the planned meal are eaten. */
+export type CalcPlanMeal = { items: CalcItem[]; excludedUserKeys: string[]; portions?: number };
 
 export const zeroNutrition: Nutrition = Object.freeze({ kcal: 0, protein: 0, fat: 0, carbs: 0 });
 
@@ -43,16 +44,17 @@ export function forUser(n: Nutrition, multiplier: number): Nutrition {
 	return scale(n, multiplier);
 }
 
-/** Per-user nutrition of a planned meal; `null` for excluded users. */
+/** Per-user nutrition of a planned meal (times its portions); `null` for excluded users. */
 export function planMealPerUser(
 	meal: CalcPlanMeal,
 	users: readonly User[]
 ): Record<string, Nutrition | null> {
 	const base = mealNutrition(meal.items);
+	const portions = meal.portions ?? 1;
 	return Object.fromEntries(
 		users.map((u) => [
 			u.key,
-			meal.excludedUserKeys.includes(u.key) ? null : forUser(base, u.multiplier)
+			meal.excludedUserKeys.includes(u.key) ? null : forUser(base, u.multiplier * portions)
 		])
 	);
 }

@@ -64,3 +64,10 @@ test('a portion multiplier scales amounts and the total, not kcal per portion', 
 	expect(t.kcal).toEqual(['245', '294']);
 	expect(t.totalKcal).toBe('539');
 });
+
+test('the portion count multiplies amounts and kcal per person', () => {
+	const meal = { items: [{ ingredient: rice, amount: 70 }], excludedUserKeys: [], portions: 2 };
+	const t = cookingTable(meal, u);
+	expect(t.rows[0].amounts).toEqual(['140 g', '168 g']);
+	expect(t.kcal).toEqual(['490', '588']);
+});

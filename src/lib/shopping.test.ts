@@ -75,3 +75,11 @@ test('addIngredientAmount', () => {
 	expect(addIngredientAmount(150, null)).toBe(150);
 	expect(addIngredientAmount(0.1, 0.2)).toBe(0.3);
 });
+
+test('buildFromPlan multiplies by the portion count, but skipped meals still add nothing', () => {
+	const meals = [
+		{ items: [{ ingredient: ing(1), amount: 100 }], excludedUserKeys: ['b'], portions: 2 },
+		{ items: [{ ingredient: ing(2), amount: 100 }], excludedUserKeys: ['a', 'b'], portions: 3 }
+	];
+	expect(buildFromPlan(meals, users)).toEqual([{ ingredientId: 1, amount: 200 }]);
+});
