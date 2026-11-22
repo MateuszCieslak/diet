@@ -11,7 +11,7 @@
 	import Dialog from '$lib/components/ui/Dialog.svelte';
 	import { users } from '$lib/config/users';
 	import { pl } from '$lib/i18n/pl';
-	import { dayTotals } from '$lib/nutrition';
+	import { dayEatenKcal, dayTotals } from '$lib/nutrition';
 	import type { PlanMeal } from '$lib/plan';
 	import type { MealListItem } from '$lib/schemas/meal';
 	import type { PageProps } from './$types';
@@ -21,6 +21,7 @@
 	const dayMeals = $derived(data.meals.filter((m) => m.date === data.date));
 	const plannedDates = $derived(new Set(data.meals.map((m) => m.date)));
 	const totals = $derived(dayTotals(dayMeals, users));
+	const eatenKcal = $derived(dayEatenKcal(dayMeals, users));
 
 	const dayFormat = new Intl.DateTimeFormat('pl-PL', {
 		weekday: 'long',
@@ -111,7 +112,7 @@
 	{#if dayMeals.length > 0}
 		<section class="card summary">
 			<h3 class="section-label">{pl.plan.daySummary}</h3>
-			<NutritionTable perUser={totals} />
+			<NutritionTable perUser={totals} {eatenKcal} />
 		</section>
 
 		<!-- The library's built-in screen reader texts are English, so they are turned off. -->

@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { dragHandle } from 'svelte-dnd-action';
 	import { enhance } from '$app/forms';
+	import CheckIcon from '$lib/components/icons/CheckIcon.svelte';
+	import CircleIcon from '$lib/components/icons/CircleIcon.svelte';
 	import GripIcon from '$lib/components/icons/GripIcon.svelte';
 	import ImageIcon from '$lib/components/icons/ImageIcon.svelte';
 	import MoreIcon from '$lib/components/icons/MoreIcon.svelte';
@@ -20,7 +22,10 @@
 		onReplace: () => void;
 	};
 
-	/** A planned meal: header with menu, then one tile per person that toggles their exclusion. */
+	/**
+	 * A planned meal: header with menu, then one tile per person that toggles their exclusion, with
+	 * a check button for people who eat it that marks it as eaten.
+	 */
 	let { meal, types, onReplace }: Props = $props();
 
 	const menuId = $props.id();
@@ -103,34 +108,51 @@
 	<div class="tiles">
 		{#each users as user (user.key)}
 			{@const n = perUser[user.key]}
-			<form method="POST" action="?/toggleExclusion" use:enhance>
-				<input type="hidden" name="planMealId" value={meal.id} />
-				<input type="hidden" name="userKey" value={user.key} />
-				<button
-					type="submit"
-					class="tile"
-					class:excluded={!n}
-					style:--person-color={user.color}
-					style:--person-tint={user.tint}
-					aria-pressed={n !== null}
-					aria-label={pl.plan.eats(user.name)}
-				>
-					<span class="person"><span class="dot"></span>{user.name}</span>
-					{#if n}
-						<span class="kcal">{formatKcal(n.kcal)} {pl.nutrition.kcal}</span>
-						<span class="macros">
-							{pl.ingredients.macros(
-								formatMacro(n.protein),
-								formatMacro(n.fat),
-								formatMacro(n.carbs)
-							)}
-						</span>
-					{:else}
-						<span class="kcal">{pl.plan.notEating}</span>
-						<span class="macros">{pl.plan.tapToAdd}</span>
-					{/if}
-				</button>
-			</form>
+			{@const eaten = n !== null && meal.eatenUserKeys.includes(user.key)}
+			<div class="person-tile" style:--person-color={user.color} style:--person-tint={user.tint}>
+				<form method="POST" action="?/toggleExclusion" use:enhance>
+					<input type="hidden" name="planMealId" value={meal.id} />
+					<input type="hidden" name="userKey" value={user.key} />
+					<button
+						type="submit"
+						class="tile"
+						class:excluded={!n}
+						aria-pressed={n !== null}
+						aria-label={pl.plan.eats(user.name)}
+					>
+						<span class="person"><span class="dot"></span>{user.name}</span>
+						{#if n}
+							<span class="kcal">{formatKcal(n.kcal)} {pl.nutrition.kcal}</span>
+							<span class="macros">
+								{pl.ingredients.macros(
+									formatMacro(n.protein),
+									formatMacro(n.fat),
+									formatMacro(n.carbs)
+								)}
+							</span>
+						{:else}
+							<span class="kcal">{pl.plan.notEating}</span>
+							<span class="macros">{pl.plan.tapToAdd}</span>
+						{/if}
+					</button>
+				</form>
+				{#if n}
+					<!-- A sibling of the tile button, not inside it: buttons cannot be nested. -->
+					<form method="POST" action="?/toggleEaten" use:enhance class="eaten-form">
+						<input type="hidden" name="planMealId" value={meal.id} />
+						<input type="hidden" name="userKey" value={user.key} />
+						<button
+							type="submit"
+							class="eaten"
+							class:done={eaten}
+							aria-pressed={eaten}
+							aria-label={pl.plan.markEaten(user.name)}
+						>
+							{#if eaten}<CheckIcon size={18} />{:else}<CircleIcon size={18} />{/if}
+						</button>
+					</form>
+				{/if}
+			</div>
 		{/each}
 	</div>
 </article>
@@ -294,9 +316,39 @@
 		grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 		gap: var(--space-2);
 	}
-	.tiles form {
+	.person-tile {
+		position: relative;
 		display: flex;
+	}
+	.person-tile > form:first-child {
+		display: flex;
+		flex: 1;
 		margin: 0;
+	}
+	.eaten-form {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 0;
+	}
+	.eaten {
+		display: grid;
+		place-items: center;
+		width: var(--touch-target);
+		height: var(--touch-target);
+		padding: 0;
+		border: none;
+		background: none;
+		color: var(--person-color);
+		cursor: pointer;
+	}
+	.eaten :global(svg) {
+		padding: 3px;
+		border-radius: var(--radius-pill);
+	}
+	.eaten.done :global(svg) {
+		background: var(--person-color);
+		color: var(--color-surface);
 	}
 	.tile {
 		display: flex;
@@ -306,6 +358,8 @@
 		gap: 2px;
 		min-height: var(--touch-target);
 		padding: var(--space-2) var(--space-3);
+		/* Room for the eaten check button in the top-right corner. */
+		padding-right: var(--touch-target);
 		border: 1px solid transparent;
 		border-radius: var(--radius-md);
 		background: var(--person-tint);

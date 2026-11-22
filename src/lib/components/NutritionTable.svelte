@@ -3,8 +3,14 @@
 	import { pl } from '$lib/i18n/pl';
 	import { formatKcal, formatMacro, type Nutrition } from '$lib/nutrition';
 
-	/** Per-user nutrition of one portion; `null` marks a person who does not eat the meal. */
-	let { perUser }: { perUser: Record<string, Nutrition | null> } = $props();
+	type Props = {
+		/** Per-user nutrition of one portion; `null` marks a person who does not eat the meal. */
+		perUser: Record<string, Nutrition | null>;
+		/** Per-user kcal already eaten; when given, the kcal cell reads "eaten / planned". */
+		eatenKcal?: Record<string, number>;
+	};
+
+	let { perUser, eatenKcal }: Props = $props();
 </script>
 
 <table>
@@ -26,7 +32,16 @@
 					{user.name}
 				</th>
 				{#if n}
-					<td class="kcal">{formatKcal(n.kcal)}</td>
+					<td class="kcal">
+						{#if eatenKcal}
+							{pl.nutrition.eatenOfPlanned(
+								formatKcal(eatenKcal[user.key] ?? 0),
+								formatKcal(n.kcal)
+							)}
+						{:else}
+							{formatKcal(n.kcal)}
+						{/if}
+					</td>
 					<td>{formatMacro(n.protein)}</td>
 					<td>{formatMacro(n.fat)}</td>
 					<td>{formatMacro(n.carbs)}</td>

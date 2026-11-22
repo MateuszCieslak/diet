@@ -5,6 +5,7 @@ import { users } from '$lib/config/users';
 import { isIsoDate, todayIn, weekOf } from '$lib/dates';
 import { pl } from '$lib/i18n/pl';
 import {
+	ExcludedUserError,
 	PlanNotFoundError,
 	addMealToDay,
 	getPlanForDates,
@@ -12,6 +13,7 @@ import {
 	removePlanMeal,
 	reorderDay,
 	replacePlanMeal,
+	toggleEaten,
 	toggleExclusion
 } from '$lib/server/repositories/plan';
 import type { Actions, PageServerLoad } from './$types';
@@ -24,6 +26,10 @@ const schemas = {
 	replace: v.object({ planMealId: idInput, mealId: idInput }),
 	remove: v.object({ planMealId: idInput }),
 	toggleExclusion: v.object({
+		planMealId: idInput,
+		userKey: v.picklist(users.map((u) => u.key))
+	}),
+	toggleEaten: v.object({
 		planMealId: idInput,
 		userKey: v.picklist(users.map((u) => u.key))
 	}),
@@ -84,6 +90,17 @@ export const actions: Actions = {
 		const data = await read(request, schemas.toggleExclusion);
 		if (!data) return invalid();
 		return run(() => toggleExclusion(data.planMealId, data.userKey));
+	},
+	toggleEaten: async ({ request }) => {
+		const data = await read(request, schemas.toggleEaten);
+		if (!data) return invalid();
+		try {
+			return await run(() => toggleEaten(data.planMealId, data.userKey));
+		} catch (e) {
+			// The person was excluded in the meantime (e.g. on the other phone).
+			if (e instanceof ExcludedUserError) return invalid();
+			throw e;
+		}
 	},
 	reorder: async ({ request }) => {
 		const data = await read(request, schemas.reorder);

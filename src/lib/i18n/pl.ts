@@ -137,6 +137,7 @@ export const pl = {
 		remove: 'Usuń',
 		removeTitle: (name: string) => `Usunąć „${name}” z tego dnia?`,
 		eats: (name: string) => `${name} je ten posiłek`,
+		markEaten: (name: string) => `Zjedzone: ${name}`,
 		notEating: 'nie je',
 		tapToAdd: 'Dotknij, aby dodać',
 		actionFailed: 'Nie udało się zapisać zmiany. Odśwież stronę i spróbuj ponownie.',
@@ -205,6 +206,7 @@ export const pl = {
 		addFailed: 'Nie udało się dodać pozycji. Sprawdź połączenie i spróbuj ponownie.'
 	},
 	nutrition: {
+		eatenOfPlanned: (eaten: string, planned: string) => `${eaten} / ${planned}`,
 		person: 'Osoba',
 		kcal: 'kcal',
 		protein: 'Białko',
