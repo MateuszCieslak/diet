@@ -71,6 +71,26 @@ export function dayTotals(
 	);
 }
 
+/** Per-user kcal of the day's meals they marked as eaten; excluded meals never count. */
+export function dayEatenKcal(
+	meals: (CalcPlanMeal & { eatenUserKeys: string[] })[],
+	users: readonly User[]
+): Record<string, number> {
+	const perMeal = meals.map((m) => ({
+		eaten: m.eatenUserKeys,
+		perUser: planMealPerUser(m, users)
+	}));
+	return Object.fromEntries(
+		users.map((u) => [
+			u.key,
+			perMeal.reduce(
+				(sum, m) => sum + (m.eaten.includes(u.key) ? (m.perUser[u.key]?.kcal ?? 0) : 0),
+				0
+			)
+		])
+	);
+}
+
 const integerFormat = new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 });
 const oneDecimalFormat = new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 1 });
 const fixedOneDecimalFormat = new Intl.NumberFormat('pl-PL', {

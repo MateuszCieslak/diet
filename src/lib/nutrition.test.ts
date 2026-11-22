@@ -1,5 +1,6 @@
 import type { User } from '$lib/config/users';
 import {
+	dayEatenKcal,
 	dayTotals,
 	formatAmount,
 	formatKcal,
@@ -29,6 +30,17 @@ test('per user with exclusions and day totals', () => {
 	const both = { items: [{ ingredient: egg, amount: 2 }], excludedUserKeys: [] };
 	expect(dayTotals([meal, both], users).b.kcal).toBeCloseTo(210);
 	expect(dayTotals([], users).a).toEqual(zeroNutrition);
+});
+test('dayEatenKcal sums only meals the user ate, with their multiplier', () => {
+	const items = [{ ingredient: egg, amount: 2 }]; // 140 kcal base
+	const meals = [
+		{ items, excludedUserKeys: [], eatenUserKeys: ['a', 'b'] },
+		{ items, excludedUserKeys: [], eatenUserKeys: ['a'] },
+		// A stale mark for an excluded user is ignored.
+		{ items, excludedUserKeys: ['b'], eatenUserKeys: ['b'] }
+	];
+	expect(dayEatenKcal(meals, users)).toEqual({ a: 280, b: 210 });
+	expect(dayEatenKcal([], users)).toEqual({ a: 0, b: 0 });
 });
 test('formatting', () => {
 	expect(formatKcal(194.6)).toBe('195');
