@@ -13,8 +13,9 @@ export const pl = {
 		back: 'Wstecz',
 		save: 'Zapisz',
 		cancel: 'Anuluj',
-		search: 'Szukaj',
-		new: 'Nowy'
+		new: 'Nowy',
+		loading: 'Wczytywanie…',
+		retry: 'Spróbuj ponownie'
 	},
 	errors: {
 		required: 'To pole jest wymagane',
@@ -50,6 +51,7 @@ export const pl = {
 		searchPlaceholder: 'np. jajko',
 		empty: 'Nie ma jeszcze żadnych składników.',
 		noResults: 'Brak składników pasujących do wyszukiwania.',
+		loadFailed: 'Nie udało się wczytać składników.',
 		name: 'Nazwa',
 		unit: 'Jednostka',
 		unitLocked: 'Jednostki nie można zmienić. Aby użyć innej, utwórz nowy składnik.',
@@ -79,8 +81,6 @@ export const pl = {
 		empty: 'Nie ma jeszcze żadnych posiłków.',
 		noResults: 'Brak posiłków pasujących do wyszukiwania.',
 		loadFailed: 'Nie udało się wczytać posiłków.',
-		retry: 'Spróbuj ponownie',
-		loading: 'Wczytywanie…',
 		kcalPerPortion: (kcal: string) => `${kcal} kcal / porcja`,
 		newTitle: 'Nowy posiłek',
 		editTitle: 'Edytuj posiłek',

@@ -14,7 +14,9 @@ afterEach(() => {
 
 /** The picker searches `/api/ingredients`; answer every search with `results`. */
 function mockSearch(results: Ingredient[]) {
-	vi.spyOn(globalThis, 'fetch').mockImplementation(async () => Response.json(results));
+	vi.spyOn(globalThis, 'fetch').mockImplementation(async () =>
+		Response.json({ items: results, nextCursor: null })
+	);
 }
 
 async function replaceWith(screen: ReturnType<typeof render>, ingredient: Ingredient) {

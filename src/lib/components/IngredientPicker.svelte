@@ -3,7 +3,8 @@
 	import SearchIcon from '$lib/components/icons/SearchIcon.svelte';
 	import { pl } from '$lib/i18n/pl';
 	import { formatKcal } from '$lib/nutrition';
-	import type { Ingredient } from '$lib/schemas/ingredient';
+	import type { Ingredient, IngredientPage } from '$lib/schemas/ingredient';
+	import { searchDebounceMs, searchTerm } from '$lib/search';
 
 	type Props = {
 		onPick: (ingredient: Ingredient) => void;
@@ -12,7 +13,7 @@
 	};
 
 	/**
-	 * An ingredient search with results inline. The input has no `name`, so it is never submitted
+	 * An ingredient search (from two characters) with results inline. The input has no `name`, so it is never submitted
 	 * with the surrounding form; Enter picks the first result instead of submitting.
 	 */
 	let { onPick, pickedIds = [] }: Props = $props();
@@ -23,10 +24,8 @@
 	let searched = $state(false);
 	const id = $props.id();
 
-	const debounceMs = 300;
-
 	$effect(() => {
-		const q = query.trim();
+		const q = searchTerm(query);
 		if (q === '') {
 			results = [];
 			searched = false;
@@ -39,7 +38,7 @@
 					signal: controller.signal
 				});
 				if (!res.ok) throw new Error(`HTTP ${res.status}`);
-				results = await res.json();
+				results = ((await res.json()) as IngredientPage).items;
 				failed = false;
 			} catch (e) {
 				if (controller.signal.aborted) return;
@@ -48,7 +47,7 @@
 				failed = true;
 			}
 			searched = true;
-		}, debounceMs);
+		}, searchDebounceMs);
 		return () => {
 			clearTimeout(timer);
 			controller.abort();

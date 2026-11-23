@@ -480,12 +480,18 @@
 		font-weight: 700;
 		font-variant-numeric: tabular-nums;
 	}
+	/* Fields default to the page background (they usually sit on white cards); the name field and
+	   the ingredient search sit directly on the page, so they need the surface color to stand out. */
+	.form > :global(.field > input),
+	.form :global(.search) {
+		background: var(--color-surface);
+	}
 	textarea {
 		min-height: 140px;
 		padding: var(--space-3);
 		border: 1px solid var(--color-border-strong);
 		border-radius: var(--radius-md);
-		background: var(--color-bg);
+		background: var(--color-surface);
 		color: var(--color-ink);
 		line-height: 1.5;
 		resize: vertical;

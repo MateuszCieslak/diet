@@ -1,10 +1,16 @@
-import { and, asc, eq, inArray, isNull, like, ne, type SQL } from 'drizzle-orm';
+import { and, asc, eq, gt, inArray, isNull, like, ne, or, type SQL } from 'drizzle-orm';
 import type { CategoryKey } from '$lib/config/categories';
 import type { Unit } from '$lib/config/units';
-import type { Ingredient, IngredientCreate, IngredientUpdate } from '$lib/schemas/ingredient';
+import type {
+	Ingredient,
+	IngredientCreate,
+	IngredientPage,
+	IngredientUpdate
+} from '$lib/schemas/ingredient';
 import { db } from '$lib/server/db';
 import { toNum } from '$lib/server/db/decimal';
 import { ingredients } from '$lib/server/db/schema';
+import { encodeCursor, type Cursor } from '$lib/server/pagination';
 
 type Row = typeof ingredients.$inferSelect;
 
@@ -41,26 +47,40 @@ function nutritionValues(data: IngredientUpdate) {
 	};
 }
 
-/** Visible ingredients sorted by name, optionally filtered by a name fragment. */
-export async function listIngredients(q?: string): Promise<Ingredient[]> {
-	const query = q?.trim();
-	const rows = await db
-		.select()
-		.from(ingredients)
-		.where(query ? and(visible, nameContains(query)) : visible)
-		.orderBy(asc(ingredients.name));
-	return rows.map(toIngredient);
-}
+export const ingredientsPageSize = 30;
 
-/** Visible ingredients whose name contains `q`, for pickers. */
-export async function searchIngredients(q: string, limit = 20): Promise<Ingredient[]> {
+/**
+ * One page of visible ingredients sorted by name, optionally filtered by a name fragment. The
+ * cursor is the last row of the previous page.
+ */
+export async function listIngredients(opts: {
+	q?: string;
+	cursor?: Cursor | null;
+	limit?: number;
+}): Promise<IngredientPage> {
+	const limit = opts.limit ?? ingredientsPageSize;
+	const q = opts.q?.trim();
+	const conditions: (SQL | undefined)[] = [visible];
+	if (q) conditions.push(nameContains(q));
+	if (opts.cursor) {
+		const { name, id } = opts.cursor;
+		conditions.push(
+			or(gt(ingredients.name, name), and(eq(ingredients.name, name), gt(ingredients.id, id)))
+		);
+	}
 	const rows = await db
 		.select()
 		.from(ingredients)
-		.where(and(visible, nameContains(q.trim())))
-		.orderBy(asc(ingredients.name))
-		.limit(limit);
-	return rows.map(toIngredient);
+		.where(and(...conditions))
+		.orderBy(asc(ingredients.name), asc(ingredients.id))
+		// One extra row tells whether there is a next page.
+		.limit(limit + 1);
+	const page = rows.slice(0, limit);
+	const last = page.at(-1);
+	return {
+		items: page.map(toIngredient),
+		nextCursor: rows.length > limit && last ? encodeCursor(last) : null
+	};
 }
 
 /** Any ingredient by id, hidden ones included (they still join from meals and plans). */

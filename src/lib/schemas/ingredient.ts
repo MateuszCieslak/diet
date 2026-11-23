@@ -41,6 +41,9 @@ export const ingredientCreateSchema = v.object({
 /** The unit is immutable after creation, so the update schema drops it (`v.object` strips unknown keys). */
 export const ingredientUpdateSchema = v.object(ingredientFields);
 
+/** A page of the ingredients list; `nextCursor` is `null` on the last page. */
+export type IngredientPage = { items: Ingredient[]; nextCursor: string | null };
+
 export type IngredientCreate = v.InferOutput<typeof ingredientCreateSchema>;
 export type IngredientUpdate = v.InferOutput<typeof ingredientUpdateSchema>;
 

@@ -9,7 +9,8 @@
 	import { createListPoller } from '$lib/list-poller';
 	import { formatAmount } from '$lib/nutrition';
 	import { formErrors } from '$lib/schemas/common';
-	import type { Ingredient } from '$lib/schemas/ingredient';
+	import type { Ingredient, IngredientPage } from '$lib/schemas/ingredient';
+	import { searchDebounceMs, searchTerm } from '$lib/search';
 	import {
 		ingredientItemSchema,
 		itemPatchSchema,
@@ -42,7 +43,6 @@
 	let activeIndex = $state(-1);
 	const suggestionsId = $props.id();
 
-	const debounceMs = 300;
 	const maxSuggestions = 6;
 
 	let editingId = $state<number | null>(null);
@@ -77,7 +77,7 @@
 	});
 
 	$effect(() => {
-		const q = newName.trim();
+		const q = searchTerm(newName);
 		if (q === '' || linked) {
 			suggestions = [];
 			return;
@@ -89,7 +89,7 @@
 					signal: controller.signal
 				});
 				if (!res.ok) throw new Error(`HTTP ${res.status}`);
-				suggestions = ((await res.json()) as Ingredient[]).slice(0, maxSuggestions);
+				suggestions = ((await res.json()) as IngredientPage).items.slice(0, maxSuggestions);
 				activeIndex = -1;
 			} catch (e) {
 				if (controller.signal.aborted) return;
@@ -97,7 +97,7 @@
 				console.error(e);
 				suggestions = [];
 			}
-		}, debounceMs);
+		}, searchDebounceMs);
 		return () => {
 			clearTimeout(timer);
 			controller.abort();

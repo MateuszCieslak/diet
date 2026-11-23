@@ -11,6 +11,10 @@ const meal: MealListItem = {
 };
 const initial = { q: '', page: { items: [meal], nextCursor: null } };
 
+afterEach(() => {
+	vi.restoreAllMocks();
+});
+
 test('MealPicker without onPick links each meal to its page', async () => {
 	const screen = render(MealPicker, { initial });
 	await expect
@@ -24,4 +28,18 @@ test('MealPicker with onPick calls it with the tapped meal', async () => {
 	const screen = render(MealPicker, { initial, onPick });
 	await screen.getByRole('button', { name: /Owsianka/ }).click();
 	expect(onPick).toHaveBeenCalledWith(meal);
+});
+
+test('MealPicker searches from the second character, after a pause', async () => {
+	const fetchMock = vi
+		.spyOn(globalThis, 'fetch')
+		.mockImplementation(async () => Response.json({ items: [], nextCursor: null }));
+	const screen = render(MealPicker, { initial });
+	const input = screen.getByRole('searchbox');
+	await input.fill('o');
+	await new Promise((r) => setTimeout(r, 450));
+	expect(fetchMock).not.toHaveBeenCalled();
+	await input.fill('ow');
+	await expect.poll(() => fetchMock.mock.calls.length).toBe(1);
+	expect(fetchMock.mock.calls[0]).toEqual(['/api/meals?q=ow', expect.anything()]);
 });

@@ -1,9 +1,8 @@
 import { json } from '@sveltejs/kit';
-import { searchIngredients } from '$lib/server/repositories/ingredients';
+import { readIngredientsQuery } from '$lib/server/ingredients-query';
+import { listIngredients } from '$lib/server/repositories/ingredients';
 import type { RequestHandler } from './$types';
 
-/** Ingredient picker search: up to 20 visible ingredients whose name contains `q`. */
-export const GET: RequestHandler = async ({ url }) => {
-	const q = (url.searchParams.get('q') ?? '').slice(0, 120);
-	return json(await searchIngredients(q));
-};
+/** Ingredients list pages and pickers: `{ items, nextCursor }`, 30 visible ingredients per page. */
+export const GET: RequestHandler = async ({ url }) =>
+	json(await listIngredients(readIngredientsQuery(url)));

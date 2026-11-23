@@ -15,3 +15,7 @@ test('readMealsQuery trims the search and ignores unknown types and bad cursors'
 		id: 7
 	});
 });
+
+test('readMealsQuery ignores a search shorter than two characters', () => {
+	expect(readMealsQuery(new URL('http://x/api/meals?q=o')).q).toBe('');
+});

@@ -7,7 +7,9 @@
 	import { mealTypes, type MealTypeKey } from '$lib/config/meal-types';
 	import { pl } from '$lib/i18n/pl';
 	import { formatKcal } from '$lib/nutrition';
+	import { PagedSearch } from '$lib/paged-search.svelte';
 	import type { MealListItem, MealListPage } from '$lib/schemas/meal';
+	import { searchTerm } from '$lib/search';
 
 	type Filter = { q: string; type?: MealTypeKey };
 
@@ -21,120 +23,32 @@
 	};
 
 	/**
-	 * Meal search with type chips and scroll-loaded results from `/api/meals`. Without `initial`,
-	 * the first page is fetched on mount.
+	 * Meal search (from two characters) with type chips and scroll-loaded results from
+	 * `/api/meals`. Without `initial`, the first page is fetched on mount.
 	 */
 	let { onPick, initial, onFilterChange }: Props = $props();
 
-	const debounceMs = 300;
 	const id = $props.id();
 
 	// `initial` is only the starting point; the picker owns the filter and the list after that.
 	const start = untrack(() => initial);
 	let query = $state(start?.q ?? '');
 	let type = $state<MealTypeKey | undefined>(start?.type);
-	let items = $state<MealListItem[]>(start?.page.items ?? []);
-	let nextCursor = $state<string | null>(start?.page.nextCursor ?? null);
-	/** The filter `items` belong to; `null` until the first page arrives. */
-	let loadedFilter = $state<Filter | null>(start ? { q: start.q, type: start.type } : null);
-	let loadingMore = $state(false);
-	let failed = $state(false);
-	let sentinel = $state<HTMLElement>();
-	let sentinelVisible = $state(false);
-	/** Bumped by "retry" to request the first page again. */
-	let attempt = $state(0);
-	// Bumped when a new filter's first page is requested, so a stale "load more" is dropped.
-	let generation = 0;
 
-	function pageUrl(filter: Filter, cursor?: string): string {
-		const params = new URLSearchParams();
-		if (filter.q) params.set('q', filter.q);
-		if (filter.type) params.set('type', filter.type);
-		if (cursor) params.set('cursor', cursor);
-		return `/api/meals?${params}`;
-	}
-
-	async function fetchPage(url: string, signal?: AbortSignal): Promise<MealListPage> {
-		const res = await fetch(url, { signal });
-		if (!res.ok) throw new Error(`HTTP ${res.status}`);
-		return res.json();
-	}
-
-	// First page whenever the search or the type changes (debounced).
-	$effect(() => {
-		const filter: Filter = { q: query.trim(), type };
-		void attempt;
-		if (loadedFilter && loadedFilter.q === filter.q && loadedFilter.type === filter.type) return;
-		const controller = new AbortController();
-		const timer = setTimeout(
-			async () => {
-				const current = ++generation;
-				loadingMore = false;
-				try {
-					const page = await fetchPage(pageUrl(filter), controller.signal);
-					if (current !== generation) return;
-					items = page.items;
-					nextCursor = page.nextCursor;
-					loadedFilter = filter;
-					failed = false;
-					onFilterChange?.(filter);
-				} catch (e) {
-					if (controller.signal.aborted) return;
-					console.error(e);
-					failed = true;
-				}
-			},
-			loadedFilter ? debounceMs : 0
-		);
-		return () => {
-			clearTimeout(timer);
-			controller.abort();
-		};
+	const list = new PagedSearch<MealListItem, Filter>({
+		filter: () => ({ q: searchTerm(query), type }),
+		url: (filter, cursor) => {
+			const params = new URLSearchParams();
+			if (filter.q) params.set('q', filter.q);
+			if (filter.type) params.set('type', filter.type);
+			if (cursor) params.set('cursor', cursor);
+			return `/api/meals?${params}`;
+		},
+		initial: start && { filter: { q: start.q, type: start.type }, page: start.page },
+		onLoad: (filter) => onFilterChange?.(filter)
 	});
 
-	async function loadMore() {
-		if (!loadedFilter || !nextCursor) return;
-		const current = generation;
-		loadingMore = true;
-		try {
-			const page = await fetchPage(pageUrl(loadedFilter, nextCursor));
-			if (current !== generation) return;
-			items = [...items, ...page.items];
-			nextCursor = page.nextCursor;
-			failed = false;
-		} catch (e) {
-			if (current !== generation) return;
-			console.error(e);
-			failed = true;
-		} finally {
-			if (current === generation) loadingMore = false;
-		}
-	}
-
-	$effect(() => {
-		if (!sentinel) return;
-		const observer = new IntersectionObserver(
-			(entries) => {
-				sentinelVisible = entries.some((e) => e.isIntersecting);
-			},
-			{ rootMargin: '300px' }
-		);
-		observer.observe(sentinel);
-		return () => observer.disconnect();
-	});
-
-	// Keeps loading while the end of the list is in view, so a short page never stalls.
-	$effect(() => {
-		if (sentinelVisible && nextCursor && !loadingMore && !failed) loadMore();
-	});
-
-	/** Clearing `failed` restarts "load more"; bumping `attempt` restarts a failed first page. */
-	function retry() {
-		failed = false;
-		attempt++;
-	}
-
-	const filtered = $derived(query.trim() !== '' || type !== undefined);
+	const filtered = $derived(searchTerm(query) !== '' || type !== undefined);
 </script>
 
 <div class="picker">
@@ -162,11 +76,11 @@
 		{/each}
 	</div>
 
-	{#if loadedFilter && items.length === 0 && !failed}
+	{#if list.loadedFilter && list.items.length === 0 && !list.failed}
 		<p class="muted note">{filtered ? pl.meals.noResults : pl.meals.empty}</p>
 	{:else if !onPick}
 		<ul class="grid">
-			{#each items as meal (meal.id)}
+			{#each list.items as meal (meal.id)}
 				<li>
 					<a class="card" href="/meals/{meal.id}">
 						{@render photo(meal)}
@@ -180,7 +94,7 @@
 		</ul>
 	{:else}
 		<ul class="rows">
-			{#each items as meal (meal.id)}
+			{#each list.items as meal (meal.id)}
 				<li>
 					<button type="button" class="row-button" onclick={() => onPick?.(meal)}>
 						{@render photo(meal)}
@@ -194,16 +108,16 @@
 		</ul>
 	{/if}
 
-	{#if failed}
+	{#if list.failed}
 		<div class="note error" role="alert">
 			<span>{pl.meals.loadFailed}</span>
-			<Button variant="outline" onclick={retry}>{pl.meals.retry}</Button>
+			<Button variant="outline" onclick={() => list.retry()}>{pl.common.retry}</Button>
 		</div>
-	{:else if !loadedFilter || loadingMore}
-		<p class="muted note" aria-live="polite">{pl.meals.loading}</p>
+	{:else if !list.loadedFilter || list.loadingMore}
+		<p class="muted note" aria-live="polite">{pl.common.loading}</p>
 	{/if}
 
-	<div bind:this={sentinel} class="sentinel" aria-hidden="true"></div>
+	<div {@attach list.sentinel} class="sentinel" aria-hidden="true"></div>
 </div>
 
 {#snippet photo(meal: MealListItem)}

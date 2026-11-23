@@ -7,6 +7,11 @@
 		open?: boolean;
 		title: string;
 		subtitle?: string;
+		/**
+		 * Fixed at 3/4 of the screen instead of fitting its content, so a sheet whose content changes
+		 * while typing (a search) stays put and its top stays above the phone keyboard.
+		 */
+		tall?: boolean;
 		onclose?: () => void;
 		children: Snippet;
 	};
@@ -15,7 +20,14 @@
 	 * A modal on the native `<dialog>` element: a bottom sheet on phones, centered on wide screens.
 	 * Escape, the close button and a tap on the backdrop all close it.
 	 */
-	let { open = $bindable(false), title, subtitle, onclose, children }: Props = $props();
+	let {
+		open = $bindable(false),
+		title,
+		subtitle,
+		tall = false,
+		onclose,
+		children
+	}: Props = $props();
 	let dialog: HTMLDialogElement;
 	const titleId = $props.id();
 
@@ -34,7 +46,13 @@
 	}
 </script>
 
-<dialog bind:this={dialog} aria-labelledby={titleId} onclose={handleClose} onclick={handleClick}>
+<dialog
+	bind:this={dialog}
+	class:tall
+	aria-labelledby={titleId}
+	onclose={handleClose}
+	onclick={handleClick}
+>
 	<header>
 		<div>
 			<h2 id={titleId}>{title}</h2>
@@ -66,6 +84,10 @@
 	dialog[open] {
 		display: flex;
 		flex-direction: column;
+	}
+	/* svh: the keyboard and the browser bars never resize it, so the sheet does not jump. */
+	dialog.tall {
+		height: 75svh;
 	}
 	dialog::backdrop {
 		background: rgb(0 0 0 / 0.35);
@@ -99,6 +121,7 @@
 		cursor: pointer;
 	}
 	.body {
+		flex: 1;
 		overflow-y: auto;
 		padding: var(--space-2) var(--gutter) var(--space-4);
 	}

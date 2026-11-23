@@ -155,6 +155,7 @@
 </div>
 
 <Dialog
+	tall
 	bind:open={pickerOpen}
 	title={replacing ? pl.plan.replaceMeal : pl.plan.addMeal}
 	subtitle={dayLabel}
